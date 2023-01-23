@@ -160,6 +160,7 @@ $transition: .3s;
     box-sizing: border-box;
 }
 body{
+    background-color: $form-bg-color;
     .container{
         display: flex;
         justify-content: flex-end;

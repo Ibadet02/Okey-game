@@ -111,6 +111,9 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #083A1F;
+}
 body .container {
   display: flex;
   justify-content: flex-end;
