@@ -1,0 +1,1207 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap");
+@-webkit-keyframes signup-closing {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+@keyframes signup-closing {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes signin-closing {
+  100% {
+    scale: 0;
+  }
+}
+@keyframes signin-closing {
+  100% {
+    scale: 0;
+  }
+}
+@-webkit-keyframes signin-opening {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@keyframes signin-opening {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@-webkit-keyframes signup-opening {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes signup-opening {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes forget-pass-opening {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes forget-pass-opening {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes forget-pass-closing {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+@keyframes forget-pass-closing {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body .container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+body .container .forget-password-form {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+body .container .forget-password-form.de-active {
+  display: none;
+}
+body .container .forget-password-form.forget-password-opening {
+  -webkit-animation: forget-pass-opening 0.5s forwards;
+          animation: forget-pass-opening 0.5s forwards;
+}
+body .container .forget-password-form.forget-password-closing {
+  -webkit-animation: forget-pass-closing 0.5s forwards;
+          animation: forget-pass-closing 0.5s forwards;
+}
+body .container .forget-password-form form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #083A1F;
+  padding: 3rem;
+  overflow-y: auto;
+}
+body .container .forget-password-form form #back-to-signin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.8rem 1rem;
+  background: none;
+  border: 0.1rem solid #fff;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+body .container .forget-password-form form #back-to-signin:hover {
+  border-right: 0.1rem solid #FFCE61;
+  border-bottom: 0.1rem solid #FFCE61;
+}
+body .container .forget-password-form form #back-to-signin:hover i {
+  color: #FFCE61;
+}
+body .container .forget-password-form form #back-to-signin:active {
+  scale: 0.8;
+}
+body .container .forget-password-form form #back-to-signin i {
+  pointer-events: none;
+  transition: 0.3s;
+  color: #fff;
+  font-size: 2rem;
+}
+body .container .forget-password-form form .buttons-left, body .container .forget-password-form form .buttons-right {
+  display: none;
+}
+body .container .forget-password-form form .logo-1-mobile {
+  display: none;
+}
+body .container .forget-password-form form .form-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 4rem;
+}
+body .container .forget-password-form form .form-tools h2 {
+  text-align: center;
+  padding-bottom: 1rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2rem;
+}
+body .container .forget-password-form form .form-tools .email-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body .container .forget-password-form form .form-tools .email-box label {
+  width: 100%;
+  height: 3.5rem;
+  position: relative;
+}
+body .container .forget-password-form form .form-tools .email-box label .icon-box {
+  width: 3.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .container .forget-password-form form .form-tools .email-box label .icon-box i {
+  padding: 0.4rem;
+  background-color: #FFCE61;
+  color: #fff;
+  border-radius: 50%;
+}
+body .container .forget-password-form form .form-tools .email-box label input {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3rem;
+  border: none;
+  outline: none;
+  padding: 0.5rem 0.4rem 0.5rem 3.5rem;
+  font-size: 1rem;
+}
+body .container .forget-password-form form .form-tools .email-box label input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+}
+body .container .forget-password-form form .form-tools .email-box label input::-moz-placeholder {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+}
+body .container .forget-password-form form .form-tools .email-box label input::placeholder {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+}
+body .container .forget-password-form form .form-tools .send-code {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  color: #fff;
+  border-radius: 0.3rem;
+  border: 0.063rem solid #FFCE61;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+body .container .forget-password-form form .form-tools .send-code:hover {
+  background-color: #FFCE61;
+}
+body .container .forget-password-form form .form-tools .mobile-links-mobile {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  margin-top: 2rem;
+  display: none;
+}
+body .container .forget-password-form form .form-tools .mobile-links-mobile a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0.5rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+body .container .forget-password-form form .form-tools .mobile-links-mobile a:hover {
+  background-color: #fff;
+}
+body .container .forget-password-form form .form-tools .mobile-links-mobile a:hover svg path {
+  fill: #000;
+}
+body .container .forget-password-form form .form-tools .mobile-links-mobile a:hover .mobile-link-text__top, body .container .forget-password-form form .form-tools .mobile-links-mobile a:hover .mobile-link-text__bottom {
+  color: #000;
+}
+body .container .forget-password-form form .form-tools .mobile-links-mobile a svg {
+  pointer-events: none;
+  width: 2rem;
+  height: 2rem;
+}
+body .container .forget-password-form form .form-tools .mobile-links-mobile a svg path {
+  transition: 0.3s;
+}
+body .container .forget-password-form form .form-tools .mobile-links-mobile a .mobile-link-text {
+  display: flex;
+  flex-direction: column;
+}
+body .container .forget-password-form form .form-tools .mobile-links-mobile a .mobile-link-text__top {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+body .container .forget-password-form form .form-tools .mobile-links-mobile a .mobile-link-text__bottom {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.8rem;
+  transition: 0.3s;
+  color: rgba(255, 255, 255, 0.58);
+}
+body .container .forget-password-form form .logo-2-mobile {
+  display: none;
+}
+body .container .signin-form {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  transition: 0.3s;
+}
+body .container .signin-form.de-active {
+  display: none;
+}
+body .container .signin-form.signin-opening {
+  -webkit-animation: signin-opening 0.5s forwards;
+          animation: signin-opening 0.5s forwards;
+}
+body .container .signin-form.signin-closing {
+  -webkit-animation: signin-closing 0.5s forwards;
+          animation: signin-closing 0.5s forwards;
+}
+body .container .signin-form form {
+  width: 100%;
+  height: 100%;
+  background-color: #083A1F;
+  padding: 3rem;
+  overflow-y: auto;
+}
+body .container .signin-form form .buttons-left, body .container .signin-form form .buttons-right {
+  display: none;
+}
+body .container .signin-form form .logo-1-mobile {
+  display: none;
+}
+body .container .signin-form form .form-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body .container .signin-form form .form-tools h2 {
+  text-align: center;
+  padding-bottom: 1rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2rem;
+}
+body .container .signin-form form .form-tools .signin-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body .container .signin-form form .form-tools .signin-inputs label {
+  width: 100%;
+  height: 3.5rem;
+  position: relative;
+}
+body .container .signin-form form .form-tools .signin-inputs label .icon-box {
+  width: 3.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .container .signin-form form .form-tools .signin-inputs label .icon-box i {
+  padding: 0.4rem;
+  background-color: #FFCE61;
+  color: #fff;
+  border-radius: 50%;
+}
+body .container .signin-form form .form-tools .signin-inputs label input {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3rem;
+  border: none;
+  outline: none;
+  padding: 0.5rem 0.4rem 0.5rem 3.5rem;
+  font-size: 1rem;
+}
+body .container .signin-form form .form-tools .signin-inputs label input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+}
+body .container .signin-form form .form-tools .signin-inputs label input::-moz-placeholder {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+}
+body .container .signin-form form .form-tools .signin-inputs label input::placeholder {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+}
+body .container .signin-form form .form-tools .forget-password {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+body .container .signin-form form .form-tools .forget-password a {
+  text-decoration: none;
+  color: #FFCE61;
+  font-family: "Noto Sans";
+  font-style: italic;
+  font-weight: 200;
+  font-size: 0.9rem;
+}
+body .container .signin-form form .form-tools .forget-password a:hover {
+  text-decoration: underline;
+}
+body .container .signin-form form .form-tools #submit {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  color: #fff;
+  border-radius: 0.3rem;
+  border: 0.063rem solid #FFCE61;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+body .container .signin-form form .form-tools #submit:hover {
+  background-color: #FFCE61;
+}
+body .container .signin-form form .form-tools .choose-room {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  color: #fff;
+  border-radius: 0.3rem;
+  border: 0.063rem solid #FFCE61;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+body .container .signin-form form .form-tools .choose-room:hover {
+  background-color: #FFCE61;
+}
+body .container .signin-form form .form-tools .newcomer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body .container .signin-form form .form-tools .newcomer button {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  color: #fff;
+  border-radius: 0.3rem;
+  border: 0.063rem solid #FFCE61;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+body .container .signin-form form .form-tools .newcomer button:hover {
+  background-color: #FFCE61;
+}
+body .container .signin-form form .form-tools .mobile-links-mobile {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  margin-top: 2rem;
+  display: none;
+}
+body .container .signin-form form .form-tools .mobile-links-mobile a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0.5rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+body .container .signin-form form .form-tools .mobile-links-mobile a:hover {
+  background-color: #fff;
+}
+body .container .signin-form form .form-tools .mobile-links-mobile a:hover svg path {
+  fill: #000;
+}
+body .container .signin-form form .form-tools .mobile-links-mobile a:hover .mobile-link-text__top, body .container .signin-form form .form-tools .mobile-links-mobile a:hover .mobile-link-text__bottom {
+  color: #000;
+}
+body .container .signin-form form .form-tools .mobile-links-mobile a svg {
+  pointer-events: none;
+  width: 2rem;
+  height: 2rem;
+}
+body .container .signin-form form .form-tools .mobile-links-mobile a svg path {
+  transition: 0.3s;
+}
+body .container .signin-form form .form-tools .mobile-links-mobile a .mobile-link-text {
+  display: flex;
+  flex-direction: column;
+}
+body .container .signin-form form .form-tools .mobile-links-mobile a .mobile-link-text__top {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+body .container .signin-form form .form-tools .mobile-links-mobile a .mobile-link-text__bottom {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.8rem;
+  transition: 0.3s;
+  color: rgba(255, 255, 255, 0.58);
+}
+body .container .signin-form form .logo-2-mobile {
+  display: none;
+}
+body .container .signup-form {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  transition: 0.3s;
+}
+body .container .signup-form.de-active {
+  display: none;
+}
+body .container .signup-form.signup-opening {
+  -webkit-animation: signup-opening 0.5s forwards;
+          animation: signup-opening 0.5s forwards;
+}
+body .container .signup-form.signup-closing {
+  -webkit-animation: signup-closing 0.5s forwards;
+          animation: signup-closing 0.5s forwards;
+}
+body .container .signup-form form {
+  width: 100%;
+  height: 100%;
+  background-color: #083A1F;
+  padding: 3rem;
+  overflow-y: auto;
+}
+body .container .signup-form form .buttons-left, body .container .signup-form form .buttons-right {
+  display: none;
+}
+body .container .signup-form form .logo-1-mobile {
+  display: none;
+}
+body .container .signup-form form .form-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body .container .signup-form form .form-tools h2 {
+  text-align: center;
+  padding-bottom: 1rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2rem;
+}
+body .container .signup-form form .form-tools .signup-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body .container .signup-form form .form-tools .signup-inputs label {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #676666;
+  outline: none;
+  width: 100%;
+  height: 3.5rem;
+  position: relative;
+}
+body .container .signup-form form .form-tools .signup-inputs label .icon-box {
+  width: 3.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .container .signup-form form .form-tools .signup-inputs label .icon-box i {
+  padding: 0.4rem;
+  background-color: #FFCE61;
+  color: #fff;
+  border-radius: 50%;
+}
+body .container .signup-form form .form-tools .signup-inputs label input, body .container .signup-form form .form-tools .signup-inputs label select {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3rem;
+  border: none;
+  outline: none;
+  padding: 0.5rem 0.4rem 0.5rem 3.5rem;
+  font-size: 1rem;
+}
+body .container .signup-form form .form-tools .signup-inputs label input:-ms-input-placeholder, body .container .signup-form form .form-tools .signup-inputs label select:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+}
+body .container .signup-form form .form-tools .signup-inputs label input::-moz-placeholder, body .container .signup-form form .form-tools .signup-inputs label select::-moz-placeholder {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+}
+body .container .signup-form form .form-tools .signup-inputs label input::placeholder, body .container .signup-form form .form-tools .signup-inputs label select::placeholder {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+}
+body .container .signup-form form .form-tools .signup-inputs label select {
+  color: #676666;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+}
+body .container .signup-form form .form-tools .signup-inputs label select option {
+  height: 1rem;
+}
+body .container .signup-form form .form-tools .have-account {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+body .container .signup-form form .form-tools .have-account a {
+  text-decoration: none;
+  color: #FFCE61;
+  font-family: "Noto Sans";
+  font-style: italic;
+  font-weight: 200;
+  font-size: 0.9rem;
+}
+body .container .signup-form form .form-tools .have-account a:hover {
+  text-decoration: underline;
+}
+body .container .signup-form form .form-tools .newcomer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body .container .signup-form form .form-tools .newcomer button {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  color: #fff;
+  border-radius: 0.3rem;
+  border: 0.063rem solid #FFCE61;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+body .container .signup-form form .form-tools .newcomer button:hover {
+  background-color: #FFCE61;
+}
+body .container .signup-form form .form-tools .mobile-links-mobile {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  margin-top: 2rem;
+  display: none;
+}
+body .container .signup-form form .form-tools .mobile-links-mobile a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0.5rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+body .container .signup-form form .form-tools .mobile-links-mobile a:hover {
+  background-color: #fff;
+}
+body .container .signup-form form .form-tools .mobile-links-mobile a:hover svg path {
+  fill: #000;
+}
+body .container .signup-form form .form-tools .mobile-links-mobile a:hover .mobile-link-text__top, body .container .signup-form form .form-tools .mobile-links-mobile a:hover .mobile-link-text__bottom {
+  color: #000;
+}
+body .container .signup-form form .form-tools .mobile-links-mobile a svg {
+  pointer-events: none;
+  width: 2rem;
+  height: 2rem;
+}
+body .container .signup-form form .form-tools .mobile-links-mobile a svg path {
+  transition: 0.3s;
+}
+body .container .signup-form form .form-tools .mobile-links-mobile a .mobile-link-text {
+  display: flex;
+  flex-direction: column;
+}
+body .container .signup-form form .form-tools .mobile-links-mobile a .mobile-link-text__top {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+body .container .signup-form form .form-tools .mobile-links-mobile a .mobile-link-text__bottom {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.8rem;
+  transition: 0.3s;
+  color: rgba(255, 255, 255, 0.58);
+}
+body .container .signup-form form .logo-2-mobile {
+  display: none;
+}
+body .container .logo-area {
+  position: relative;
+  background-image: url(../assets/images/bg\ 1.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+body .container .logo-area .buttons-left, body .container .logo-area .buttons-right {
+  position: absolute;
+  top: 0;
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+body .container .logo-area .buttons-left button, body .container .logo-area .buttons-right button {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+body .container .logo-area .buttons-left button:hover, body .container .logo-area .buttons-right button:hover {
+  background-color: #fff;
+  color: #000;
+}
+body .container .logo-area .buttons-left {
+  left: 1rem;
+}
+body .container .logo-area .buttons-right {
+  right: 1rem;
+}
+body .container .logo-area .logo-1-desktop {
+  display: flex;
+  justify-content: center;
+}
+body .container .logo-area .logo-1-desktop img {
+  width: 30rem;
+  height: 20rem;
+}
+body .container .logo-area .description {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+body .container .logo-area .description p {
+  font-size: 1.2rem;
+  text-align: center;
+  width: 49rem;
+  color: #FFCE61;
+}
+body .container .logo-area .mobile-links-desktop {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+body .container .logo-area .mobile-links-desktop a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0.5rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+body .container .logo-area .mobile-links-desktop a:hover {
+  background-color: #fff;
+}
+body .container .logo-area .mobile-links-desktop a:hover svg path {
+  fill: #000;
+}
+body .container .logo-area .mobile-links-desktop a:hover .mobile-link-text__top, body .container .logo-area .mobile-links-desktop a:hover .mobile-link-text__bottom {
+  color: #000;
+}
+body .container .logo-area .mobile-links-desktop a svg {
+  pointer-events: none;
+  width: 2rem;
+  height: 2rem;
+}
+body .container .logo-area .mobile-links-desktop a svg path {
+  transition: 0.3s;
+}
+body .container .logo-area .mobile-links-desktop a .mobile-link-text {
+  display: flex;
+  flex-direction: column;
+}
+body .container .logo-area .mobile-links-desktop a .mobile-link-text__top {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+body .container .logo-area .mobile-links-desktop a .mobile-link-text__bottom {
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.8rem;
+  transition: 0.3s;
+  color: rgba(255, 255, 255, 0.58);
+}
+body .container .logo-area .logo-2-desktop {
+  display: flex;
+  justify-content: center;
+}
+body .container .logo-area .logo-2-desktop img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1480px) {
+  :root {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 1380px) {
+  :root {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 1290px) {
+  :root {
+    font-size: 13px;
+  }
+  body .container .logo-area .description p {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1140px) {
+  :root {
+    font-size: 12px;
+  }
+  body .container .logo-area .description p {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1125px) {
+  body .container .logo-area .buttons-left {
+    left: 0;
+    padding: 0;
+  }
+  body .container .logo-area .buttons-right {
+    right: 0;
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 1060px) {
+  body .container .logo-area .buttons-left, body .container .logo-area .buttons-right {
+    gap: 0.3rem;
+  }
+  body .container .logo-area .buttons-left button, body .container .logo-area .buttons-right button {
+    padding: 0.6rem 0.7rem;
+  }
+  body .container .logo-area {
+    width: 50rem;
+  }
+}
+@media only screen and (max-width: 940px) {
+  :root {
+    font-size: 11px;
+  }
+  body .container .logo-area .logo-1-desktop img {
+    width: auto;
+  }
+}
+@media only screen and (max-width: 830px) {
+  :root {
+    font-size: 10px;
+  }
+  body .container .logo-area .buttons-left, body .container .logo-area .buttons-right {
+    gap: 1rem;
+  }
+  body .container .logo-area .buttons-left button, body .container .logo-area .buttons-right button {
+    padding: 0.8rem 1rem;
+  }
+  body .container .logo-area .mobile-links-desktop {
+    display: none;
+  }
+  body .container .signup-form form .form-tools .mobile-links-mobile,
+body .container .signin-form form .form-tools .mobile-links-mobile,
+body .container .forget-password-form form .form-tools .mobile-links-mobile {
+    display: flex;
+  }
+  body .container .logo-area .logo-2-desktop {
+    display: none;
+  }
+  body .container .signup-form form .logo-2-mobile,
+body .container .signin-form form .logo-2-mobile,
+body .container .forget-password-form form .logo-2-mobile {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+  body .container .signup-form form .logo-2-mobile img,
+body .container .signin-form form .logo-2-mobile img,
+body .container .forget-password-form form .logo-2-mobile img {
+    width: 100%;
+  }
+  body .container .signup-form form,
+body .container .signin-form form,
+body .container .forget-password-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 3rem 0 3rem;
+  }
+  body .container .logo-area {
+    justify-content: space-around;
+  }
+}
+@media only screen and (max-width: 790px) {
+  :root {
+    font-size: 9px;
+  }
+  body .container .signup-form form .logo-2-mobile,
+body .container .signin-form form .logo-2-mobile,
+body .container .forget-password-form form .logo-2-mobile {
+    margin-top: 1.5rem;
+  }
+  body .container .logo-area .logo-1-desktop {
+    display: none;
+  }
+  body .container .signup-form form .logo-1-mobile,
+body .container .signin-form form .logo-1-mobile,
+body .container .forget-password-form form .logo-1-mobile {
+    display: flex;
+    justify-content: center;
+  }
+  body .container .signup-form form .logo-1-mobile img,
+body .container .signin-form form .logo-1-mobile img,
+body .container .forget-password-form form .logo-1-mobile img {
+    width: 30rem;
+    height: 20rem;
+  }
+  body .container .signup-form form .logo-1-mobile img,
+body .container .signin-form form .logo-1-mobile img,
+body .container .forget-password-form form .logo-1-mobile img {
+    width: 20rem;
+    height: 12rem;
+  }
+  body .container .logo-area .description {
+    display: none;
+  }
+  body .container .signup-form form,
+body .container .signin-form form,
+body .container .forget-password-form form {
+    position: relative;
+    padding: 0 3rem;
+  }
+  body .container .signup-form form .buttons-left, body .container .signup-form form .buttons-right,
+body .container .signin-form form .buttons-left,
+body .container .signin-form form .buttons-right,
+body .container .forget-password-form form .buttons-left,
+body .container .forget-password-form form .buttons-right {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+  }
+  body .container .signup-form form .buttons-left button, body .container .signup-form form .buttons-right button,
+body .container .signin-form form .buttons-left button,
+body .container .signin-form form .buttons-right button,
+body .container .forget-password-form form .buttons-left button,
+body .container .forget-password-form form .buttons-right button {
+    font-family: "Noto Sans", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+    padding: 0.6rem 1rem;
+    background-color: #000;
+    border: none;
+    color: #fff;
+    transition: 0.3s;
+  }
+  body .container .signup-form form .buttons-left button:hover, body .container .signup-form form .buttons-right button:hover,
+body .container .signin-form form .buttons-left button:hover,
+body .container .signin-form form .buttons-right button:hover,
+body .container .forget-password-form form .buttons-left button:hover,
+body .container .forget-password-form form .buttons-right button:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  body .container .signup-form form .buttons-left,
+body .container .signin-form form .buttons-left,
+body .container .forget-password-form form .buttons-left {
+    left: 0;
+  }
+  body .container .signup-form form .buttons-right,
+body .container .signin-form form .buttons-right,
+body .container .forget-password-form form .buttons-right {
+    right: 0;
+  }
+  body .container .forget-password-form form .buttons-left, body .container .forget-password-form form .buttons-right {
+    top: 10rem;
+  }
+  body .container .logo-area {
+    display: none;
+  }
+  body .container .signup-form,
+body .container .signin-form,
+body .container .forget-password-form {
+    width: 100%;
+  }
+  body .container .signup-form form .form-tools .newcomer,
+body .container .signin-form form .form-tools .newcomer {
+    flex-direction: row;
+  }
+  body .container .signup-form form .form-tools .newcomer button,
+body .container .signin-form form .form-tools .newcomer button {
+    flex: 1;
+  }
+}
+@media only screen and (max-width: 590px) {
+  body .container .signup-form form .buttons-left,
+body .container .signup-form form .buttons-right,
+body .container .signin-form form .buttons-left,
+body .container .signin-form form .buttons-right,
+body .container .forget-password-form form .buttons-left,
+body .container .forget-password-form form .buttons-right {
+    flex-direction: column;
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 400px) {
+  :root {
+    font-size: 8px;
+  }
+  body .container .signup-form form .buttons-left, body .container .signup-form form .buttons-right,
+body .container .signin-form form .buttons-left, body .container .signin-form form .buttons-right {
+    padding: 0;
+  }
+  body .container .signup-form form .buttons-left button, body .container .signup-form form .buttons-right button,
+body .container .signin-form form .buttons-left button, body .container .signin-form form .buttons-right button {
+    padding: 0.6rem 0.6rem;
+  }
+}
+@media only screen and (max-width: 365px) {
+  body .container .signup-form form .buttons-left button, body .container .signup-form form .buttons-right button,
+body .container .signin-form form .buttons-left button, body .container .signin-form form .buttons-right button {
+    padding: 0.5rem 0.4rem;
+  }
+}
+@media only screen and (max-width: 305px) {
+  body .container .signup-form form .buttons-left button, body .container .signup-form form .buttons-right button,
+body .container .signin-form form .buttons-left button, body .container .signin-form form .buttons-right button {
+    padding: 0.3rem 0.1rem;
+    font-family: "Noto Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 290px) {
+  :root {
+    font-size: 7px;
+  }
+}
+@media only screen and (max-width: 260px) {
+  :root {
+    font-size: 6px;
+  }
+}
+@media only screen and (max-height: 670px) {
+  body .container .logo-area .logo-1-desktop img {
+    width: 25rem;
+    height: 16rem;
+  }
+}
+@media only screen and (max-height: 640px) {
+  body .container .signup-form form .form-tools .newcomer {
+    flex-direction: row;
+  }
+  body .container .signup-form form .form-tools .newcomer button {
+    flex: 1;
+  }
+}
+@media only screen and (max-height: 610px) {
+  body .container .logo-area .logo-2-desktop img {
+    height: 15rem;
+  }
+}
+@media only screen and (max-height: 590px) {
+  body .container .logo-area .logo-2-desktop img {
+    width: 90%;
+    height: auto;
+  }
+}
+@media only screen and (max-height: 580px) {
+  body .container .logo-area .logo-1-desktop img {
+    width: 20rem;
+    height: 12rem;
+  }
+  body .container .logo-area .logo-2-desktop img {
+    width: 85%;
+    height: auto;
+  }
+}
+@media only screen and (max-height: 520px) {
+  body .container .logo-area .logo-1-desktop img {
+    width: 18rem;
+    height: 10rem;
+  }
+  body .container .logo-area .logo-2-desktop img {
+    width: 80%;
+  }
+}
+@media only screen and (max-height: 475px) {
+  body .container .logo-area .logo-1-desktop img {
+    width: 14rem;
+    height: auto;
+  }
+  body .container .logo-area .logo-2-desktop img {
+    width: auto;
+    height: 10rem;
+  }
+}
+@media only screen and (max-height: 475px) {
+  body .container .logo-area .logo-1-desktop img {
+    width: 10rem;
+  }
+  body .container .logo-area .logo-2-desktop img {
+    height: 6rem;
+  }
+}/*# sourceMappingURL=style.css.map */

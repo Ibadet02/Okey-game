@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="./form.js"></script>
+    <title>Form</title>
+</head>
+<body>
+    <section class="container">
+        <div class="forget-password-form de-active">
+            <form action="GET">
+                <button id="back-to-signin">
+                    <i class="fa-solid fa-backward-step"></i>
+                </button>
+                <div class="buttons-left">
+                    <button>Masaüstüne indir</button>
+                    <button>Galeri</button>
+                </div>
+                <div class="logo-1-mobile">
+                    <img src="../assets/images/logo_1.png" alt="Okey">
+                </div>
+                <div class="buttons-right">
+                    <button>Blog</button>
+                    <button>İletişim</button>
+                </div>
+                <div class="form-tools">
+                    <h2>Parolayı mı unuttun?</h2>
+                    <div class="email-box">
+                        <label for="email">
+                            <div class="icon-box user-icon-box">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <input type="email" placeholder="Email" id="email">
+                        </label>
+                    </div>
+                    <button class="send-code">Kod gönder</button>
+                    <div class="mobile-links-mobile">
+                        <a href="#">
+                            <svg width="50" height="58" viewBox="0 0 50 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M41.6596 55.673C38.4289 58.7337 34.9015 58.2504 31.506 56.8006C27.9127 55.3186 24.6161 55.2541 20.825 56.8006C16.0778 58.7981 13.5724 58.2182 10.7373 55.673C-5.35015 39.4672 -2.97658 14.7881 15.2867 13.886C19.7371 14.1116 22.8359 16.2702 25.4402 16.4635C29.3302 15.6902 33.0554 13.4672 37.2091 13.7572C42.187 14.1438 45.9452 16.0769 48.4176 19.5564C38.1322 25.5812 40.5717 38.8229 50 42.528C48.1209 47.3607 45.6814 52.1612 41.6266 55.7052L41.6596 55.673ZM25.1106 13.6927C24.6161 6.50807 30.5829 0.579927 37.4399 0C38.3959 8.31228 29.7258 14.4982 25.1106 13.6927Z" fill="white"/>
+                            </svg>
+                            <div class="mobile-link-text">
+                                <span class="mobile-link-text__top">App Store</span>
+                                <span class="mobile-link-text__bottom">üzerinden indir</span>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <svg width="52" height="56" viewBox="0 0 52 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M38.3485 36.6463C44.9223 33.0186 49.9428 30.2477 50.3995 29.9953C51.7618 29.2435 53.189 27.325 50.3995 25.7915C49.5029 25.2976 44.6174 22.6117 38.3408 19.1592L29.7081 27.9298L38.3485 36.6463Z" fill="#FFE300"/>
+                                <path d="M29.7081 27.9298L2.0968 55.9809C2.72034 56.0607 3.47029 55.8942 4.33292 55.4181C6.1188 54.4326 25.2978 43.8487 38.3485 36.6463L29.7081 27.9298Z" fill="#FF4E54"/>
+                                <path d="M29.7081 27.9298L38.3408 19.1592C38.3408 19.1592 6.25382 1.50898 4.33291 0.452372C3.59456 0.0461178 2.78956 -0.0956593 2.07701 0.0643277L29.7081 27.9298Z" fill="#00F085"/>
+                                <path d="M29.7081 27.9298L2.07701 0.0643277C0.935733 0.321001 0 1.31735 0 3.31913V52.6376C0 54.5228 0.736212 55.8486 2.0968 55.9809L29.7081 27.9298Z" fill="#00E0FF"/>
+                            </svg>
+                            <div class="mobile-link-text">
+                                <span class="mobile-link-text__top">Play Store</span>
+                                <span class="mobile-link-text__bottom">üzerinden indir</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="logo-2-mobile">
+                    <img src="../assets/images/canvas 1.png" alt="Community">
+                </div>
+            </form>
+        </div>
+        <div class="signin-form de-active">
+            <form action="GET">
+                <div class="buttons-left">
+                    <button>Masaüstüne indir</button>
+                    <button>Galeri</button>
+                </div>
+                <div class="logo-1-mobile">
+                    <img src="../assets/images/logo_1.png" alt="Okey">
+                </div>
+                <div class="buttons-right">
+                    <button>Blog</button>
+                    <button>İletişim</button>
+                </div>
+                <div class="form-tools">
+                    <h2>Giriş yap!</h2>
+                    <div class="signin-inputs">
+                        <label for="name">
+                            <div class="icon-box user-icon-box">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <input type="text" placeholder="Kullanıcı adı / Email" id="name">
+                        </label>
+                        <label for="password">
+                            <div class="icon-box password-icon-box">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <input type="password" placeholder="Parola" id="password">
+                        </label>
+                    </div>
+                    <span class="forget-password">
+                        <a href="#">Parolayı mı unuttun?</a>
+                    </span>
+                    <button type="submit" id="submit">
+                        Giriş yap
+                    </button>
+                    <button class="choose-room">Oda seç</button>
+                    <div class="newcomer">
+                        <button>
+                            Misafir
+                        </button>
+                        <button class="be-member">
+                            Üye ol
+                        </button>
+                    </div>
+                    <div class="mobile-links-mobile">
+                        <a href="#">
+                            <svg width="50" height="58" viewBox="0 0 50 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M41.6596 55.673C38.4289 58.7337 34.9015 58.2504 31.506 56.8006C27.9127 55.3186 24.6161 55.2541 20.825 56.8006C16.0778 58.7981 13.5724 58.2182 10.7373 55.673C-5.35015 39.4672 -2.97658 14.7881 15.2867 13.886C19.7371 14.1116 22.8359 16.2702 25.4402 16.4635C29.3302 15.6902 33.0554 13.4672 37.2091 13.7572C42.187 14.1438 45.9452 16.0769 48.4176 19.5564C38.1322 25.5812 40.5717 38.8229 50 42.528C48.1209 47.3607 45.6814 52.1612 41.6266 55.7052L41.6596 55.673ZM25.1106 13.6927C24.6161 6.50807 30.5829 0.579927 37.4399 0C38.3959 8.31228 29.7258 14.4982 25.1106 13.6927Z" fill="white"/>
+                            </svg>
+                            <div class="mobile-link-text">
+                                <span class="mobile-link-text__top">App Store</span>
+                                <span class="mobile-link-text__bottom">üzerinden indir</span>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <svg width="52" height="56" viewBox="0 0 52 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M38.3485 36.6463C44.9223 33.0186 49.9428 30.2477 50.3995 29.9953C51.7618 29.2435 53.189 27.325 50.3995 25.7915C49.5029 25.2976 44.6174 22.6117 38.3408 19.1592L29.7081 27.9298L38.3485 36.6463Z" fill="#FFE300"/>
+                                <path d="M29.7081 27.9298L2.0968 55.9809C2.72034 56.0607 3.47029 55.8942 4.33292 55.4181C6.1188 54.4326 25.2978 43.8487 38.3485 36.6463L29.7081 27.9298Z" fill="#FF4E54"/>
+                                <path d="M29.7081 27.9298L38.3408 19.1592C38.3408 19.1592 6.25382 1.50898 4.33291 0.452372C3.59456 0.0461178 2.78956 -0.0956593 2.07701 0.0643277L29.7081 27.9298Z" fill="#00F085"/>
+                                <path d="M29.7081 27.9298L2.07701 0.0643277C0.935733 0.321001 0 1.31735 0 3.31913V52.6376C0 54.5228 0.736212 55.8486 2.0968 55.9809L29.7081 27.9298Z" fill="#00E0FF"/>
+                            </svg>
+                            <div class="mobile-link-text">
+                                <span class="mobile-link-text__top">Play Store</span>
+                                <span class="mobile-link-text__bottom">üzerinden indir</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="logo-2-mobile">
+                    <img src="../assets/images/canvas 1.png" alt="Community">
+                </div>
+            </form>
+        </div>
+        <div class="signup-form">
+            <form action="GET">
+                <div class="buttons-left">
+                    <button>Masaüstüne indir</button>
+                    <button>Galeri</button>
+                </div>
+                <div class="logo-1-mobile">
+                    <img src="../assets/images/logo_1.png" alt="Okey">
+                </div>
+                <div class="buttons-right">
+                    <button>Blog</button>
+                    <button>İletişim</button>
+                </div>
+                <div class="form-tools">
+                    <h2>Üye ol!</h2>
+                    <div class="signup-inputs">
+                        <label for="name">
+                            <div class="icon-box user-icon-box">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <input type="text" placeholder="Kullanıcı adı" id="name">
+                        </label>
+                        <label for="email">
+                            <div class="icon-box email-icon-box">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <input type="email" placeholder="Email" id="email">
+                        </label>
+                        <label for="gender">
+                            <div class="icon-box gender-icon-box">
+                                <i class="fa-solid fa-venus-mars"></i>
+                            </div>
+                            <select id="gender" name="genders">
+                                <option value="">Cinsiyet seçimi</option>
+                                <option value="kadın">Kadın</option>
+                                <option value="erkek">Erkek</option>
+                                <option value="belirmek-istenmedi">Belirtmek istemiyorum</option>
+                            </select>
+                        </label>
+                        <label for="password">
+                            <div class="icon-box password-icon-box">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <input type="password" placeholder="Parola" id="password">
+                        </label>
+                    </div>
+                    <span class="have-account">
+                        <a href="#">Mevcut hesabınız var mı?</a>
+                    </span>
+                    <div class="newcomer">
+                        <button>
+                            Üye ol
+                        </button>
+                        <button>
+                            Misafir
+                        </button>
+                    </div>
+                    <div class="mobile-links-mobile">
+                        <a href="#">
+                            <svg width="50" height="58" viewBox="0 0 50 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M41.6596 55.673C38.4289 58.7337 34.9015 58.2504 31.506 56.8006C27.9127 55.3186 24.6161 55.2541 20.825 56.8006C16.0778 58.7981 13.5724 58.2182 10.7373 55.673C-5.35015 39.4672 -2.97658 14.7881 15.2867 13.886C19.7371 14.1116 22.8359 16.2702 25.4402 16.4635C29.3302 15.6902 33.0554 13.4672 37.2091 13.7572C42.187 14.1438 45.9452 16.0769 48.4176 19.5564C38.1322 25.5812 40.5717 38.8229 50 42.528C48.1209 47.3607 45.6814 52.1612 41.6266 55.7052L41.6596 55.673ZM25.1106 13.6927C24.6161 6.50807 30.5829 0.579927 37.4399 0C38.3959 8.31228 29.7258 14.4982 25.1106 13.6927Z" fill="white"/>
+                            </svg>
+                            <div class="mobile-link-text">
+                                <span class="mobile-link-text__top">App Store</span>
+                                <span class="mobile-link-text__bottom">üzerinden indir</span>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <svg width="52" height="56" viewBox="0 0 52 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M38.3485 36.6463C44.9223 33.0186 49.9428 30.2477 50.3995 29.9953C51.7618 29.2435 53.189 27.325 50.3995 25.7915C49.5029 25.2976 44.6174 22.6117 38.3408 19.1592L29.7081 27.9298L38.3485 36.6463Z" fill="#FFE300"/>
+                                <path d="M29.7081 27.9298L2.0968 55.9809C2.72034 56.0607 3.47029 55.8942 4.33292 55.4181C6.1188 54.4326 25.2978 43.8487 38.3485 36.6463L29.7081 27.9298Z" fill="#FF4E54"/>
+                                <path d="M29.7081 27.9298L38.3408 19.1592C38.3408 19.1592 6.25382 1.50898 4.33291 0.452372C3.59456 0.0461178 2.78956 -0.0956593 2.07701 0.0643277L29.7081 27.9298Z" fill="#00F085"/>
+                                <path d="M29.7081 27.9298L2.07701 0.0643277C0.935733 0.321001 0 1.31735 0 3.31913V52.6376C0 54.5228 0.736212 55.8486 2.0968 55.9809L29.7081 27.9298Z" fill="#00E0FF"/>
+                            </svg>
+                            <div class="mobile-link-text">
+                                <span class="mobile-link-text__top">Play Store</span>
+                                <span class="mobile-link-text__bottom">üzerinden indir</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="logo-2-mobile">
+                    <img src="../assets/images/canvas 1.png" alt="Community">
+                </div>
+            </form>
+        </div>
+        <div class="logo-area">
+            <div class="buttons-left">
+                <button>Masaüstüne indir</button>
+                <button>Galeri</button>
+            </div>
+            <div class="logo-1-desktop">
+                <img src="../assets/images/logo_1.png" alt="Okey">
+            </div>
+            <div class="buttons-right">
+                <button>Blog</button>
+                <button>İletişim</button>
+            </div>
+            <div class="description">
+                <p>
+                    Kolayca okey ve çanak oyununu bilgisayar ve tüm cihazlarda oyna! Özel hesap açmadan, hızlıca Okey Oyna! Sohbet et, hediyeler kazan  ve arkadaşlarınla oyun oynamanın keyfini yaşa!
+                </p>
+            </div>
+            <div class="mobile-links-desktop">
+                <a href="#">
+                    <svg width="50" height="58" viewBox="0 0 50 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M41.6596 55.673C38.4289 58.7337 34.9015 58.2504 31.506 56.8006C27.9127 55.3186 24.6161 55.2541 20.825 56.8006C16.0778 58.7981 13.5724 58.2182 10.7373 55.673C-5.35015 39.4672 -2.97658 14.7881 15.2867 13.886C19.7371 14.1116 22.8359 16.2702 25.4402 16.4635C29.3302 15.6902 33.0554 13.4672 37.2091 13.7572C42.187 14.1438 45.9452 16.0769 48.4176 19.5564C38.1322 25.5812 40.5717 38.8229 50 42.528C48.1209 47.3607 45.6814 52.1612 41.6266 55.7052L41.6596 55.673ZM25.1106 13.6927C24.6161 6.50807 30.5829 0.579927 37.4399 0C38.3959 8.31228 29.7258 14.4982 25.1106 13.6927Z" fill="white"/>
+                    </svg>
+                    <div class="mobile-link-text">
+                        <span class="mobile-link-text__top">App Store</span>
+                        <span class="mobile-link-text__bottom">üzerinden indir</span>
+                    </div>
+                </a>
+                <a href="#">
+                    <svg width="52" height="56" viewBox="0 0 52 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M38.3485 36.6463C44.9223 33.0186 49.9428 30.2477 50.3995 29.9953C51.7618 29.2435 53.189 27.325 50.3995 25.7915C49.5029 25.2976 44.6174 22.6117 38.3408 19.1592L29.7081 27.9298L38.3485 36.6463Z" fill="#FFE300"/>
+                        <path d="M29.7081 27.9298L2.0968 55.9809C2.72034 56.0607 3.47029 55.8942 4.33292 55.4181C6.1188 54.4326 25.2978 43.8487 38.3485 36.6463L29.7081 27.9298Z" fill="#FF4E54"/>
+                        <path d="M29.7081 27.9298L38.3408 19.1592C38.3408 19.1592 6.25382 1.50898 4.33291 0.452372C3.59456 0.0461178 2.78956 -0.0956593 2.07701 0.0643277L29.7081 27.9298Z" fill="#00F085"/>
+                        <path d="M29.7081 27.9298L2.07701 0.0643277C0.935733 0.321001 0 1.31735 0 3.31913V52.6376C0 54.5228 0.736212 55.8486 2.0968 55.9809L29.7081 27.9298Z" fill="#00E0FF"/>
+                    </svg>
+                    <div class="mobile-link-text">
+                        <span class="mobile-link-text__top">Play Store</span>
+                        <span class="mobile-link-text__bottom">üzerinden indir</span>
+                    </div>
+                </a>
+            </div>
+            <div class="logo-2-desktop">
+                <img src="../assets/images/canvas 1.png" alt="Community">
+            </div>
+        </div>
+    </section>
+</body>
+</html>

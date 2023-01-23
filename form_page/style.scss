@@ -1,0 +1,887 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap');
+$label-height: 3.5rem;
+$button-height: $label-height;
+$iconbox-width: $label-height;
+$icon-bg-color: #FFCE61;
+$text-color: $icon-bg-color;
+$button-hover-bg-color: $text-color;
+$button-border: 0.063rem solid $icon-bg-color;
+$form-bg-color: #083A1F;
+$icon-size: 2rem;
+$transition: .3s;
+@mixin text($font-weight, $font-size){
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: $font-weight;
+    font-size: $font-size;
+}
+@mixin button($f-weight, $f-size){
+    @include text($f-weight, $f-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $button-height;
+    color: #fff;
+    border-radius: .3rem;
+    border: $button-border;
+    background: none;
+    cursor: pointer;
+    transition: $transition;
+    &:hover{
+        background-color: $button-hover-bg-color;
+    }
+}
+@mixin mobile-links{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    a{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: .6rem .5rem;
+        background-color: #000;
+        color: #fff;
+        border-radius: .3rem;
+        text-decoration: none;
+        transition: $transition;
+        &:hover{
+            background-color: #fff;
+            svg{
+                path{
+                    fill: #000;
+                }
+            }
+            .mobile-link-text{
+                &__top, &__bottom{
+                    color: #000;
+                }
+            }
+        }
+        svg{
+            pointer-events: none;
+            width: $icon-size;
+            height: $icon-size;
+            path{
+                transition: $transition;
+            }
+        }
+        .mobile-link-text{
+            display: flex;
+            flex-direction: column;
+            &__top{
+                @include text(600, 1rem);
+                transition: $transition
+                
+            }
+            &__bottom{
+                @include text(300, .8rem);
+                transition: $transition;
+                color: rgba(255, 255, 255, .58);
+            }
+        }
+    }
+}
+@mixin logo-1($display){
+    display: $display;
+    justify-content: center;
+    img{
+        width: 30rem;
+        height: 20rem;
+    }
+}
+@mixin logo-2($display){
+    display: $display;
+    justify-content: center;
+    img{
+        width: 100%;
+    }
+}
+@keyframes signup-closing{
+    0%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+@keyframes signin-closing{
+    0%{
+        // scale: 1;
+    }
+    100%{
+        scale: 0;
+    }
+}
+@keyframes signin-opening{
+    0%{
+        scale: 0;
+    }
+    100%{
+        scale: 1;
+    }
+}
+@keyframes signup-opening{
+    0%{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes forget-pass-opening{
+    0%{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes forget-pass-closing{
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    .container{
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        .forget-password-form{
+            display: flex;
+            align-items: center;
+            // width: 35rem;
+            flex: 1;
+            height: 100%;
+            &.de-active{
+                display: none;
+            }
+            &.forget-password-opening{
+                animation: forget-pass-opening 0.5s forwards;
+            }
+            &.forget-password-closing{
+                animation: forget-pass-closing 0.5s forwards;
+            }
+            form{
+                position: relative;
+                width: 100%;
+                height: 100%;
+                background-color: $form-bg-color;
+                padding: 3rem;
+                overflow-y: auto;
+                #back-to-signin{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    padding: .8rem 1rem;
+                    background: none;
+                    border: .1rem solid #fff;
+                    border-left: none;
+                    border-top: none;
+                    border-bottom-right-radius: 1rem;
+                    cursor: pointer;
+                    transition: $transition;
+                    &:hover{
+                        border-right: .1rem solid $icon-bg-color;
+                        border-bottom: .1rem solid $icon-bg-color;
+                        i{
+                            color: $icon-bg-color;
+                        }
+                    }
+                    &:active{
+                        scale: .8;
+                    }
+                    i{
+                        pointer-events: none;
+                        transition: $transition;
+                        color: #fff;
+                        font-size: $icon-size;
+                    }
+                }
+                .buttons-left, .buttons-right{
+                    display: none;
+                }
+                .logo-1-mobile{
+                    display: none;
+                }
+                .form-tools{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    margin-top: 4rem;
+                    h2{
+                        text-align: center;
+                        padding-bottom: 1rem;
+                        color: #fff;
+                        @include text(600, 2rem);
+                    }
+                    .email-box{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                        label{
+                            width: 100%;
+                            height: $label-height;
+                            position: relative;
+                            .icon-box{
+                                width: $iconbox-width;
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                i{
+                                    padding: .4rem;
+                                    background-color: #FFCE61;
+                                    color: #fff;
+                                    border-radius: 50%;
+                                }
+                            }
+                            input{
+                                width: 100%;
+                                height: 100%;
+                                border-radius: .3rem;
+                                border: none;
+                                outline: none;
+                                padding: .5rem .4rem .5rem $iconbox-width;
+                                font-size: 1rem;
+                                &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                                    @include text(300, 1rem);
+                                }
+                                &::-ms-input-placeholder { /* Microsoft Edge */
+                                    @include text(300, 1rem);
+                                }
+                                &::placeholder{
+                                    @include text(300, 1rem);
+                                }
+                            }
+                        }
+                    }
+                    .send-code{
+                        @include button(500, 1.25rem);
+                    }
+                    .mobile-links-mobile{
+                        @include mobile-links();
+                        margin-top: 2rem;
+                        display: none;
+                    }
+                }
+                .logo-2-mobile{
+                    display: none;
+                }
+            }
+        }
+        .signin-form{
+            display: flex;
+            align-items: center;
+            // width: 35rem;
+            flex: 1;
+            height: 100%;
+            transition: $transition;
+            &.de-active{
+                display: none;
+            }
+            &.signin-opening{
+                animation: signin-opening .5s forwards;
+            }
+            &.signin-closing{
+                animation: signin-closing .5s forwards;
+            }
+            form{
+                width: 100%;
+                height: 100%;
+                background-color: $form-bg-color;
+                padding: 3rem;
+                overflow-y: auto;
+                .buttons-left, .buttons-right{
+                    display: none;
+                }
+                .logo-1-mobile{
+                    display: none;
+                }
+                .form-tools{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    h2{
+                        text-align: center;
+                        padding-bottom: 1rem;
+                        color: #fff;
+                        @include text(600, 2rem);
+                    }
+                    .signin-inputs{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                        label{
+                            width: 100%;
+                            height: $label-height;
+                            position: relative;
+                            .icon-box{
+                                width: $iconbox-width;
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                i{
+                                    padding: .4rem;
+                                    background-color: #FFCE61;
+                                    color: #fff;
+                                    border-radius: 50%;
+                                }
+                            }
+                            input{
+                                width: 100%;
+                                height: 100%;
+                                border-radius: .3rem;
+                                border: none;
+                                outline: none;
+                                padding: .5rem .4rem .5rem $iconbox-width;
+                                font-size: 1rem;
+                                &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                                    @include text(300, 1rem);
+                                }
+                                &::-ms-input-placeholder { /* Microsoft Edge */
+                                    @include text(300, 1rem);
+                                }
+                                &::placeholder{
+                                    @include text(300, 1rem);
+                                }
+                            }
+                        }
+                    }
+                    .forget-password{
+                        display: flex;
+                        justify-content: flex-end;
+                        margin-bottom: 1rem;
+                        a{
+                            text-decoration: none;
+                            color: $icon-bg-color;
+                            font-family: 'Noto Sans';
+                            font-style: italic;
+                            font-weight: 200;
+                            font-size: .9rem;
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                    #submit{
+                        @include button(500, 1.25rem);
+                    }
+                    .choose-room{
+                        @include button(500, 1.25rem);
+                    }
+                    .newcomer{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                        button{
+                            @include button(500, 1.25rem);
+                        }
+                    }
+                    .mobile-links-mobile{
+                        @include mobile-links();
+                        margin-top: 2rem;
+                        display: none;
+                    }
+                }
+                .logo-2-mobile{
+                    display: none;
+                }
+            }
+        }
+        .signup-form{
+            display: flex;
+            align-items: center;
+            // width: 35rem;
+            flex: 1;
+            height: 100%;
+            transition: $transition;
+            &.de-active{
+                display: none;
+            }
+            &.signup-opening{
+                animation: signup-opening .5s forwards;
+            }
+            &.signup-closing{
+                animation: signup-closing .5s forwards;
+            }
+            form{
+                width: 100%;
+                height: 100%;
+                background-color: $form-bg-color;
+                padding: 3rem;
+                overflow-y: auto;
+                .buttons-left, .buttons-right{
+                    display: none;
+                }
+                .logo-1-mobile{
+                    display: none;
+                }
+                .form-tools{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    h2{
+                        text-align: center;
+                        padding-bottom: 1rem;
+                        color: #fff;
+                        @include text(600, 2rem);
+                    }
+                    .signup-inputs{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                        label{
+                            @include text(300, 1rem);
+                            color: #676666;
+                            outline: none;
+                            width: 100%;
+                            height: $label-height;
+                            position: relative;
+                            .icon-box{
+                                width: $iconbox-width;
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                i{
+                                    padding: .4rem;
+                                    background-color: #FFCE61;
+                                    color: #fff;
+                                    border-radius: 50%;
+                                }
+                            }
+                            input, select{
+                                width: 100%;
+                                height: 100%;
+                                border-radius: .3rem;
+                                border: none;
+                                outline: none;
+                                padding: .5rem .4rem .5rem $iconbox-width;
+                                font-size: 1rem;
+                                &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                                    @include text(300, 1rem);
+                                }
+                                &::-ms-input-placeholder { /* Microsoft Edge */
+                                    @include text(300, 1rem);
+                                }
+                                &::placeholder{
+                                    @include text(300, 1rem);
+                                }
+                            }
+                            select{
+                                color: #676666;
+                                @include text(300, 1rem);
+                                option{
+                                    height: 1rem;
+                                }
+                            }
+                        }
+                    }
+                    .have-account{
+                        display: flex;
+                        justify-content: flex-end;
+                        margin-bottom: 1rem;
+                        a{
+                            text-decoration: none;
+                            color: $icon-bg-color;
+                            font-family: 'Noto Sans';
+                            font-style: italic;
+                            font-weight: 200;
+                            font-size: .9rem;
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                    .newcomer{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                        button{
+                            @include button(500, 1.25rem);
+                        }
+                    }
+                    .mobile-links-mobile{
+                        @include mobile-links();
+                        margin-top: 2rem;
+                        display: none;
+                    }
+                }
+                .logo-2-mobile{
+                    display: none;
+                }
+            }
+        }
+        .logo-area{
+            position: relative;
+            background-image: url(../assets/images/bg\ 1.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: center;
+            width: 60rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0 1rem;
+            .buttons-left, .buttons-right{
+                position: absolute;
+                top: 0;
+                display: flex;
+                gap: 1rem;
+                padding: .5rem;
+                button{
+                    @include text(500, 1rem);
+                    padding: .6rem 1.5rem;
+                    border: none;
+                    background-color: #000;
+                    color: #fff;
+                    cursor: pointer;
+                    transition: $transition;
+                    &:hover{
+                        background-color: #fff;
+                        color: #000;
+                    }
+                }
+            }
+            .buttons-left{
+                left: 1rem;
+            }
+            .buttons-right{
+                right: 1rem;
+            }
+            .logo-1-desktop{
+                @include logo-1(flex)
+            }
+            .description{
+                display: flex;
+                justify-content: center;
+                padding-bottom: 1rem;
+                p{
+                    font-size: 1.2rem;
+                    text-align: center;
+                    width: 49rem;
+                    color: $icon-bg-color;
+                }
+            }
+            .mobile-links-desktop{
+                @include mobile-links();
+            }
+            .logo-2-desktop{
+                @include logo-2(flex);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1480px) {
+    :root{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 1380px) {
+    :root{
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 1290px) {
+    :root{
+        font-size: 13px;
+    }
+    body .container .logo-area .description p{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 1140px) {
+    :root{
+        font-size: 12px;
+    }
+    body .container .logo-area .description p{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 1125px) {
+    body .container .logo-area .buttons-left{
+        left: 0;
+        padding: 0;
+    }
+    body .container .logo-area .buttons-right{
+        right: 0;
+        padding: 0;
+    }
+}
+@media only screen and (max-width: 1060px) {
+    body .container .logo-area .buttons-left, body .container .logo-area .buttons-right{
+        gap: .3rem;
+        button{
+            padding: .6rem .7rem;
+        }
+    }
+    body .container .logo-area{
+        width: 50rem;
+    }
+}
+@media only screen and (max-width: 940px) {
+    :root{
+        font-size: 11px;
+    }
+    body .container .logo-area .logo-1-desktop img{
+        width: auto;
+    }
+}
+@media only screen and (max-width: 830px) {
+    :root{
+        font-size: 10px;
+    }
+    body .container .logo-area .buttons-left, body .container .logo-area .buttons-right{
+        gap: 1rem;
+        button{
+            padding: .8rem 1rem;
+        }
+    }
+    body .container .logo-area .mobile-links-desktop{
+        display: none;
+    }
+    body .container .signup-form form .form-tools .mobile-links-mobile,
+    body .container .signin-form form .form-tools .mobile-links-mobile,
+    body .container .forget-password-form form .form-tools .mobile-links-mobile{
+        display: flex;
+    }
+    body .container .logo-area .logo-2-desktop{
+        display: none;
+    }
+    body .container .signup-form form .logo-2-mobile,
+    body .container .signin-form form .logo-2-mobile,
+    body .container .forget-password-form form .logo-2-mobile{
+        @include logo-2(flex);
+        margin-top: 3rem;
+    }
+    body .container .signup-form form,
+    body .container .signin-form form,
+    body .container .forget-password-form form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem 3rem 0 3rem;
+    }
+    body .container .logo-area{
+        justify-content: space-around;
+    }
+}
+@media only screen and (max-width: 790px) {
+    :root{
+        font-size: 9px;
+    }
+    body .container .signup-form form .logo-2-mobile,
+    body .container .signin-form form .logo-2-mobile,
+    body .container .forget-password-form form .logo-2-mobile{
+        margin-top: 1.5rem;
+    }
+    body .container .logo-area .logo-1-desktop{
+        display: none
+    }
+    body .container .signup-form form .logo-1-mobile,
+    body .container .signin-form form .logo-1-mobile,
+    body .container .forget-password-form form .logo-1-mobile{
+        @include logo-1(flex);
+        img{
+            width: 20rem;
+            height: 12rem;
+        }
+    }
+    body .container .logo-area .description{
+        display: none;
+    }
+    body .container .signup-form form,
+    body .container .signin-form form,
+    body .container .forget-password-form form{
+        position: relative;
+        padding: 0 3rem;
+        .buttons-left, .buttons-right{
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            position: absolute;
+            top: 0;
+            button{
+                @include text(500, 1.4rem);
+                padding: .6rem 1rem;
+                background-color: #000;
+                border: none;
+                color: #fff;
+                transition: $transition;
+                &:hover{
+                    background-color: #fff;
+                    color: #000;
+                }
+            }
+        }
+        .buttons-left{
+            left: 0;
+        }
+        .buttons-right{
+            right: 0;
+        }
+    }
+    body .container .forget-password-form form{
+        .buttons-left, .buttons-right{
+            top: 10rem;
+        }
+    }
+    body .container .logo-area{
+        display: none;
+    }
+    body .container .signup-form,
+    body .container .signin-form,
+    body .container .forget-password-form{
+        width: 100%;
+    }
+    body .container .signup-form form .form-tools .newcomer,
+    body .container .signin-form form .form-tools .newcomer{
+        flex-direction: row;
+        button{
+            flex: 1;
+        }
+    }
+}
+@media only screen and (max-width: 590px){
+    body .container .signup-form form .buttons-left,
+    body .container .signup-form form .buttons-right,
+    body .container .signin-form form .buttons-left,
+    body .container .signin-form form .buttons-right,
+    body .container .forget-password-form form .buttons-left,
+    body .container .forget-password-form form .buttons-right{
+        flex-direction: column;
+        padding: 0;
+    }
+}
+@media only screen and (max-width: 400px){
+    :root{
+        font-size: 8px;
+    }
+    body .container .signup-form form .buttons-left, body .container .signup-form form .buttons-right,
+    body .container .signin-form form .buttons-left, body .container .signin-form form .buttons-right{
+        padding: 0;
+        button{
+            padding: .6rem .6rem;
+        }
+    }
+}
+@media only screen and (max-width: 365px){
+    body .container .signup-form form .buttons-left, body .container .signup-form form .buttons-right,
+    body .container .signin-form form .buttons-left, body .container .signin-form form .buttons-right{
+        button{
+            padding: .5rem .4rem;
+        }
+    }
+}
+@media only screen and (max-width: 305px){
+    body .container .signup-form form .buttons-left, body .container .signup-form form .buttons-right,
+    body .container .signin-form form .buttons-left, body .container .signin-form form .buttons-right{
+        button{
+            padding: .3rem .1rem;
+            @include text(400, 1rem);
+        }
+    }
+}
+@media only screen and (max-width: 290px){
+    :root{
+        font-size: 7px;
+    }
+}
+@media only screen and (max-width: 260px){
+    :root{
+        font-size: 6px;
+    }
+}
+@media only screen and (max-height: 670px){
+    body .container .logo-area .logo-1-desktop img{
+        width: 25rem;
+        height: 16rem;
+    }
+}
+@media only screen and (max-height: 640px){
+    body .container .signup-form form .form-tools .newcomer{
+        flex-direction: row;
+        button{
+            flex: 1;
+        }
+    }
+}
+@media only screen and (max-height: 610px){
+    body .container .logo-area .logo-2-desktop img{
+        height: 15rem;
+    }
+}
+@media only screen and (max-height: 590px){
+    body .container .logo-area .logo-2-desktop img{
+        width: 90%;
+        height: auto;
+    }
+}
+@media only screen and (max-height: 580px){
+    body .container .logo-area .logo-1-desktop img{
+        width: 20rem;
+        height: 12rem;
+    }
+    body .container .logo-area .logo-2-desktop img{
+        width: 85%;
+        height: auto;
+    }
+}
+@media only screen and (max-height: 520px){
+    body .container .logo-area .logo-1-desktop img{
+        width: 18rem;
+        height: 10rem;
+    }
+    body .container .logo-area .logo-2-desktop img{
+        width: 80%;
+    }
+}
+@media only screen and (max-height: 475px){
+    body .container .logo-area .logo-1-desktop img{
+        width: 14rem;
+        height: auto;
+    }
+    body .container .logo-area .logo-2-desktop img{
+        width: auto;
+        height: 10rem;
+    }
+}
+@media only screen and (max-height: 475px){
+    body .container .logo-area .logo-1-desktop img{
+        width: 10rem;
+    }
+    body .container .logo-area .logo-2-desktop img{
+        height: 6rem;
+    }
+}
