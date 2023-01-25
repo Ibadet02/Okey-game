@@ -4,7 +4,3 @@ menu_bar.addEventListener('click', ()=>{
     menu_bar.classList.toggle('change')
     mobile_nav.classList.toggle('change')
 })
-
-window.addEventListener('resize', e=>{
-    
-})
