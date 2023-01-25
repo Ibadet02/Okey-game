@@ -179,6 +179,7 @@ main .navbar-section nav .navbar-left__bottom .menu-bar {
   display: none;
   flex-direction: column;
   gap: 5px;
+  cursor: pointer;
 }
 main .navbar-section nav .navbar-left__bottom .menu-bar .bar {
   width: 35px;
