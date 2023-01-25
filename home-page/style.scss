@@ -1,0 +1,927 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap');
+$navbar-height: 10rem;
+$mobile-nav-width: 20rem;
+$navbar-background: #011D0E;
+$button-bg-color_1: #083A1F;
+$button-bg-color_2: #FFCE61;
+$transition: .3s;
+$body-section-right--inner-padding: .5rem;
+@mixin font-noto_sans($font-weight, $font-size, $color){
+    font-weight: $font-weight;
+    font-size: $font-size;
+    color: $color;
+}
+@mixin font-inter($font-weight, $font-size, $color){
+    font-weight: $font-weight;
+    font-size: $font-size;
+    color: $color;
+}
+@mixin main-nav-button{
+    width: 11rem;
+    height: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: .12rem solid $button-bg-color_2;
+    background-color: $button-bg-color_1;
+    cursor: pointer;
+    transition: $transition;
+    @include font-noto_sans(500, 1.1rem, #fff);
+    border-radius: .3rem;
+    &:hover{
+        color: $button-bg-color_1;
+        background-color: $button-bg-color_2;
+    }
+}
+@mixin tool-button{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #010101;
+    border: .1rem solid #333232;
+    cursor: pointer;
+    img{
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+    i{
+        color: #fff;
+        font-size: 1.3rem;
+    }
+}
+@mixin radio-button($size){
+    width: $size;
+    height: $size;
+    background: none;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: $transition;
+    border: none;
+    i{
+        font-size: $size - .8rem;
+        transition: $transition;
+    }
+    &:hover{
+        background-color: #fff;
+        i{
+            color: #000;
+        }
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-image: url(../assets/images/bg\ 1.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    .navbar-section{
+        width: 100%;
+        nav{
+            position: relative;
+            width: 100%;
+            height: $navbar-height;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: $navbar-background;
+            padding: .4rem 2rem;
+            .mobile-nav{
+                // display: none;
+                position: fixed;
+                top: $navbar-height;
+                left: -$mobile-nav-width;
+                background: linear-gradient(153.63deg, rgb(56, 30, 57) -1.05%, #381E39 -1.04%, rgb(60, 13, 54) 97.9%);
+                width: $mobile-nav-width;
+                height: 100%;
+                transition: $transition;
+                padding: 0 1.5rem;
+                &__box{
+                    display: flex;
+                    flex-direction: column;
+                    overflow-y: auto;
+                    button{
+                        display: flex;
+                        align-items: center;
+                        gap: 1.5rem;
+                        background: none;
+                        border: none;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+                        padding: 1rem 0;
+                        cursor: pointer;
+                        @include font-noto_sans(500, 1rem, #fff);
+                        transition: $transition;
+                        i{
+                            font-size: 2rem;
+                            color: #fff;
+                        }
+                        img{
+                            width: 2rem;
+                            height: 2rem;
+                        }
+                        &:hover{
+                            background-color: rgba(56, 30, 57, .9);
+                        }
+                    }
+                }
+            }
+            .navbar-left{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                height: 100%;
+                flex: 1;
+                &__top{
+                    display: flex;
+                    // justify-content: space-between;
+                    justify-content: flex-end;
+                    align-items: center;
+                    width: 100%;
+                    gap: 4rem;
+                    figure{
+                        position: relative;
+                        width: 4.3rem;
+                        height: 4.3rem;
+                        .profile-notifications{
+                            position: absolute;
+                            top: 0.1rem;
+                            right: 0.1rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 1rem;
+                            height: 1rem;
+                            border-radius: 50%;
+                            background-color: red;
+                            @include font-noto_sans(400, 1rem, #fff)
+                        }
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .buy-chip{
+                        display: flex;
+                        align-items: center;
+                        .plus-button{
+                            background-color: #000;
+                            border: none;
+                            width: 2.3rem;
+                            height: 1.7rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            img{
+                                width: 1.1rem;
+                                height: 1.1rem;
+                            }
+                        }
+                        .money-button{
+                            position: relative;
+                            width: 2.3rem;
+                            height: 2.3rem;
+                            border: none;
+                            border-radius: 50%;
+                            transform: translateX(-.3rem);
+                            background-color: $button-bg-color_2;
+                            i{
+                                font-size: 1.3rem;
+                                color: #7ADC8A;
+                            }
+                            .chip-notifications{
+                                position: absolute;
+                                top: 0;
+                                right: 0rem;
+                                @include font-noto_sans(400, .7rem, #fff);
+                                width: .8rem;
+                                height: .8rem;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                background-color: red;
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+                    .available-money{
+                        @include font-noto_sans(400, 1.6rem, #fff);
+                    }
+                    .card-window{
+                        width: 2.5rem;
+                        height: 2.5rem;
+                    }
+                    .card-numbers{
+                        @include font-noto_sans(400, 1.6rem, #fff);
+                    }
+                }
+                &__bottom{
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    width: 100%;
+                    gap: 1rem;
+                    .menu-bar{
+                        display: none;
+                        flex-direction: column;
+                        gap: 5px;
+                        .bar{
+                            width: 35px;
+                            height: 4px;
+                            background-color: $button-bg-color_2;
+                            transition: $transition;
+                        }
+                    }
+                    &--buttons{
+                        display: flex;
+                        gap: 1rem;
+                        button{
+                            @include main-nav-button();
+                            i{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+            .logo{
+                img{
+                    width: 13rem;
+                }
+            }
+            .navbar-right{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                height: 100%;
+                flex: 1;
+                &__top{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 1rem;
+                    .chance-game-box{
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        gap: 1rem;
+                        .give-chance-button{
+                            background-color: #E6B424;
+                            width: 8.3rem;
+                            height: 100%;
+                            border-radius: 3rem;
+                            box-shadow: 4px 4px 2px rgba(124, 92, 0, 0.4), inset -4px -4px 2px rgba(59, 44, 0, 0.4);
+                            cursor: pointer;
+                            padding: .3rem 0;
+                            span{
+                                @include font-noto_sans(400, 1.15rem, #3C2C00);
+                            }
+                            i{
+                                display: none;
+                            }
+                        }
+                        .chance-game{
+                            background-color: rgba(0, 0, 0, 0.74);
+                            border-radius: 3rem;
+                            width: 9rem;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: .2rem .8rem;
+                            border: .1rem solid #2B2D2C;
+                            &__window{
+                                background-color: rgba(47, 47, 47, 0.74);
+                                display: flex;
+                                height: 100%;
+                                align-items: center;
+                                justify-content: center;
+                                width: 100%;
+                                border-radius: 1rem;
+                                .chance-num{
+                                    @include font-noto_sans(400, 1.6rem, #fff);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    height: 100%;
+                                    &-5{
+                                        background-color: #E6B424;
+                                    }
+                                    &-6{
+                                        background-color: #E6B424;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .tool-box{
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        .maximize-button{
+                            @include tool-button();
+                        }
+                        .messages-button{
+                            @include tool-button();
+                        }
+                        .settings-button{
+                            @include tool-button();
+                        }
+                    }
+                }
+                &__bottom{
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    gap: 1rem;
+                    // padding-left: 3rem;
+                    .open-table{
+                        @include main-nav-button();
+                        i{
+                            display: none;
+                        }
+                    }
+                    .play-now{
+                        @include main-nav-button();
+                        i{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .body-section{
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        overflow: hidden;
+        padding-left: 1rem;
+        &__left{
+            gap: 1rem;
+            width: 58rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            // flex: 1;
+            .tables{
+                flex: 1;
+                overflow-y: auto;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+                border-radius: .6rem;
+                .table{
+                    position: relative;
+                    width: 18rem;
+                    height: 10rem;
+                    background: linear-gradient(168.51deg, rgba(41, 110, 55, 0.86) 58.79%, rgba(27, 84, 41, 0) 92.44%);
+                    border: .1rem solid #FFCE61;
+                    box-shadow: 0px 4px 11px 2px rgba(255, 206, 97, 0.35);
+                    border-radius: .6rem;
+                    &-num{
+                        z-index: 1;
+                        position: absolute;
+                        top: .5rem;
+                        left: .5rem;
+                        @include font-noto_sans(700, .8rem, $button-bg-color_2);
+                    }
+                    .info{
+                        z-index: 1;
+                        position: absolute;
+                        top: .5rem;
+                        right: .5rem;
+                        display: flex;
+                        flex-direction: column;
+                        gap: .3rem;
+                        .bet-info, .pot-info{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
+                            .bet, .pot{
+                                @include font-noto_sans(600, .6rem, #fff);
+                            }
+                            .bet-amount, .pot-amount{
+                                @include font-noto_sans(600, .7rem, #fff);
+                            }
+                        }
+                    }
+                    .one-on-one-button{
+                        z-index: 1;
+                        position: absolute;
+                        bottom: .5rem;
+                        right: .5rem;
+                        display: flex;
+                        align-items: center;
+                        gap: .2rem;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        @include font-noto_sans(700, .6rem, $button-bg-color_2);
+                        img{
+                            height: 1.1rem;
+                        }
+                        div{
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                    .gamer{
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        figcaption{
+                            @include font-noto_sans(400, .8rem, #fff);
+                        }
+                        img{
+                            width: 3rem;
+                            height: 3rem;
+                        }
+                        &.gamer-1, &.gamer-3{
+                            width: 100%;
+                            left: 0;
+                        }
+                        &.gamer-1{
+                            top: .5rem;
+                        }
+                        &.gamer-3{
+                            bottom: .5rem;
+                        }
+                        &.gamer-2{
+                            left: 2.5rem;
+                            height: 100%;
+                            top: 0;
+                        }
+                    }
+                    .sit{
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100%;
+                        right: 2rem;
+                        top: 0;
+                        &__button{
+                            width: 3.7rem;
+                            height: 1.5rem;
+                            margin-bottom: 1rem;
+                            @include font-noto_sans(700, .9rem, #B40000);
+                            background-color: #FFCE61;
+                            border: none;
+                            cursor: pointer;
+                            border-radius: 1rem;
+                        }
+                    }
+                }
+            }
+            .chatting{
+                height: 10rem;
+                display: flex;
+                flex-direction: column;
+                .tab-box{
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    .tab{
+                        display: flex;
+                        .masa-chat-button, .lobi-chat-button{
+                            @include font-noto_sans(600, 1rem, #000);
+                            border: none;
+                            padding: .3rem 1rem;
+                            background-color: #D7970A;
+                            border-radius: .5rem .5rem 0 0;
+                            cursor: pointer;
+                            &.active{
+                                background-color: $button-bg-color_2;
+                            }
+                        }
+                    }
+                    .tabcontent{
+                        display: none;
+                        padding: .5rem;
+                        background-color: #011D0E;
+                        border-radius: .4rem .4rem .4rem 0;
+                        &.active{
+                            display: flex;
+                            flex-direction: column;
+                            gap: .2rem;
+                            flex: 1;
+                        }
+                        .message{
+                            display: flex;
+                            align-items: center;
+                            gap: .5rem;
+                            .name{
+                                display: flex;
+                                align-items: center;
+                                gap: .4rem;
+                                img{
+                                    width: 1.5rem;
+                                    height: 1.5rem;
+                                    margin-top: .2rem;
+                                }
+                                span{
+                                    @include font-noto_sans(400, 1rem, $button-bg-color_2);
+                                }
+                            }
+                            .word{
+                                @include font-noto_sans(200, .8re, #fff);
+                            }
+                        }
+                    }
+                }
+                .message-box{
+                    position: relative;
+                    height: 2rem;
+                    input{
+                        width: 100%;
+                        height: 100%;
+                        padding-left: 2.2rem;
+                        outline: none;
+                        border: none;
+                    }
+                    .emojis-box{
+                        height: 100%;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        .emoji-button{
+                            height: 100%;
+                            width: 2rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border: none;
+                            background: none;
+                            cursor: pointer;
+                            background-color: #D9D9D9;
+                            img{
+                                width: 1rem;
+                                height: 1rem;
+                            }
+                        }
+                    }
+                    .send{
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        &-button{
+                            @include main-nav-button();
+                            height: 100%;
+                            width: 6rem;
+                        }
+                    }
+                }
+            }
+        }
+        &__right{
+            width: 18rem;
+            display: flex;
+            flex-direction: column;
+            .radio{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: $button-bg-color_2;
+                padding: .1rem $body-section-right--inner-padding;
+                &__buttons{
+                    display: flex;
+                    gap: .7rem;
+                    &__play{
+                        .play-button{
+                            @include radio-button(2rem);
+                        }
+                    }
+                    &__prev-next{
+                        display: flex;
+                        align-items: center;
+                        gap: .3rem;
+                        .prev-button{
+                            @include radio-button(1.5rem);
+                        }
+                        .next-button{
+                            @include radio-button(1.5rem);
+                        }
+                    }
+                }
+                &__channel-name{
+                    @include font-inter(400, .8rem, #fff);
+                    width: 9rem;
+                    height: 2rem;
+                    border-radius: .5rem;
+                    background-color: #4D3900;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
+                }
+            }
+            .friend-list{
+                display: flex;
+                flex: 1;
+                .people{
+                    flex: 1;
+                    // height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    &__category{
+                        padding: .1rem $body-section-right--inner-padding;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .your-friends, .last-played{
+                            flex-basis: 50%;
+                            background: none;
+                            border: none;
+                            cursor: pointer;
+                            @include font-inter(400, .9rem, #5C5C5C);
+                            text-align: left;
+                            &.active{
+                                color: #fff;
+                            }
+                        }
+                    }
+                    &__list{
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        &--header{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            gap: .2rem;
+                            .player{
+                                flex-basis: 52%;
+                                background-color: #1D4634;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                @include font-inter(400, 1rem, #fff);
+                                border-radius: .4rem;
+                                height: 2rem;
+                            }
+                            .table{
+                                flex: 1;
+                                background-color: #1D4634;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                @include font-inter(400, 1rem, #fff);
+                                border-radius: .4rem;
+                                height: 2rem;
+                            }
+                        }
+                        &--info{
+                            overflow: auto;
+                            display: flex;
+                            flex-direction: column;
+                            .person{
+                                display: flex;
+                                align-items: center;
+                                padding: .2rem $body-section-right--inner-padding;
+                                border-radius: .3rem;
+                                background-color: #052B16;
+                                border: 0.4px solid rgba(255, 255, 255, 0.52);
+                                &__info{
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 1rem;
+                                    flex-basis: 52%;
+                                    &--img{
+                                        display: flex;
+                                        align-items: center;
+                                        padding-top: .25rem;
+                                        img{
+                                            width: 2rem;
+                                            height: 2rem;
+                                            display: block;
+                                        }
+                                    }
+                                    &--text{
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: space-between;
+                                        &-name{
+                                            @include font-inter(500, 1rem, #fff);
+                                        }
+                                        &-money{
+                                            @include font-inter(500, .7rem, $button-bg-color_2);
+                                        }
+                                    }
+                                }
+                                &__table{
+                                    flex: 1;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    @include font-inter(500, 1rem, #fff);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }  
+}
+@media only screen and (max-height: 635px){
+    main .body-section__right .friend-list .people__list--info{
+        max-height: 15rem;
+    }
+}
+@media only screen and (max-height: 525px){
+    main .body-section__right .friend-list .people__list--info{
+        max-height: 13rem;
+    }
+}
+@media only screen and (max-height: 495px){
+    main .body-section__right .friend-list .people__list--info{
+        max-height: 10rem;
+    }
+}
+@media only screen and (max-width: 1335px){
+    main .navbar-section nav .navbar-left__top{
+        justify-content: space-between;
+        gap: initial;
+    }
+}
+@media only screen and (max-width: 1130px){
+    :root{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 1060px){
+    :root{
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 990px){
+    :root{
+        font-size: 13px;
+    }
+    main .navbar-section nav .mobile-nav{
+        z-index: 2;
+        &.change{
+            left: 0;
+        }
+    }
+    main .navbar-section nav .navbar-left__bottom .menu-bar{
+        &.change .bar-1 {
+            transform: translate(0, 11px) rotate(-45deg);
+        }
+        &.change .bar-2 {
+            opacity: 0;
+        }
+        &.change .bar-3 {
+            transform: translate(0, -8px) rotate(47deg);
+        }
+    }
+    main .navbar-section nav .navbar-left__top figure{
+        display: none;
+    }
+    main .navbar-section nav .navbar-left__top .buy-chip{
+        display: none;
+    }
+    main .navbar-section nav .navbar-left__top .card-window{
+        display: none;
+    }
+    main .navbar-section nav .navbar-left__top .card-numbers{
+        display: none;
+    }
+    main .navbar-section nav .navbar-left__top{
+        justify-content: center;
+    }
+    main .navbar-section nav .navbar-left__bottom{
+        justify-content: space-between;
+        .menu-bar{
+            display: flex;
+        }
+    }
+    main .navbar-section nav .navbar-right__top .tool-box .settings-button{
+        display: none;
+    }
+}
+@media only screen and (max-width: 915px){
+    :root{
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 845px){
+    main .navbar-section nav .navbar-right__top .chance-game-box .give-chance-button{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        padding: 0;
+        span{
+            display: none;
+        }
+        i{
+            display: inline;
+        }
+    }
+}
+@media only screen and (max-width: 805px){
+    main .navbar-section nav .navbar-left__bottom--buttons button{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        span{
+            display: none;
+        }
+        i{
+            display: inline;
+        }
+    }
+    main .navbar-section nav .navbar-right__bottom{
+        button{
+            &.open-table, &.play-now{
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+            }
+            span{
+                display: none;
+            }
+        }
+    }
+    main .navbar-section nav .navbar-right__bottom .open-table i{
+        display: inline;
+        font-size: 2rem;
+    }
+    main .navbar-section nav .navbar-right__bottom .play-now i{
+        display: inline;
+        font-size: 1.8rem;
+    }
+}
+@media only screen and (max-width: 720px){
+    :root{
+        font-size: 11px;
+    }
+}
+@media only screen and (max-width: 650px){
+    :root{
+        font-size: 10px;
+    }
+    main .navbar-section nav .navbar-left__bottom .menu-bar{
+        .bar{
+            width: 30px;
+            height: 3px;
+        }
+        &.change .bar-1 {
+            transform: translate(0, 9px) rotate(-45deg);
+        }
+        &.change .bar-2 {
+            opacity: 0;
+        }
+        &.change .bar-3 {
+            transform: translate(0, -8px) rotate(47deg);
+        }
+    }
+}
+@media only screen and (max-width: 585px){
+    :root{
+        font-size: 9px;
+    }
+}
+@media only screen and (max-width: 530px){
+    :root{
+        font-size: 8px;
+    }
+}
+@media only screen and (max-width: 470px){
+    :root{
+        font-size: 7px;
+    }
+}
+@media only screen and (max-width: 415px){
+    :root{
+        font-size: 6px;
+    }
+}
+@media only screen and (max-width: 355px){
+    :root{
+        font-size: 5px;
+    }
+}
