@@ -124,10 +124,12 @@ $open-sidebar-width: 20rem;
         width: .8rem;
         background-color: rgb(1, 52, 1);
         border-radius: 1rem;
+        margin-left: 1rem;
     }
     &::-webkit-scrollbar-thumb{
         background-color: #E6B424;
         border-radius: 1rem;
+        margin-left: 1rem;
     }
 }
 @mixin tables-navbar_plus-button{
@@ -137,9 +139,10 @@ $open-sidebar-width: 20rem;
     align-items: center;
     border: none;
     cursor: pointer;
-    background: linear-gradient(rgb(225,217,193), rgb(231,153,53));
-    padding: 0 .1rem;
-    border-radius: .1rem;
+    background: linear-gradient(180deg, #FFCE61 0%, #B98000 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: .3rem .4rem;
+    border-radius: .4rem;
     i{
         font-size: 1.2rem;
         color: rgb(118,69,0);
@@ -164,7 +167,9 @@ main{
     .navbar-section{
         width: 100%;
         nav{
-            background: linear-gradient(180deg, #38173C 0%, #48064F 100%);
+            // background: linear-gradient(180deg, #38173C 0%, #48064F 100%);
+            background-color: #011D0E;
+            // background-color: #540286;
             position: relative;
             width: 100%;
             height: $navbar-height;
@@ -175,7 +180,7 @@ main{
             padding: 0 .2rem;
             // padding: .4rem .5rem;
             // background: $navbar-background;
-            border: .01rem solid rgba(255, 255, 255, 0.3);
+            // border: .01rem solid rgba(255, 255, 255, 0.3);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
             .mobile-nav{
                 // display: none;
@@ -256,94 +261,113 @@ main{
                         }
                     }
                 }
-                figure{
-                    position: relative;
-                    width: 4.3rem;
-                    height: 4.3rem;
-                    .profile-notifications{
-                        position: absolute;
-                        top: 0.1rem;
-                        right: 0.1rem;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        width: 1rem;
-                        height: 1rem;
-                        border-radius: 50%;
-                        background-color: red;
-                        @include font-noto_sans(400, 1rem, #fff)
-                    }
-                    img{
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-                .my-money{
+                &__profile-section{
                     display: flex;
-                    align-items: center;
-                    gap: .3rem;
-                    .buy-chip{
+                    flex-direction: column;
+                    align-items: flex-start;
+                    &--top{
                         display: flex;
                         align-items: center;
-                        .plus-button{
-                            cursor: pointer;
-                            background-color: #000;
-                            border: none;
-                            width: 2.3rem;
-                            height: 1.7rem;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            img{
-                                width: 1.1rem;
-                                height: 1.1rem;
-                            }
-                        }
-                        .money-button{
-                            cursor: pointer;
+                        gap: 1rem;
+                        figure{
                             position: relative;
-                            width: 2.3rem;
-                            height: 2.3rem;
-                            border: none;
-                            border-radius: 50%;
-                            transform: translateX(-.3rem);
-                            background-color: $button-bg-color_2;
-                            i{
-                                font-size: 1.3rem;
-                                color: #7ADC8A;
-                            }
-                            .chip-notifications{
+                            width: 3rem;
+                            height: 3rem;
+                            .profile-notifications{
                                 position: absolute;
-                                top: 0;
-                                right: 0rem;
-                                @include font-noto_sans(400, .7rem, #fff);
-                                width: .8rem;
-                                height: .8rem;
+                                top: 0.1rem;
+                                right: 0.1rem;
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
-                                background-color: red;
+                                width: .7rem;
+                                height: .7rem;
                                 border-radius: 50%;
+                                background-color: red;
+                                @include font-noto_sans(400, .6rem, #fff)
+                            }
+                            img{
+                                width: 100%;
+                                height: 100%;
                             }
                         }
-                    }
-                    .available-money{
-                        @include font-noto_sans(400, 1.6rem, #fff);
-                    }
-                }
-                .cards{
-                    display: flex;
-                    align-items: center;
-                    gap: .3rem;
-                    margin-right: 1rem;
-                    .card-window{
-                        width: 2.5rem;
-                        height: 2.5rem;
-                    }
-                    .card-numbers{
-                        @include font-noto_sans(400, 1.6rem, #fff);
+                        .buy-chip-button{
+                            @include tables-navbar_plus-button();
+                        }
+                        #golden-coin{
+
+                        }
+                        .money-amount{
+                            @include font-noto_sans(500, 1.7rem, #FFCE61);
+                        }
                     }
                 }
+                // .my-money{
+                //     display: flex;
+                //     align-items: center;
+                //     gap: .3rem;
+                //     .buy-chip{
+                //         display: flex;
+                //         align-items: center;
+                //         .plus-button{
+                //             cursor: pointer;
+                //             background-color: #000;
+                //             border: none;
+                //             width: 2.3rem;
+                //             height: 1.7rem;
+                //             display: flex;
+                //             align-items: center;
+                //             justify-content: center;
+                //             img{
+                //                 width: 1.1rem;
+                //                 height: 1.1rem;
+                //             }
+                //         }
+                //         .money-button{
+                //             cursor: pointer;
+                //             position: relative;
+                //             width: 2.3rem;
+                //             height: 2.3rem;
+                //             border: none;
+                //             border-radius: 50%;
+                //             transform: translateX(-.3rem);
+                //             background-color: $button-bg-color_2;
+                //             i{
+                //                 font-size: 1.3rem;
+                //                 color: #7ADC8A;
+                //             }
+                //             .chip-notifications{
+                //                 position: absolute;
+                //                 top: 0;
+                //                 right: 0rem;
+                //                 @include font-noto_sans(400, .7rem, #fff);
+                //                 width: .8rem;
+                //                 height: .8rem;
+                //                 display: flex;
+                //                 align-items: center;
+                //                 justify-content: center;
+                //                 background-color: red;
+                //                 border-radius: 50%;
+                //             }
+                //         }
+                //     }
+                //     .available-money{
+                //         @include font-noto_sans(400, 1.6rem, #fff);
+                //     }
+                // }
+                // .cards{
+                //     display: flex;
+                //     align-items: center;
+                //     gap: .3rem;
+                //     margin-right: 1rem;
+                //     .card-window{
+                //         width: 2.5rem;
+                //         height: 2.5rem;
+                //     }
+                //     .card-numbers{
+                //         @include font-noto_sans(400, 1.6rem, #fff);
+                //     }
+                // }
                 // &__buttons{
                 //     display: flex;
                 //     align-items: center;
@@ -519,46 +543,104 @@ main{
             left: 0;
             overflow-y: auto;
             overflow-x: hidden;
-            background-color: rgb(37,4,49);
+            background: linear-gradient(153.63deg, #013A17 11.99%, rgba(0, 117, 40, 1) 97.9%);
             width: $navbar-height;
-            padding: .5rem 0;
             transition: $transition;
             // position: relative;
-            .exit-sidebar-button{
+            // .exit-sidebar-button{
+            //     display: none;
+            //     align-items: center;
+            //     justify-content: center;
+            //     background: none;
+            //     // background-color: red;
+            //     color: #fff;
+            //     width: 3rem;
+            //     height: 3rem;
+            //     position: absolute;
+            //     top: 0;
+            //     right: 0;
+            //     border: none;
+            //     cursor: pointer;
+            //     i{
+            //         font-size: 1.5rem;
+            //     }
+            // }
+            .sidebar-top{
+                background-color: #013917;
                 display: none;
-                align-items: center;
-                justify-content: center;
-                background: none;
-                // background-color: red;
-                color: #fff;
-                width: 3rem;
-                height: 3rem;
-                position: absolute;
-                top: 0;
-                right: 0;
-                border: none;
-                cursor: pointer;
-                i{
-                    font-size: 1.5rem;
-                }
+                border: 0.063rem solid #16813B;
             }
             .button-content-wrapper{
                 width: 100%;
-                flex: 1
+                height: 4.5rem;
+            }
+            .button-content-wrapper:not(:first-child){
+                border-bottom: 0.063rem solid rgba(255, 255, 255, 0.65);
+            }
+            .full-space{
+                display: none;
+            }
+            .button-content-wrapper:last-child{
+                margin-top: auto;
+                // flex: 1
             }
             .sidebar-desktop--button{
                 @include sidebar-button();
             }
             &.open{
-                .exit-sidebar-button{
-                    display: flex;
-                }
+                // .exit-sidebar-button{
+                //     display: flex;
+                // }
                 width: $open-sidebar-width;
+                .sidebar-top{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0 1.5rem;
+                    .sidebar-name{
+                        @include font-noto_sans(500, 1.7rem, #FFCE61);
+                    }
+                    .sidebar-exit-button{
+                        border: none;
+                        background: none;
+                        color: #FFCE61;
+                        cursor: pointer;
+                        width: 2rem;
+                        height: 2rem;
+                        font-size: 1.2rem;
+                    }
+                }
                 button{
                     span{
                         display: flex;
                         white-space: nowrap;
                         color: #fff;
+                    }
+                }
+                .full-space{
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    button{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: .4rem;
+                        background-color: rgba(8, 72, 175, 0.8);
+                        box-shadow: inset -4px -4px 2px rgba(59, 44, 0, 0.4);
+                        border: none;
+                        width: 9rem;
+                        height: 3rem;
+                        border-radius: 3rem;
+                        cursor: pointer;
+                        i{
+                            color: #fff;
+                            font-size: 1.3rem;
+                        }
+                        span{
+                            @include font-noto_sans(300, 1.1rem, #fff);
+                        }
                     }
                 }
             }
@@ -569,6 +651,7 @@ main{
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
             // flex-grow: 1;
             flex-basis: 75%;
             margin-left: $navbar-height + .4rem;
@@ -584,9 +667,13 @@ main{
                     left: 0;
                     width: 100%;
                     height: $tables-nav-height;
-                    display: none;
+                    display: flex;
                     flex-direction: column;
+                    box-shadow: -3px 34px 32px -24px rgba(0,0,0,0.82);
+                    -webkit-box-shadow: -3px 34px 32px -24px rgba(0,0,0,0.82);
+                    -moz-box-shadow: -3px 34px 32px -24px rgba(0,0,0,0.82);
                     &__top{
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
                         display: flex;
                         justify-content: flex-end;
                         padding: .3rem 0;
@@ -606,7 +693,7 @@ main{
                         display: flex;
                         align-items: center;
                         &--tools{
-                            border: .2rem solid #000;
+                            // border: .2rem solid #000;
                             display: flex;
                             // align-items: center;
                             flex: 1;
@@ -649,9 +736,11 @@ main{
                                 }
                                 .play-now-button{
                                     @include tables-navbar_plus-button();
+                                    display: none;
                                 }
                                 .open-table-button{
                                     @include tables-navbar_plus-button();
+                                    display: none;
                                 }
                             }
                         }
@@ -664,13 +753,16 @@ main{
                 .tables{
                     flex: 1;
                     display: grid;
-                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-columns: repeat(3, 20rem);
                     grid-auto-rows: 12rem;
                     overflow-y: auto;
+                    justify-content: center;
                     gap: .5rem;
                     border-radius: .6rem;
-                    margin: .5rem .2rem .2rem .2rem;
+                    margin: $tables-nav-height + .5rem .2rem .2rem .2rem;
+                    padding: 1rem;
                     @include scrollbar();
+                    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
                     .table{
                         position: relative;
                         // background: linear-gradient(168.51deg, rgba(41, 110, 55, 0.86) 58.79%, rgba(27, 84, 41, 0) 92.44%);
@@ -775,14 +867,16 @@ main{
                             // top: 0;
                             &__button{
                                 width: 3.7rem;
-                                height: 1.5rem;
+                                height: 3rem;
                                 margin-bottom: 1rem;
-                                @include font-noto_sans(700, .9rem, #333333);
+                                @include font-noto_sans(700, 1rem, rgb(145,96,1));
+                                letter-spacing: 0;
                                 border: none;
                                 cursor: pointer;
                                 background: linear-gradient(180deg, #FFCE61 0%, #B98000 100%);
                                 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                                 border-radius: .3rem;
+                                text-transform: uppercase;
                             }
                         }
                     }
@@ -791,6 +885,7 @@ main{
             .chatting{
                 height: 10rem;
                 display: flex;
+                width: 62rem;
                 flex-direction: column;
                 .tab-box{
                     display: flex;

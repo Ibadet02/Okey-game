@@ -45,11 +45,29 @@
                             <div class="bar bar-3"></div>
                         </div>
                     </div>
-                    <figure>
-                        <span class="profile-notifications">3</span>
-                        <img src="../assets/images/profile.svg" alt="Profile picture">
-                    </figure>
-                    <div class="my-money">
+                    <div class="navbar-left__profile-section">
+                        <div class="navbar-left__profile-section--top">
+                            <figure>
+                                <span class="profile-notifications">3</span>
+                                <img src="../assets/images/profile.svg" alt="Profile picture">
+                            </figure>
+                            <button class="buy-chip-button">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            <img src="../assets/icons/golden-coin.png" alt="altin para" id="golden-coin">
+                            <span class="money-amount">900 $</span>
+                        </div>
+                        <div class="navbar-left__profile-section--bottom">
+                            <span class="experience-bar">
+                                <span class="experience-level"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="coins">
+                        <img src="../assets/icons/king-coins.png" alt="koinler">
+                        <span>90 $</span>
+                    </div>
+                    <!-- <div class="my-money">
                         <div class="buy-chip">
                             <button class="plus-button">
                                 <img src="../assets/icons/plus.svg" alt="plus icon">
@@ -62,15 +80,15 @@
                         <span class="available-money">
                             373.620$
                         </span>
-                    </div>
-                    <div class="cards">
+                    </div> -->
+                    <!-- <div class="cards">
                         <button class="card-window">
 
                         </button>
                         <span class="card-numbers">
                             150
                         </span>
-                    </div>
+                    </div> -->
                     <!-- <div class="navbar-left__buttons">
                         <button id="halls">
                             <span>Salonlar</span>
@@ -126,39 +144,54 @@
         </section>
         <section class="body-section">
             <div class="sidebar-desktop">
-                <button class="exit-sidebar-button">
+                <!-- <button class="exit-sidebar-button">
                     <i class="fa-solid fa-x"></i>
-                </button>
-                <div class="button-content-wrapper">
-                    <button class="sidebar-desktop--button gallery-button">
-                        <div>
-                            <i class="fa-solid fa-image"></i>
-                        </div>
-                        <span>Galeri</span>
+                </button> -->
+
+                <div class="button-content-wrapper sidebar-top">
+                    <span class="sidebar-name">Menü</span>
+                    <button class="sidebar-exit-button">
+                        <i class="fa-solid fa-x"></i>
                     </button>
                 </div>
                 <div class="button-content-wrapper">
-                    <button class="sidebar-desktop--button play-button">
+                    <button class="sidebar-desktop--button friends-button">
                         <div>
-                            <i class="fa-solid fa-gamepad"></i>
+                            <i class="fa-solid fa-user-group"></i>
                         </div>
-                        <span>Hemen oyna</span>
+                        <span>Arkadaşlar</span>
                     </button>
                 </div>
                 <div class="button-content-wrapper">
-                    <button class="sidebar-desktop--button calendar-button">
+                    <button class="sidebar-desktop--button music-button">
                         <div>
-                            <i class="fa-regular fa-calendar-days"></i>
+                            <i class="fa-solid fa-headphones"></i>
                         </div>
-                        <span>Tarih</span>
+                        <span>Müzik</span>
                     </button>
                 </div>
                 <div class="button-content-wrapper">
-                    <button class="sidebar-desktop--button news-button">
+                    <button class="sidebar-desktop--button the_best-button">
                         <div>
-                            <i class="fa-solid fa-bullhorn"></i>
+                            <i class="fa-solid fa-users-between-lines"></i>
                         </div>
-                        <span>Haberler</span>
+                        <span>En iyiler</span>
+                    </button>
+                </div>
+                <div class="button-content-wrapper">
+                    <button class="sidebar-desktop--button language-button">
+                        <div>
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <span>Dil ayarları</span>
+                    </button>
+                </div>
+                <div class="button-content-wrapper">
+                    <button class="sidebar-desktop--button contact-button">
+                        <div>
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <span>İletişim</span>
                     </button>
                 </div>
                 <div class="button-content-wrapper">
@@ -169,44 +202,18 @@
                         <span>Ayarlar</span>
                     </button>
                 </div>
-                <div class="button-content-wrapper">
-                    <button class="sidebar-desktop--button info-button">
-                        <div>
-                            <i class="fa-solid fa-info"></i>
-                        </div>
-                        <span>Oyun Hakkında</span>
+                <div class="full-space">
+                    <button>
+                        <i class="fa-brands fa-facebook"></i>
+                        <span>Bağlan</span>
                     </button>
                 </div>
                 <div class="button-content-wrapper">
-                    <button class="sidebar-desktop--button questions-button">
+                    <button class="sidebar-desktop--button trash-button">
                         <div>
-                            <i class="fa-solid fa-question"></i>
+                            <i class="fa-solid fa-trash-can"></i>
                         </div>
-                        <span>Sorular</span>
-                    </button>
-                </div>
-                <div class="button-content-wrapper">
-                    <button class="sidebar-desktop--button star-button">
-                        <div>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <span>En İyiler</span>
-                    </button>
-                </div>
-                <div class="button-content-wrapper">
-                    <button class="sidebar-desktop--button article-button">
-                        <div>
-                            <i class="fa-solid fa-newspaper"></i>
-                        </div>
-                        <span>Makaleler</span>
-                    </button>
-                </div>
-                <div class="button-content-wrapper">
-                    <button class="sidebar-desktop--button profile-button">
-                        <div>
-                            <i class="fa-regular fa-address-card"></i>
-                        </div>
-                        <span>Profil</span>
+                        <span>Hesabımı sil</span>
                     </button>
                 </div>
             </div>

@@ -20,7 +20,7 @@ main .navbar-section {
   width: 100%;
 }
 main .navbar-section nav {
-  background: linear-gradient(180deg, #38173C 0%, #48064F 100%);
+  background-color: #011D0E;
   position: relative;
   width: 100%;
   height: 6rem;
@@ -28,7 +28,6 @@ main .navbar-section nav {
   justify-content: center;
   align-items: center;
   padding: 0 0.2rem;
-  border: 0.01rem solid rgba(255, 255, 255, 0.3);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 main .navbar-section nav .mobile-nav {
@@ -97,101 +96,60 @@ main .navbar-section nav .navbar-left .menu-bar-box .menu-bar .bar {
   background-color: #fff;
   transition: 0.3s;
 }
-main .navbar-section nav .navbar-left figure {
-  position: relative;
-  width: 4.3rem;
-  height: 4.3rem;
+main .navbar-section nav .navbar-left__profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-main .navbar-section nav .navbar-left figure .profile-notifications {
+main .navbar-section nav .navbar-left__profile-section--top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+main .navbar-section nav .navbar-left__profile-section--top figure {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+}
+main .navbar-section nav .navbar-left__profile-section--top figure .profile-notifications {
   position: absolute;
   top: 0.1rem;
   right: 0.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1rem;
-  height: 1rem;
+  width: 0.7rem;
+  height: 0.7rem;
   border-radius: 50%;
   background-color: red;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.6rem;
   color: #fff;
 }
-main .navbar-section nav .navbar-left figure img {
+main .navbar-section nav .navbar-left__profile-section--top figure img {
   width: 100%;
   height: 100%;
 }
-main .navbar-section nav .navbar-left .my-money {
+main .navbar-section nav .navbar-left__profile-section--top .buy-chip-button {
+  height: 100%;
+  background: none;
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-}
-main .navbar-section nav .navbar-left .my-money .buy-chip {
-  display: flex;
-  align-items: center;
-}
-main .navbar-section nav .navbar-left .my-money .buy-chip .plus-button {
-  cursor: pointer;
-  background-color: #000;
   border: none;
-  width: 2.3rem;
-  height: 1.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-main .navbar-section nav .navbar-left .my-money .buy-chip .plus-button img {
-  width: 1.1rem;
-  height: 1.1rem;
-}
-main .navbar-section nav .navbar-left .my-money .buy-chip .money-button {
   cursor: pointer;
-  position: relative;
-  width: 2.3rem;
-  height: 2.3rem;
-  border: none;
-  border-radius: 50%;
-  transform: translateX(-0.3rem);
-  background-color: #FFCE61;
+  background: linear-gradient(180deg, #FFCE61 0%, #B98000 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.4rem;
 }
-main .navbar-section nav .navbar-left .my-money .buy-chip .money-button i {
-  font-size: 1.3rem;
-  color: #7ADC8A;
+main .navbar-section nav .navbar-left__profile-section--top .buy-chip-button i {
+  font-size: 1.2rem;
+  color: rgb(118, 69, 0);
 }
-main .navbar-section nav .navbar-left .my-money .buy-chip .money-button .chip-notifications {
-  position: absolute;
-  top: 0;
-  right: 0rem;
-  font-weight: 400;
-  font-size: 0.7rem;
-  color: #fff;
-  width: 0.8rem;
-  height: 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: red;
-  border-radius: 50%;
-}
-main .navbar-section nav .navbar-left .my-money .available-money {
-  font-weight: 400;
-  font-size: 1.6rem;
-  color: #fff;
-}
-main .navbar-section nav .navbar-left .cards {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  margin-right: 1rem;
-}
-main .navbar-section nav .navbar-left .cards .card-window {
-  width: 2.5rem;
-  height: 2.5rem;
-}
-main .navbar-section nav .navbar-left .cards .card-numbers {
-  font-weight: 400;
-  font-size: 1.6rem;
-  color: #fff;
+main .navbar-section nav .navbar-left__profile-section--top .money-amount {
+  font-weight: 500;
+  font-size: 1.7rem;
+  color: #FFCE61;
 }
 main .navbar-section nav .logo {
   padding: 0 0.5rem;
@@ -333,31 +291,27 @@ main .body-section .sidebar-desktop {
   left: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: rgb(37, 4, 49);
+  background: linear-gradient(153.63deg, #013A17 11.99%, rgb(0, 117, 40) 97.9%);
   width: 6rem;
-  padding: 0.5rem 0;
   transition: 0.3s;
 }
-main .body-section .sidebar-desktop .exit-sidebar-button {
+main .body-section .sidebar-desktop .sidebar-top {
+  background-color: #013917;
   display: none;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  color: #fff;
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-  border: none;
-  cursor: pointer;
-}
-main .body-section .sidebar-desktop .exit-sidebar-button i {
-  font-size: 1.5rem;
+  border: 0.063rem solid #16813B;
 }
 main .body-section .sidebar-desktop .button-content-wrapper {
   width: 100%;
-  flex: 1;
+  height: 4.5rem;
+}
+main .body-section .sidebar-desktop .button-content-wrapper:not(:first-child) {
+  border-bottom: 0.063rem solid rgba(255, 255, 255, 0.65);
+}
+main .body-section .sidebar-desktop .full-space {
+  display: none;
+}
+main .body-section .sidebar-desktop .button-content-wrapper:last-child {
+  margin-top: auto;
 }
 main .body-section .sidebar-desktop .sidebar-desktop--button {
   display: flex;
@@ -404,12 +358,57 @@ main .body-section .sidebar-desktop .sidebar-desktop--button:hover span {
 main .body-section .sidebar-desktop.open {
   width: 20rem;
 }
-main .body-section .sidebar-desktop.open .exit-sidebar-button {
+main .body-section .sidebar-desktop.open .sidebar-top {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+main .body-section .sidebar-desktop.open .sidebar-top .sidebar-name {
+  font-weight: 500;
+  font-size: 1.7rem;
+  color: #FFCE61;
+}
+main .body-section .sidebar-desktop.open .sidebar-top .sidebar-exit-button {
+  border: none;
+  background: none;
+  color: #FFCE61;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.2rem;
 }
 main .body-section .sidebar-desktop.open button span {
   display: flex;
   white-space: nowrap;
+  color: #fff;
+}
+main .body-section .sidebar-desktop.open .full-space {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .body-section .sidebar-desktop.open .full-space button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background-color: rgba(8, 72, 175, 0.8);
+  box-shadow: inset -4px -4px 2px rgba(59, 44, 0, 0.4);
+  border: none;
+  width: 9rem;
+  height: 3rem;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+main .body-section .sidebar-desktop.open .full-space button i {
+  color: #fff;
+  font-size: 1.3rem;
+}
+main .body-section .sidebar-desktop.open .full-space button span {
+  font-weight: 300;
+  font-size: 1.1rem;
   color: #fff;
 }
 main .body-section__left {
@@ -417,6 +416,7 @@ main .body-section__left {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   flex-basis: 75%;
   margin-left: 6.4rem;
   transition: 0.3s;
@@ -433,10 +433,14 @@ main .body-section__left .tables-container .tables-nav {
   left: 0;
   width: 100%;
   height: 5rem;
-  display: none;
+  display: flex;
   flex-direction: column;
+  box-shadow: -3px 34px 32px -24px rgba(0, 0, 0, 0.82);
+  -webkit-box-shadow: -3px 34px 32px -24px rgba(0, 0, 0, 0.82);
+  -moz-box-shadow: -3px 34px 32px -24px rgba(0, 0, 0, 0.82);
 }
 main .body-section__left .tables-container .tables-nav__top {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   display: flex;
   justify-content: flex-end;
   padding: 0.3rem 0;
@@ -461,7 +465,6 @@ main .body-section__left .tables-container .tables-nav__bottom {
   align-items: center;
 }
 main .body-section__left .tables-container .tables-nav__bottom--tools {
-  border: 0.2rem solid #000;
   display: flex;
   flex: 1;
   height: 2.4rem;
@@ -512,9 +515,11 @@ main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav
   align-items: center;
   border: none;
   cursor: pointer;
-  background: linear-gradient(rgb(225, 217, 193), rgb(231, 153, 53));
-  padding: 0 0.1rem;
-  border-radius: 0.1rem;
+  background: linear-gradient(180deg, #FFCE61 0%, #B98000 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.4rem;
+  display: none;
 }
 main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .play-now-button i {
   font-size: 1.2rem;
@@ -527,9 +532,11 @@ main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav
   align-items: center;
   border: none;
   cursor: pointer;
-  background: linear-gradient(rgb(225, 217, 193), rgb(231, 153, 53));
-  padding: 0 0.1rem;
-  border-radius: 0.1rem;
+  background: linear-gradient(180deg, #FFCE61 0%, #B98000 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.4rem;
+  display: none;
 }
 main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .open-table-button i {
   font-size: 1.2rem;
@@ -542,21 +549,26 @@ main .body-section__left .tables-container .tables-nav__bottom--space {
 main .body-section__left .tables-container .tables {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 20rem);
   grid-auto-rows: 12rem;
   overflow-y: auto;
+  justify-content: center;
   gap: 0.5rem;
   border-radius: 0.6rem;
-  margin: 0.5rem 0.2rem 0.2rem 0.2rem;
+  margin: 5.5rem 0.2rem 0.2rem 0.2rem;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 main .body-section__left .tables-container .tables::-webkit-scrollbar {
   width: 0.8rem;
   background-color: rgb(1, 52, 1);
   border-radius: 1rem;
+  margin-left: 1rem;
 }
 main .body-section__left .tables-container .tables::-webkit-scrollbar-thumb {
   background-color: #E6B424;
   border-radius: 1rem;
+  margin-left: 1rem;
 }
 main .body-section__left .tables-container .tables .table {
   position: relative;
@@ -652,20 +664,23 @@ main .body-section__left .tables-container .tables .table .sit {
 }
 main .body-section__left .tables-container .tables .table .sit__button {
   width: 3.7rem;
-  height: 1.5rem;
+  height: 3rem;
   margin-bottom: 1rem;
   font-weight: 700;
-  font-size: 0.9rem;
-  color: #333333;
+  font-size: 1rem;
+  color: rgb(145, 96, 1);
+  letter-spacing: 0;
   border: none;
   cursor: pointer;
   background: linear-gradient(180deg, #FFCE61 0%, #B98000 100%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0.3rem;
+  text-transform: uppercase;
 }
 main .body-section__left .chatting {
   height: 10rem;
   display: flex;
+  width: 62rem;
   flex-direction: column;
 }
 main .body-section__left .chatting .tab-box {
@@ -951,10 +966,12 @@ main .body-section__right .people::-webkit-scrollbar {
   width: 0.8rem;
   background-color: rgb(1, 52, 1);
   border-radius: 1rem;
+  margin-left: 1rem;
 }
 main .body-section__right .people::-webkit-scrollbar-thumb {
   background-color: #E6B424;
   border-radius: 1rem;
+  margin-left: 1rem;
 }
 main .body-section__right .people .person {
   display: flex;

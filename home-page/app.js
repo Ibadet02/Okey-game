@@ -1,7 +1,7 @@
 const menu_bar = document.querySelector('.menu-bar')
 const sidebar_desktop = document.querySelector('.sidebar-desktop')
 const body_section__left = document.querySelector('.body-section__left')
-const exit_sidebar = document.querySelector('.exit-sidebar-button')
+const exit_sidebar = document.querySelector('.sidebar-exit-button')
 const tables = document.querySelector('.tables')
 // const mobile_nav = document.querySelector('.mobile-nav')
 // menu_bar.addEventListener('click', ()=>{
