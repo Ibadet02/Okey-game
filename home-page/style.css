@@ -20,7 +20,9 @@ main .navbar-section {
   width: 100%;
 }
 main .navbar-section nav {
-  background-color: #011D0E;
+  background-image: url(../assets/images/navbar_background.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   position: relative;
   width: 100%;
   height: 6rem;
@@ -75,7 +77,7 @@ main .navbar-section nav .navbar-left {
   align-items: center;
   height: 100%;
   flex: 1;
-  justify-content: space-between;
+  gap: 2rem;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: left;
@@ -99,12 +101,12 @@ main .navbar-section nav .navbar-left .menu-bar-box .menu-bar .bar {
 main .navbar-section nav .navbar-left__profile-section {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  gap: 0.4rem;
 }
 main .navbar-section nav .navbar-left__profile-section--top {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.4rem;
 }
 main .navbar-section nav .navbar-left__profile-section--top figure {
   position: relative;
@@ -141,21 +143,59 @@ main .navbar-section nav .navbar-left__profile-section--top .buy-chip-button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 0.3rem 0.4rem;
   border-radius: 0.4rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 main .navbar-section nav .navbar-left__profile-section--top .buy-chip-button i {
   font-size: 1.2rem;
   color: rgb(118, 69, 0);
 }
+main .navbar-section nav .navbar-left__profile-section--top #golden-coin {
+  width: 3rem;
+  height: 3rem;
+}
 main .navbar-section nav .navbar-left__profile-section--top .money-amount {
   font-weight: 500;
   font-size: 1.7rem;
   color: #FFCE61;
+  margin-right: 0rem;
+}
+main .navbar-section nav .navbar-left__profile-section--top .coins {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+main .navbar-section nav .navbar-left__profile-section--top .coins img {
+  width: 3rem;
+  height: 3rem;
+}
+main .navbar-section nav .navbar-left__profile-section--top .coins span {
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #fff;
+}
+main .navbar-section nav .navbar-left__profile-section--bottom .experience-bar {
+  display: flex;
+  align-items: center;
+  width: 17rem;
+  height: 0.7rem;
+  background-color: red;
+  border-radius: 1rem;
+  background-color: #EFEFEF;
+  border: 0.063rem solid #FFFFFF;
+}
+main .navbar-section nav .navbar-left__profile-section--bottom .experience-bar .experience-level {
+  width: 80%;
+  height: 0.5rem;
+  background-color: #920F0F;
+  border-radius: 1rem;
 }
 main .navbar-section nav .logo {
   padding: 0 0.5rem;
+  margin: 0 6rem;
+  margin-top: 1.5rem;
 }
 main .navbar-section nav .logo img {
-  height: 6rem;
+  height: 13rem;
 }
 main .navbar-section nav .navbar-right {
   display: flex;
@@ -168,19 +208,18 @@ main .navbar-section nav .navbar-right {
   background-repeat: no-repeat;
 }
 main .navbar-section nav .navbar-right .hourly-money-button {
-  width: 5rem;
-  height: 3rem;
+  width: 6rem;
+  height: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: none;
   background: none;
-  background-color: #DD034D;
+  background-color: #93036A;
   border-radius: 0.8rem;
   padding: 0.1rem;
   cursor: pointer;
-  margin-left: 1rem;
   box-shadow: 4px 4px 2px rgba(124, 92, 0, 0.4), inset -4px -4px 2px rgba(59, 44, 0, 0.4);
 }
 main .navbar-section nav .navbar-right .hourly-money-button .first-word {
@@ -212,8 +251,10 @@ main .navbar-section nav .navbar-right .vip-membership-button {
   border-radius: 2rem;
   border: none;
   cursor: pointer;
-  color: #3C2C00;
   box-shadow: 4px 4px 2px rgba(124, 92, 0, 0.4), inset -4px -4px 2px rgba(59, 44, 0, 0.4);
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #3C2C00;
 }
 main .navbar-section nav .navbar-right .vip-membership-button i {
   display: none;
@@ -417,7 +458,7 @@ main .body-section__left {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  flex-basis: 75%;
+  flex-grow: 1;
   margin-left: 6.4rem;
   transition: 0.3s;
 }
@@ -426,75 +467,61 @@ main .body-section__left .tables-container {
   flex-direction: column;
   overflow-y: auto;
   position: relative;
+  width: 100%;
+  transition: 0.3s;
+}
+main .body-section__left .tables-container.minimise {
+  height: 4.4rem;
+  overflow-y: hidden;
 }
 main .body-section__left .tables-container .tables-nav {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 5rem;
-  display: flex;
-  flex-direction: column;
+  height: 4rem;
   box-shadow: -3px 34px 32px -24px rgba(0, 0, 0, 0.82);
   -webkit-box-shadow: -3px 34px 32px -24px rgba(0, 0, 0, 0.82);
   -moz-box-shadow: -3px 34px 32px -24px rgba(0, 0, 0, 0.82);
-}
-main .body-section__left .tables-container .tables-nav__top {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0.3rem 0;
-}
-main .body-section__left .tables-container .tables-nav__top .player-number {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-main .body-section__left .tables-container .tables-nav__top .player-number__name {
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-main .body-section__left .tables-container .tables-nav__top .player-number__number {
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: #fff;
+  background-color: #052B16;
+  border: 0.125 solid #000000;
+  border-radius: 0.5rem;
 }
 main .body-section__left .tables-container .tables-nav__bottom {
+  height: 100%;
   display: flex;
   align-items: center;
 }
 main .body-section__left .tables-container .tables-nav__bottom--tools {
   display: flex;
   flex: 1;
-  height: 2.4rem;
+  height: 100%;
   padding: 0.1rem 0.2rem;
 }
 main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .halls-button {
+  width: 9rem;
+  height: 2.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.2rem;
-  height: 100%;
-  width: 7rem;
-  border-radius: 0.5rem;
-  border: none;
+  border: 0.1rem solid #FFCE61;
+  background-color: #083A1F;
   cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+  font-size: 1rem;
   color: #fff;
-  background: linear-gradient(rgb(64, 127, 89), rgb(18, 91, 47));
+  border-radius: 0.3rem;
+  height: 100%;
 }
-main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .halls-button i {
-  font-size: 0.8rem;
-}
-main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .halls-button span {
-  font-weight: 600;
-  font-size: 0.8rem;
-  color: #fff;
+main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .halls-button:hover {
+  color: #083A1F;
+  background-color: #FFCE61;
 }
 main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .arrow-button {
   height: 100%;
@@ -505,8 +532,8 @@ main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav
   cursor: pointer;
 }
 main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .arrow-button i {
-  font-size: 2rem;
-  color: rgb(233, 197, 124);
+  font-size: 3rem;
+  color: #C68F13;
 }
 main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .play-now-button {
   height: 100%;
@@ -549,14 +576,14 @@ main .body-section__left .tables-container .tables-nav__bottom--space {
 main .body-section__left .tables-container .tables {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(3, 20rem);
-  grid-auto-rows: 12rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 9rem;
   overflow-y: auto;
   justify-content: center;
   gap: 0.5rem;
   border-radius: 0.6rem;
-  margin: 5.5rem 0.2rem 0.2rem 0.2rem;
-  padding: 1rem;
+  margin: 4.5rem 0.2rem 0.2rem 0.2rem;
+  padding: 0.1rem 1rem 1rem 1rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 main .body-section__left .tables-container .tables::-webkit-scrollbar {
@@ -664,10 +691,10 @@ main .body-section__left .tables-container .tables .table .sit {
 }
 main .body-section__left .tables-container .tables .table .sit__button {
   width: 3.7rem;
-  height: 3rem;
+  height: 2rem;
   margin-bottom: 1rem;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: rgb(145, 96, 1);
   letter-spacing: 0;
   border: none;
@@ -678,10 +705,14 @@ main .body-section__left .tables-container .tables .table .sit__button {
   text-transform: uppercase;
 }
 main .body-section__left .chatting {
-  height: 10rem;
+  height: 30rem;
   display: flex;
-  width: 62rem;
+  width: 100%;
   flex-direction: column;
+  transition: 0.3s;
+}
+main .body-section__left .chatting.maximise {
+  height: 100%;
 }
 main .body-section__left .chatting .tab-box {
   display: flex;
@@ -703,6 +734,28 @@ main .body-section__left .chatting .tab-box .tab .masa-chat-button, main .body-s
 }
 main .body-section__left .chatting .tab-box .tab .masa-chat-button.active, main .body-section__left .chatting .tab-box .tab .lobi-chat-button.active {
   background-color: #FFCE61;
+}
+main .body-section__left .chatting .tab-box .tab .change-size {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+main .body-section__left .chatting .tab-box .tab .change-size i {
+  display: inline;
+  font-size: 2rem;
+}
+main .body-section__left .chatting .tab-box .tab .change-size.minimise .down-icon {
+  display: none;
+}
+main .body-section__left .chatting .tab-box .tab .change-size.maximise .up-icon {
+  display: none;
 }
 main .body-section__left .chatting .tab-box .tabcontent {
   display: none;
@@ -808,12 +861,18 @@ main .body-section__right {
   flex-direction: column;
   justify-content: center;
 }
+main .body-section__right .people-tools {
+  display: flex;
+  flex-direction: column;
+}
 main .body-section__right .people-tools__radio {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #FFCE61;
   padding: 0.1rem 0.5rem;
+  margin-right: 0.9rem;
+  border-radius: 0.5rem;
 }
 main .body-section__right .people-tools__radio--buttons {
   display: flex;
@@ -909,7 +968,7 @@ main .body-section__right .people-tools__radio--channel-name {
   justify-content: center;
 }
 main .body-section__right .people-tools__category {
-  padding: 0.1rem 0.5rem;
+  padding: 0.1rem 0.9rem 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -921,46 +980,21 @@ main .body-section__right .people-tools__category .your-friends, main .body-sect
   cursor: pointer;
   font-weight: 400;
   font-size: 0.9rem;
-  color: #5C5C5C;
-  text-align: left;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(180deg, #2C7C4D 0%, rgba(13, 30, 20, 0) 100%);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
 }
 main .body-section__right .people-tools__category .your-friends.active, main .body-section__right .people-tools__category .last-played.active {
   color: #fff;
-}
-main .body-section__right .people-tools__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.2rem;
-}
-main .body-section__right .people-tools__header .player {
-  flex-basis: 52%;
-  background-color: #1D4634;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 400;
-  font-size: 1rem;
-  color: #fff;
-  border-radius: 0.4rem;
-  height: 2rem;
-}
-main .body-section__right .people-tools__header .table {
-  flex: 1;
-  background-color: #1D4634;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 400;
-  font-size: 1rem;
-  color: #fff;
-  border-radius: 0.4rem;
-  height: 2rem;
+  background: linear-gradient(180deg, #409C66 0%, rgba(64, 156, 102, 0) 100%);
 }
 main .body-section__right .people {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  padding-right: 0.5rem;
 }
 main .body-section__right .people::-webkit-scrollbar {
   width: 0.8rem;
@@ -991,11 +1025,32 @@ main .body-section__right .people .person__info--img {
   display: flex;
   align-items: center;
   padding-top: 0.25rem;
+  position: relative;
 }
-main .body-section__right .people .person__info--img img {
-  width: 2rem;
-  height: 2rem;
+main .body-section__right .people .person__info--img #person-pic {
+  width: 3rem;
+  height: 3rem;
   display: block;
+}
+main .body-section__right .people .person__info--img .star-box {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  bottom: 0;
+}
+main .body-section__right .people .person__info--img .star-box .star-number {
+  position: absolute;
+  left: 0.3rem;
+  bottom: 0.1rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #000;
+}
+main .body-section__right .people .person__info--img .star-box img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 main .body-section__right .people .person__info--text {
   display: flex;
@@ -1022,45 +1077,17 @@ main .body-section__right .people .person__table {
   color: #fff;
 }
 
-@media only screen and (max-width: 1230px) {
-  main .navbar-section nav .navbar-right .chance-game-box .give-chance-button {
-    width: 3rem;
-    height: 3rem;
-  }
-  main .navbar-section nav .navbar-right .chance-game-box .give-chance-button span {
-    display: none;
-  }
-  main .navbar-section nav .navbar-right .chance-game-box .give-chance-button i {
-    display: inline;
-  }
-  main .navbar-section nav .navbar-left .my-money {
-    flex-direction: column;
-  }
-  main .navbar-section nav .navbar-left .my-money .available-money {
-    font-size: 1.1rem;
+@media only screen and (max-width: 1360px) {
+  main .navbar-section nav .logo {
+    margin: 1.5rem 3rem 0 3rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
   }
 }
-@media only screen and (max-width: 1180px) {
-  main .body-section__left .tables-container .tables {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media only screen and (max-width: 1090px) {
-  :root {
-    font-size: 15px;
-  }
-}
-@media only screen and (max-width: 1035px) {
-  main .navbar-section nav .navbar-left .cards {
-    flex-direction: column;
-  }
-  main .navbar-section nav .navbar-left .cards .card-numbers {
-    font-size: 1.1rem;
-  }
-}
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 1240px) {
   main .navbar-section nav .navbar-right .hourly-money-button {
     width: 3rem;
+    height: 3rem;
     border-radius: 50%;
   }
   main .navbar-section nav .navbar-right .hourly-money-button .first-word, main .navbar-section nav .navbar-right .hourly-money-button .second-word, main .navbar-section nav .navbar-right .hourly-money-button .third-word {
@@ -1072,6 +1099,7 @@ main .body-section__right .people .person__table {
   }
   main .navbar-section nav .navbar-right .vip-membership-button {
     width: 3rem;
+    height: 3rem;
     border-radius: 50%;
   }
   main .navbar-section nav .navbar-right .vip-membership-button span {
@@ -1082,63 +1110,78 @@ main .body-section__right .people .person__table {
     font-size: 1.3rem;
   }
 }
-@media only screen and (max-width: 920px) {
+@media only screen and (max-width: 1180px) {
+  main .body-section__left .tables-container .tables {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 1130px) {
+  :root {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 1060px) {
   :root {
     font-size: 14px;
   }
+  main .navbar-section nav .navbar-left {
+    gap: 1rem;
+  }
+  main .navbar-section nav .logo {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
-@media only screen and (max-width: 870px) {
+@media only screen and (max-width: 920px) {
   :root {
     font-size: 13px;
   }
 }
-@media only screen and (max-width: 800px) {
-  main .body-section__left .tables-container .tables {
-    grid-template-columns: 1fr;
-  }
-}
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 830px) {
   :root {
     font-size: 12px;
   }
-  main .body-section__left .tables-container .tables .table-num {
-    font-size: 1.3rem;
+  main .body-section__left .tables-container .tables {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 13rem;
   }
-  main .body-section__left .tables-container .tables .table .sit__button {
-    width: 4.5rem;
-    height: 1.9rem;
-    font-size: 1.2rem;
+}
+@media only screen and (max-width: 770px) {
+  :root {
+    font-size: 11px;
   }
-  main .body-section__left .tables-container .tables .table .gamer img {
-    width: 5rem;
-    height: 5rem;
-  }
-  main .body-section__left .tables-container .tables .table .gamer figcaption {
-    font-size: 1.3rem;
+  main .navbar-section nav .logo {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 @media only screen and (max-width: 690px) {
   :root {
-    font-size: 11px;
-  }
-}
-@media only screen and (max-width: 595px) {
-  :root {
     font-size: 10px;
   }
 }
-@media only screen and (max-width: 595px) {
+@media only screen and (max-width: 620px) {
   :root {
     font-size: 9px;
   }
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 560px) {
   :root {
     font-size: 8px;
   }
 }
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 560px) {
   :root {
     font-size: 7px;
+  }
+}
+@media only screen and (max-width: 440px) {
+  :root {
+    font-size: 6px;
+  }
+}
+@media only screen and (max-width: 370px) {
+  :root {
+    font-size: 5px;
   }
 }/*# sourceMappingURL=style.css.map */
