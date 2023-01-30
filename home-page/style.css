@@ -33,6 +33,38 @@
     left: -50rem;
   }
 }
+@-webkit-keyframes profile-box-coming {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@keyframes profile-box-coming {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@-webkit-keyframes profile-box-leaving {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 0;
+  }
+}
+@keyframes profile-box-leaving {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 0;
+  }
+}
 @-webkit-keyframes animation-bg-coming {
   0% {
     opacity: 0;
@@ -65,6 +97,70 @@
     opacity: 0;
   }
 }
+@-webkit-keyframes profile-box-content-leaving {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes profile-box-content-leaving {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@-webkit-keyframes profile-box-edit-coming {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes profile-box-edit-coming {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes profile-box-edit-leaving {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes profile-box-edit-leaving {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@-webkit-keyframes profile-box-content-coming {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes profile-box-content-coming {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -81,15 +177,19 @@ main {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  overflow-y: hidden;
 }
 main .animation-background {
   width: 100%;
   height: 100%;
-  z-index: 9;
+  z-index: 10;
   background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
   top: 0;
   left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 main .animation-background.deactive {
   display: none;
@@ -101,6 +201,438 @@ main .animation-background.coming {
 main .animation-background.leaving {
   -webkit-animation: animation-bg-leaving 0.5s forwards;
           animation: animation-bg-leaving 0.5s forwards;
+}
+main .profile-box {
+  width: 25rem;
+  height: 50rem;
+  transition: 0.2s;
+  z-index: 12;
+  position: absolute;
+  top: 6rem;
+  left: calc(50% - 12.5rem);
+  background-color: #052B16;
+  overflow-x: hidden;
+}
+main .profile-box.deactive {
+  display: none;
+}
+main .profile-box.coming {
+  -webkit-animation: profile-box-coming 0.2s forwards;
+          animation: profile-box-coming 0.2s forwards;
+}
+main .profile-box.leaving {
+  -webkit-animation: profile-box-leaving 0.2s forwards;
+          animation: profile-box-leaving 0.2s forwards;
+}
+main .profile-box__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+main .profile-box__content.deactive {
+  display: none;
+}
+main .profile-box__content.coming {
+  -webkit-animation: profile-box-content-coming 0.3s forwards;
+          animation: profile-box-content-coming 0.3s forwards;
+}
+main .profile-box__content.leaving {
+  -webkit-animation: profile-box-content-leaving 0.3s forwards;
+          animation: profile-box-content-leaving 0.3s forwards;
+}
+main .profile-box__content--menu {
+  display: flex;
+  align-items: center;
+  background-color: #083A1F;
+  padding: 2rem;
+  gap: 2rem;
+}
+main .profile-box__content--menu .exit-profile-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #FFCE61;
+}
+main .profile-box__content--menu .edit-profile-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #FFCE61;
+}
+main .profile-box__content--body {
+  overflow-y: auto;
+  padding: 0 2rem 3rem 2rem;
+  background-color: #052B16;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+main .profile-box__content--body .personal-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+main .profile-box__content--body .personal-info--left {
+  display: flex;
+  align-items: center;
+}
+main .profile-box__content--body .personal-info--left .image-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+main .profile-box__content--body .personal-info--left .image-button__content-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 1;
+  position: relative;
+}
+main .profile-box__content--body .personal-info--left .image-button__content-wrapper img {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #000;
+  background-color: transparent;
+}
+main .profile-box__content--body .personal-info--left .image-button__content-wrapper i {
+  background-color: transparent;
+  z-index: 2;
+  font-size: 1.4rem;
+  color: #fff;
+}
+main .profile-box__content--body .personal-info--left .belonging-box {
+  display: flex;
+  flex-direction: column;
+}
+main .profile-box__content--body .personal-info--left .belonging-box .name {
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-left: 0.3rem;
+}
+main .profile-box__content--body .personal-info--left .belonging-box .coin {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+main .profile-box__content--body .personal-info--left .belonging-box .coin img {
+  width: 2rem;
+  height: 2rem;
+}
+main .profile-box__content--body .personal-info--left .belonging-box .coin span {
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #FFCE61;
+}
+main .profile-box__content--body .game-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-top: 0.063rem solid rgba(255, 255, 255, 0.65);
+  border-bottom: 0.063rem solid rgba(255, 255, 255, 0.65);
+}
+main .profile-box__content--body .game-info__left {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+main .profile-box__content--body .game-info__left img {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+main .profile-box__content--body .game-info__left .text {
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #fff;
+}
+main .profile-box__content--body .game-info__right .amount {
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #FFCE61;
+}
+main .profile-box__edit {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+main .profile-box__edit.deactive {
+  display: none;
+}
+main .profile-box__edit.coming {
+  -webkit-animation: profile-box-edit-coming 0.3s forwards;
+          animation: profile-box-edit-coming 0.3s forwards;
+}
+main .profile-box__edit.leaving {
+  -webkit-animation: profile-box-edit-leaving 0.3s forwards;
+          animation: profile-box-edit-leaving 0.3s forwards;
+}
+main .profile-box__edit--menu {
+  display: flex;
+  align-items: center;
+  padding: 2rem 2rem;
+  background-color: #083A1F;
+}
+main .profile-box__edit--menu .back-to-profile-content {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #FFCE61;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+main .profile-box__edit--body {
+  overflow-y: auto;
+  padding: 0 2rem 2rem 2rem;
+  background-color: #052B16;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+main .profile-box__edit--body form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+main .profile-box__edit--body form .personal-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+main .profile-box__edit--body form .personal-info--left {
+  display: flex;
+  align-items: center;
+}
+main .profile-box__edit--body form .personal-info--left .image-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+main .profile-box__edit--body form .personal-info--left .image-button__content-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 1;
+  position: relative;
+}
+main .profile-box__edit--body form .personal-info--left .image-button__content-wrapper img {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #000;
+  background-color: transparent;
+}
+main .profile-box__edit--body form .personal-info--left .image-button__content-wrapper i {
+  background-color: transparent;
+  z-index: 2;
+  font-size: 1.4rem;
+  color: #fff;
+}
+main .profile-box__edit--body form .personal-info--left .belonging-box {
+  display: flex;
+  flex-direction: column;
+}
+main .profile-box__edit--body form .personal-info--left .belonging-box .name {
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-left: 0.3rem;
+}
+main .profile-box__edit--body form .personal-info--left .belonging-box .coin {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+main .profile-box__edit--body form .personal-info--left .belonging-box .coin img {
+  width: 2rem;
+  height: 2rem;
+}
+main .profile-box__edit--body form .personal-info--left .belonging-box .coin span {
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #FFCE61;
+}
+main .profile-box__edit--body form .personal-info--right .edit-personal-info {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  background-color: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+main .profile-box__edit--body form .gender-password-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+main .profile-box__edit--body form .gender-password-box .gender-box, main .profile-box__edit--body form .gender-password-box .password-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+}
+main .profile-box__edit--body form .gender-password-box .gender-box select, main .profile-box__edit--body form .gender-password-box .gender-box input, main .profile-box__edit--body form .gender-password-box .password-box select, main .profile-box__edit--body form .gender-password-box .password-box input {
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 1.5rem;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #000;
+  padding: 0 0.3rem;
+}
+main .profile-box__edit--body form .upload-image-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+main .profile-box__edit--body form .upload-image-box .image-label {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+}
+main .profile-box__edit--body form .upload-image-box .upload-image-tools {
+  width: 100%;
+  height: 6rem;
+  position: relative;
+}
+main .profile-box__edit--body form .upload-image-box .upload-image-tools label {
+  border: 0.1rem solid #fff;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 0.1rem 0.4rem;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+main .profile-box__edit--body form .upload-image-box .upload-image-tools img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+main .profile-box__edit--body form .upload-image-box .upload-image-tools button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: 0.1rem solid #fff;
+  cursor: pointer;
+  padding: 0.1rem 0.4rem;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff;
+}
+main .profile-box__edit--body form .font-type {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 11rem;
+}
+main .profile-box__edit--body form .font-type label {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+}
+main .profile-box__edit--body form .font-type select {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #000;
+  outline: none;
+  height: 1.5rem;
+  border: none;
+}
+main .profile-box__edit--body form .nick-color, main .profile-box__edit--body form .font-color {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+main .profile-box__edit--body form .nick-color label, main .profile-box__edit--body form .font-color label {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #fff;
+}
+main .profile-box__edit--body form .nick-color input, main .profile-box__edit--body form .font-color input {
+  width: 2.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 0.1rem 0.2rem;
+}
+main .profile-box__edit--body form .save-reject {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  align-items: center;
+}
+main .profile-box__edit--body form .save-reject .reject, main .profile-box__edit--body form .save-reject .save {
+  background: none;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  padding: 0.3rem 0.8rem;
+}
+main .profile-box__edit--body form .save-reject .save {
+  background-color: rgb(17, 107, 253);
+}
+main .profile-box__edit--body form .save-reject .reject {
+  background-color: rgb(108, 117, 126);
 }
 main .navbar-section {
   width: 100%;
@@ -194,12 +726,15 @@ main .navbar-section nav .navbar-left__profile-section--top {
   align-items: center;
   gap: 0.4rem;
 }
-main .navbar-section nav .navbar-left__profile-section--top figure {
+main .navbar-section nav .navbar-left__profile-section--top .profile-button {
   position: relative;
   width: 3rem;
   height: 3rem;
+  background: none;
+  cursor: pointer;
+  border: none;
 }
-main .navbar-section nav .navbar-left__profile-section--top figure .profile-notifications {
+main .navbar-section nav .navbar-left__profile-section--top .profile-button .profile-notifications {
   position: absolute;
   top: 0.1rem;
   right: 0.1rem;
@@ -214,7 +749,7 @@ main .navbar-section nav .navbar-left__profile-section--top figure .profile-noti
   font-size: 0.6rem;
   color: #fff;
 }
-main .navbar-section nav .navbar-left__profile-section--top figure img {
+main .navbar-section nav .navbar-left__profile-section--top .profile-button img {
   width: 100%;
   height: 100%;
 }
@@ -407,7 +942,7 @@ main .body-section {
   position: relative;
 }
 main .body-section .hall-section {
-  z-index: 11;
+  z-index: 12;
   background: linear-gradient(147.18deg, #18422A 10.2%, #06622F 25.91%, #08622F 55.86%, #07612E 78.28%, #054128 97.76%);
   width: 50rem;
   height: 100%;
@@ -549,7 +1084,7 @@ main .body-section .hall-section .hall-container .hall-table-box table tbody tr.
   color: #052B16;
 }
 main .body-section .sidebar-desktop {
-  z-index: 10;
+  z-index: 11;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -697,9 +1232,9 @@ main .body-section__left .tables-container {
   position: relative;
   width: 100%;
   transition: 0.2s;
+  flex: 1;
 }
 main .body-section__left .tables-container.minimise {
-  height: 4.4rem;
   overflow-y: hidden;
 }
 main .body-section__left .tables-container .tables-nav {
@@ -708,6 +1243,7 @@ main .body-section__left .tables-container .tables-nav {
   left: 0;
   width: 100%;
   height: 4rem;
+  overflow-y: hidden;
   box-shadow: -3px 34px 32px -24px rgba(0, 0, 0, 0.82);
   -webkit-box-shadow: -3px 34px 32px -24px rgba(0, 0, 0, 0.82);
   -moz-box-shadow: -3px 34px 32px -24px rgba(0, 0, 0, 0.82);
@@ -828,8 +1364,6 @@ main .body-section__left .tables-container .tables::-webkit-scrollbar-thumb {
 main .body-section__left .tables-container .tables .table {
   position: relative;
   background: linear-gradient(rgb(23, 70, 34), rgb(92, 175, 113));
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  border-radius: 0.6rem;
   background: linear-gradient(336.61deg, rgba(16, 82, 33, 0.2) 23.74%, rgba(255, 255, 255, 0.144) 46.62%), linear-gradient(121.8deg, #174B24 4.58%, rgba(11, 124, 37, 0.56) 38.72%, rgba(63, 153, 85, 0.74) 96.68%);
   border: 1px solid #007A22;
   box-shadow: 0px 4px 11px 2px #134625;
@@ -933,14 +1467,14 @@ main .body-section__left .tables-container .tables .table .sit__button {
   text-transform: uppercase;
 }
 main .body-section__left .chatting {
-  height: 30rem;
+  height: 10rem;
   display: flex;
   width: 100%;
   flex-direction: column;
   transition: 0.2s;
 }
 main .body-section__left .chatting.maximise {
-  height: 100%;
+  height: calc(100% - 4rem - 0.5rem);
 }
 main .body-section__left .chatting .tab-box {
   display: flex;
@@ -1411,5 +1945,25 @@ main .body-section__right .people .person__table {
 @media only screen and (max-width: 370px) {
   :root {
     font-size: 5px;
+  }
+}
+@media only screen and (max-height: 650px) {
+  main .profile-box {
+    height: 75%;
+  }
+}
+@media only screen and (max-height: 500px) {
+  main .body-section__left .tables-container .tables {
+    grid-auto-rows: 9rem;
+  }
+}
+@media only screen and (max-height: 400px) {
+  main .profile-box {
+    height: 70%;
+  }
+}
+@media only screen and (max-height: 330px) {
+  main .profile-box {
+    height: 65%;
   }
 }/*# sourceMappingURL=style.css.map */

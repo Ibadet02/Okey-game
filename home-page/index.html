@@ -11,7 +11,183 @@
 </head>
 <body>
     <main>
-        <div class="animation-background deactive"></div>
+        <div class="animation-background deactive">
+        </div>
+        <div class="profile-box deactive">
+            <div class="profile-box__content deactive">
+                <div class="profile-box__content--menu">
+                    <button class="exit-profile-box">
+                        <i class="fa-solid fa-x"></i>
+                        <span>Kapat</span>
+                    </button>
+                    <button class="edit-profile-box">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <span>Profil ayarları</span>
+                    </button>
+                </div>
+                <div class="profile-box__content--body">
+                    <div class="personal-info">
+                        <div class="personal-info--left">
+                            <button class="image-button">
+                                <div class="image-button__content-wrapper">
+                                    <img src="../assets/images/profile.svg" alt="Profile picture">
+                                    <i class="fa-solid fa-camera"></i>
+                                </div>
+                            </button>
+                            <div class="belonging-box">
+                                <span class="name">Metin Dülger</span>
+                                <span class="coin">
+                                    <img src="../assets/icons/golden-coin.png" alt="altin para" id="golden-coin">
+                                    <span>900 $</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-info highes-pot">
+                        <div class="game-info__left">
+                            <img src="../assets/icons/rocket.png" alt="roket">
+                            <span class="text">En yüksek çanak</span>
+                        </div>
+                        <div class="game-info__right">
+                            <span class="amount">478</span>
+                        </div>
+                    </div>
+                    <div class="game-info games-played">
+                        <div class="game-info__left">
+                            <img src="../assets/icons/king-coins.png" alt="kral altin para">
+                            <span class="text">Toplam oyun sayısı</span>
+                        </div>
+                        <div class="game-info__right">
+                            <span class="amount">6</span>
+                        </div>
+                    </div>
+                    <div class="game-info games-won">
+                        <div class="game-info__left">
+                            <img src="../assets/icons/medal.png" alt="madalyon">
+                            <span class="text">Kazandığı oyun sayısı</span>
+                        </div>
+                        <div class="game-info__right">
+                            <span class="amount">6</span>
+                        </div>
+                    </div>
+                    <div class="game-info friend-amount">
+                        <div class="game-info__left">
+                            <img src="../assets/icons/whitch.png" alt="Cadı">
+                            <span class="text">Arkadaş sayısı</span>
+                        </div>
+                        <div class="game-info__right">
+                            <span class="amount">17</span>
+                        </div>
+                    </div>
+                    <div class="game-info date-started">
+                        <div class="game-info__left">
+                            <img src="../assets/icons/sand-watch.png" alt="kum saati">
+                            <span class="text">Oyuna başlama tarihi</span>
+                        </div>
+                        <div class="game-info__right">
+                            <span class="amount">21.01.19</span>
+                        </div>
+                    </div>
+                    <div class="game-info gifts">
+                        <div class="game-info__left">
+                            <img src="../assets/icons/gift.png" alt="hediye">
+                            <span class="text">Hediyyeleri</span>
+                        </div>
+                        <div class="game-info__right">
+                            <span class="amount">17</span>
+                        </div>
+                    </div>
+                    <div class="game-info bans">
+                        <div class="game-info__left">
+                            <img src="../assets/icons/ban.png" alt="ban">
+                            <span class="text">Engellenenler</span>
+                        </div>
+                        <div class="game-info__right">
+                            <span class="amount">17</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-box__edit">
+                <div class="profile-box__edit--menu">
+                    <button class="back-to-profile-content">
+                        <i class="fa-solid fa-chevron-left"></i>
+                        <span class="back-to-profile-content--text">Profile dön</span>
+                    </button>
+                </div>
+                <div class="profile-box__edit--body">
+                    <form action="GET">
+                        <div class="personal-info">
+                            <div class="personal-info--left">
+                                <button class="image-button">
+                                    <div class="image-button__content-wrapper">
+                                        <img src="../assets/images/profile.svg" alt="Profile picture">
+                                        <i class="fa-solid fa-camera"></i>
+                                    </div>
+                                </button>
+                                <div class="belonging-box">
+                                    <span class="name">Metin Dülger</span>
+                                    <span class="coin">
+                                        <img src="../assets/icons/golden-coin.png" alt="altin para" id="golden-coin">
+                                        <span>900 $</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="personal-info--right">
+                                <button class="edit-personal-info">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="gender-password-box">
+                            <div class="gender-box">
+                                <label for="gender">Cinsiyet</label>
+                                <select name="gender" id="gender">
+                                    <option value="female">Kadın</option>
+                                    <option value="male">Erkek</option>
+                                    <option value="other">Diğer</option>
+                                    <option value="not-to-mention">Belirtmek istemiyorum</option>
+                                </select>
+                            </div>
+                            <div class="password-box">
+                                <label for="new-password">Yeni parola</label>
+                                <input type="password" id="new-password">
+                            </div>
+                        </div>
+                        <div class="upload-image-box">
+                            <span class="image-label">Profili düzenle</span>
+                            <div class="upload-image-tools">
+                                <label for="imgInput">Ekle</label>
+                                <input type="file" accept="image/*" id="imgInput" style="display: none;">
+                                <img id="preview" src="#" alt="Image preview" style="display: none;">
+                                <button id="removeBtn" style="display: none;">Kaldır</button>
+                            </div>
+                        </div>
+                        <div class="font-type">
+                            <label for="fontSelect">Yazı tipi</label>
+                            <select name="font-types" id="fontSelect">
+                                <option value="Arial">Arial</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Verdana">Verdana</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                            </select>
+                        </div>
+                        <div class="nick-color">
+                            <label for="nickColorInput">Nick rengi</label>
+                            <input type="color" id="nickColorInput" value="#ff0000">
+                        </div>
+                        <div class="font-color">
+                            <label for="fontColorInput">Nick rengi</label>
+                            <input type="color" id="fontColorInput" value="#0000ff">
+                        </div>
+                        <div class="save-reject">
+                            <button class="reject">Vazgeç</button>
+                            <button class="save">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <section class="navbar-section">
             <nav>
                 <!-- <div class="mobile-nav">
@@ -48,10 +224,10 @@
                     </div>
                     <div class="navbar-left__profile-section">
                         <div class="navbar-left__profile-section--top">
-                            <figure>
+                            <button class="profile-button">
                                 <span class="profile-notifications">3</span>
                                 <img src="../assets/images/profile.svg" alt="Profile picture">
-                            </figure>
+                            </button>
                             <button class="buy-chip-button">
                                 <i class="fa-solid fa-plus"></i>
                             </button>
