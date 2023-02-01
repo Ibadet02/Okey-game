@@ -2287,4 +2287,9 @@ main .body-section__right .people .person__table {
   main .profile-box {
     height: 65%;
   }
+}
+@media only screen and (max-height: 405px) {
+  .popular-players__left {
+    gap: 2rem;
+  }
 }/*# sourceMappingURL=style.css.map */

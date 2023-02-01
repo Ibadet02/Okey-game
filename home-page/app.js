@@ -207,6 +207,8 @@ preview.style.color = nickColorInput.value;
 
 // Pages
 
+// friends
+
 friends_button.addEventListener('click', e=>{
     homePage.classList.add('leaving')
     transition_tile_box.classList.remove('deactive')

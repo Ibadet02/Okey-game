@@ -354,7 +354,7 @@ body{
         display: none;
     }
     &.leaving{
-        
+
     }
     &__left{
         display: flex;
@@ -2060,5 +2060,15 @@ main{
 @media only screen and (max-height: 330px){
     main .profile-box{
         height: 65%;
+    }
+}
+
+// Pages
+
+// Friends
+
+@media only screen and (max-height: 405px){
+    .popular-players__left{
+        gap: 2rem;
     }
 }
