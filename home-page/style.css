@@ -161,10 +161,302 @@
     transform: translateX(0);
   }
 }
+@-webkit-keyframes tiles-coming {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes tiles-coming {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@-webkit-keyframes tiles-leaving {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+@keyframes tiles-leaving {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+body .transition-tile-box {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+body .transition-tile-box .tile {
+  background-color: rgb(5, 44, 23);
+  flex: 1;
+}
+body .transition-tile-box.deactive {
+  display: none;
+}
+body .transition-tile-box.coming .tile {
+  width: 0;
+}
+body .transition-tile-box.coming .tile.tile-1 {
+  -webkit-animation: tiles-coming 0.5s forwards;
+          animation: tiles-coming 0.5s forwards;
+}
+body .transition-tile-box.coming .tile.tile-2 {
+  -webkit-animation: tiles-coming 0.5s forwards 0.1s;
+          animation: tiles-coming 0.5s forwards 0.1s;
+}
+body .transition-tile-box.coming .tile.tile-3 {
+  -webkit-animation: tiles-coming 0.5s forwards 0.2s;
+          animation: tiles-coming 0.5s forwards 0.2s;
+}
+body .transition-tile-box.coming .tile.tile-4 {
+  -webkit-animation: tiles-coming 0.5s forwards 0.3s;
+          animation: tiles-coming 0.5s forwards 0.3s;
+}
+body .transition-tile-box.coming .tile.tile-5 {
+  -webkit-animation: tiles-coming 0.5s forwards 0.4s;
+          animation: tiles-coming 0.5s forwards 0.4s;
+}
+body .transition-tile-box.coming .tile.tile-6 {
+  -webkit-animation: tiles-coming 0.5s forwards 0.5s;
+          animation: tiles-coming 0.5s forwards 0.5s;
+}
+body .transition-tile-box.coming .tile.tile-7 {
+  -webkit-animation: tiles-coming 0.5s forwards 0.6s;
+          animation: tiles-coming 0.5s forwards 0.6s;
+}
+body .transition-tile-box.leaving .tile {
+  width: 100%;
+}
+body .transition-tile-box.leaving .tile.tile-1 {
+  -webkit-animation: tiles-leaving 0.5s forwards;
+          animation: tiles-leaving 0.5s forwards;
+}
+body .transition-tile-box.leaving .tile.tile-2 {
+  -webkit-animation: tiles-leaving 0.5s forwards 0.1s;
+          animation: tiles-leaving 0.5s forwards 0.1s;
+}
+body .transition-tile-box.leaving .tile.tile-3 {
+  -webkit-animation: tiles-leaving 0.5s forwards 0.2s;
+          animation: tiles-leaving 0.5s forwards 0.2s;
+}
+body .transition-tile-box.leaving .tile.tile-4 {
+  -webkit-animation: tiles-leaving 0.5s forwards 0.3s;
+          animation: tiles-leaving 0.5s forwards 0.3s;
+}
+body .transition-tile-box.leaving .tile.tile-5 {
+  -webkit-animation: tiles-leaving 0.5s forwards 0.4s;
+          animation: tiles-leaving 0.5s forwards 0.4s;
+}
+body .transition-tile-box.leaving .tile.tile-6 {
+  -webkit-animation: tiles-leaving 0.5s forwards 0.5s;
+          animation: tiles-leaving 0.5s forwards 0.5s;
+}
+body .transition-tile-box.leaving .tile.tile-7 {
+  -webkit-animation: tiles-leaving 0.5s forwards 0.6s;
+          animation: tiles-leaving 0.5s forwards 0.6s;
+}
+
+.popular-players {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(8, 58, 31);
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+.popular-players.deactive {
+  display: none;
+}
+.popular-players__left {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  width: 20rem;
+  overflow-y: auto;
+}
+.popular-players__left h3 {
+  text-align: right;
+  font-weight: 700;
+  font-size: 2.8rem;
+  color: #fff;
+}
+.popular-players__left .best-3 {
+  display: flex;
+  flex-direction: column;
+  border: 0.063rem solid rgba(148, 129, 23, 0.5);
+  border-bottom: none;
+}
+.popular-players__left .best-3__placement {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.063rem solid rgba(148, 129, 23, 0.5);
+}
+.popular-players__left .best-3__placement--left {
+  display: flex;
+  align-items: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0 1rem 1rem;
+}
+.popular-players__left .best-3__placement--left .place-number {
+  font-weight: 800;
+  font-size: 2rem;
+  color: #000;
+}
+.popular-players__left .best-3__placement--left img {
+  width: 3.3rem;
+  height: 3.3rem;
+  margin-top: 0.2rem;
+}
+.popular-players__left .best-3__placement.first-place .best-3__placement--left {
+  background: linear-gradient(to right, #947f13, #052b16);
+}
+.popular-players__left .best-3__placement.second-place .best-3__placement--left {
+  background: linear-gradient(to right, #6a7f73, #052b16);
+}
+.popular-players__left .best-3__placement.third-place .best-3__placement--left {
+  background: linear-gradient(to right, #b04f02, #052b16);
+}
+.popular-players__left .best-3__placement--right {
+  flex: 1;
+  height: 100%;
+  padding: 1.5rem 1rem 1rem 0.3rem;
+  background-color: #052b16;
+}
+.popular-players__left .best-3__placement--right .placement-info__top {
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #fff;
+}
+.popular-players__left .best-3__placement--right .placement-info__bottom {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #928013;
+}
+.popular-players__right {
+  flex: 1;
+  display: flex;
+}
+.popular-players__right .tab-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.popular-players__right .tab-box__assets {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.popular-players__right .tab-box__assets .tab-box__buttons {
+  display: flex;
+  align-items: center;
+  background-color: #0c221d;
+  border-radius: 2rem;
+  padding: 0.3rem;
+}
+.popular-players__right .tab-box__assets .tab-box__buttons--button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #fff;
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+}
+.popular-players__right .tab-box__assets .tab-box__buttons--button.active {
+  background-color: #f8b91e;
+  color: #000;
+}
+.popular-players__right .tab-box__assets .tab-box__leave .leave-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.popular-players__right .tab-box__assets .tab-box__leave .leave-button i {
+  font-size: 1.6rem;
+  color: #f8b91e;
+}
+.popular-players__right .tab-box__people {
+  background-color: #052b16;
+  border: 0.01rem solid #fff;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+}
+.popular-players__right .tab-box__people--person {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-bottom: 0.02rem solid #fff;
+  flex: 1;
+}
+.popular-players__right .tab-box__people--person .number {
+  font-weight: 500;
+  font-size: 1.7rem;
+  color: #fff;
+}
+.popular-players__right .tab-box__people--person .info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.popular-players__right .tab-box__people--person .info img {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+.popular-players__right .tab-box__people--person .info .name {
+  flex: 1;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #fff;
+}
+.popular-players__right .tab-box__people--person .money {
+  font-weight: 600;
+  font-size: 1rem;
+  color: rgb(121, 115, 23);
 }
 
 main {
@@ -178,6 +470,14 @@ main {
   background-attachment: fixed;
   background-position: center;
   overflow-y: hidden;
+}
+main.deactive {
+  display: none;
+}
+main.leaving {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 main .animation-background {
   width: 100%;
@@ -204,11 +504,11 @@ main .animation-background.leaving {
 }
 main .profile-box {
   width: 25rem;
-  height: 50rem;
+  height: 46rem;
   transition: 0.2s;
   z-index: 12;
   position: absolute;
-  top: 6rem;
+  top: 1rem;
   left: calc(50% - 12.5rem);
   background-color: #052B16;
   overflow-x: hidden;
@@ -887,6 +1187,9 @@ main .navbar-section nav .navbar-right .tool-box {
   margin-right: 1.5rem;
 }
 main .navbar-section nav .navbar-right .tool-box .maximize-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -903,6 +1206,9 @@ main .navbar-section nav .navbar-right .tool-box .maximize-button i {
   font-size: 1.3rem;
 }
 main .navbar-section nav .navbar-right .tool-box .messages-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -919,6 +1225,9 @@ main .navbar-section nav .navbar-right .tool-box .messages-button i {
   font-size: 1.3rem;
 }
 main .navbar-section nav .navbar-right .tool-box .settings-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -1000,8 +1309,12 @@ main .body-section .hall-section .hall-container header button:hover {
 main .body-section .hall-section .hall-container header button:active {
   scale: 0.8;
 }
+main .body-section .hall-section .hall-container .hall-table-box {
+  height: 100%;
+}
 main .body-section .hall-section .hall-container .hall-table-box table {
   width: 100%;
+  height: 100%;
 }
 main .body-section .hall-section .hall-container .hall-table-box table thead {
   width: 100%;
@@ -1036,7 +1349,7 @@ main .body-section .hall-section .hall-container .hall-table-box table thead tr 
 main .body-section .hall-section .hall-container .hall-table-box table tbody {
   width: 100%;
   display: block;
-  overflow: auto;
+  overflow-y: auto;
   height: 30rem;
   width: 100%;
 }
@@ -1107,6 +1420,9 @@ main .body-section .sidebar-desktop .sidebar-top {
 main .body-section .sidebar-desktop .button-content-wrapper {
   width: 100%;
   height: 4.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 main .body-section .sidebar-desktop .button-content-wrapper:not(:first-child) {
   border-bottom: 0.063rem solid rgba(255, 255, 255, 0.65);
@@ -1122,13 +1438,10 @@ main .body-section .sidebar-desktop .sidebar-desktop--button {
   align-items: center;
   height: 100%;
   color: #fff;
-  background: none;
   filter: grayscale(100%) opacity(0.7);
   transition: 0.2s;
-  cursor: pointer;
-  border: none;
 }
-main .body-section .sidebar-desktop .sidebar-desktop--button div {
+main .body-section .sidebar-desktop .sidebar-desktop--button .icon-box {
   width: 3rem;
   min-width: 3rem;
   margin: 0 1.5rem;
@@ -1136,7 +1449,7 @@ main .body-section .sidebar-desktop .sidebar-desktop--button div {
   align-items: center;
   justify-content: center;
 }
-main .body-section .sidebar-desktop .sidebar-desktop--button div i {
+main .body-section .sidebar-desktop .sidebar-desktop--button .icon-box i {
   color: #fff;
   transition: 0.2s;
   font-size: 1.5rem;
@@ -1950,6 +2263,14 @@ main .body-section__right .people .person__table {
 @media only screen and (max-height: 650px) {
   main .profile-box {
     height: 75%;
+  }
+  main .body-section .hall-section .hall-container .hall-table-box table tbody {
+    height: 20rem;
+  }
+}
+@media only screen and (max-height: 580px) {
+  main .body-section .hall-section .hall-container .hall-table-box table tbody {
+    height: 15rem;
   }
 }
 @media only screen and (max-height: 500px) {

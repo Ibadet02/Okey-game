@@ -18,6 +18,19 @@ const edit_profile_button = document.querySelector('.edit-profile-box')
 const profile_content = document.querySelector('.profile-box__content')
 const profile_edit = document.querySelector('.profile-box__edit')
 const back_to_profile_content = document.querySelector('.back-to-profile-content')
+const input = document.getElementById("imgInput");
+const preview = document.getElementById("preview");
+const removeBtn = document.getElementById("removeBtn");
+const fontSelect = document.getElementById("fontSelect");
+const nickColorInput = document.getElementById("nickColorInput");
+// Pages
+const homePage = document.getElementById('homePage')
+const friends_button = document.querySelector('.friends-button')
+const transition_tile_box = document.querySelector('.transition-tile-box')
+const first_tile = document.querySelector('.tile-1')
+const last_tile = document.querySelector('.tile-7')
+const popular_playersPage = document.querySelector('.popular-players')
+const leavePopularPlayersButton = document.querySelector('.tab-box__leave .leave-button')
 // const mobile_nav = document.querySelector('.mobile-nav')
 // menu_bar.addEventListener('click', ()=>{
 //     menu_bar.classList.toggle('change')
@@ -164,12 +177,6 @@ back_to_profile_content.addEventListener('click',()=>{
 })
 
 
-const input = document.getElementById("imgInput");
-const preview = document.getElementById("preview");
-const removeBtn = document.getElementById("removeBtn");
-const fontSelect = document.getElementById("fontSelect");
-const nickColorInput = document.getElementById("nickColorInput");
-
 input.addEventListener("change", function() {
 const reader = new FileReader();
 reader.onload = function() {
@@ -196,3 +203,38 @@ preview.style.fontFamily = fontSelect.value;
 nickColorInput.addEventListener("change", function() {
 preview.style.color = nickColorInput.value;
 });
+
+
+// Pages
+
+friends_button.addEventListener('click', e=>{
+    homePage.classList.add('leaving')
+    transition_tile_box.classList.remove('deactive')
+    transition_tile_box.classList.add('coming')
+    last_tile.addEventListener('animationend', e=>{
+        transition_tile_box.classList.remove('coming')
+        transition_tile_box.classList.add('leaving')
+        homePage.classList.remove('leaving')
+        homePage.classList.add('deactive')
+        popular_playersPage.classList.remove('deactive')
+        last_tile.addEventListener('animationend', e=>{
+            transition_tile_box.classList.remove('leaving')
+            transition_tile_box.classList.add('deactive')
+        },{once:true})
+    },{once:true})
+})
+
+leavePopularPlayersButton.addEventListener('click', e=>{
+    transition_tile_box.classList.remove('deactive')
+    transition_tile_box.classList.add('coming')
+    last_tile.addEventListener('animationend', e=>{
+        popular_playersPage.classList.add('deactive')
+        homePage.classList.remove('deactive')
+        transition_tile_box.classList.remove('coming')
+        transition_tile_box.classList.add('leaving')
+        last_tile.addEventListener('animationend', e=>{
+            transition_tile_box.classList.remove('leaving')
+            transition_tile_box.classList.add('deactive')
+        }, {once:true})
+    }, {once:true})
+})
