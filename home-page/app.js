@@ -18,6 +18,9 @@ const edit_profile_button = document.querySelector('.edit-profile-box')
 const profile_content = document.querySelector('.profile-box__content')
 const profile_edit = document.querySelector('.profile-box__edit')
 const back_to_profile_content = document.querySelector('.back-to-profile-content')
+const friends_button = document.querySelector('.friends-button')
+const friends_box = document.querySelector('.friends-box')
+const exit_friends_box = document.querySelector('.friends-box__menu--button')
 const input = document.getElementById("imgInput");
 const preview = document.getElementById("preview");
 const removeBtn = document.getElementById("removeBtn");
@@ -25,7 +28,6 @@ const fontSelect = document.getElementById("fontSelect");
 const nickColorInput = document.getElementById("nickColorInput");
 // Pages
 const homePage = document.getElementById('homePage')
-const friends_button = document.querySelector('.friends-button')
 const theBest_button = document.querySelector('.theBest-button')
 const transition_tile_box = document.querySelector('.transition-tile-box')
 const first_tile = document.querySelector('.tile-1')
@@ -44,6 +46,7 @@ menu_bar.addEventListener('click', e=>{
     animation_background.classList.add('coming')
     animation_background.addEventListener('animationend', e=>{
         animation_background.classList.remove('coming')
+        animation_background.classList.remove('deactive')
     }, {once:true})
     // body_section__left.classList.add('narrow')
     // tables.style.gridTemplateColumns = 'repeat(2, 1fr)'
@@ -127,15 +130,50 @@ function exitProfileBox() {
 exit_profile_box.addEventListener('click', ()=>{
     exitProfileBox()
 })
+
+friends_button.addEventListener('click', e=>{
+    sidebar_desktop.style.zIndex = '9'
+    friends_box.classList.remove('deactive')
+    friends_box.classList.add('coming')
+    animation_background.classList.remove('deactive')
+    animation_background.classList.add('coming')
+    friends_box.addEventListener('animationend', ()=>{
+        friends_box.classList.remove('coming')
+        animation_background.classList.remove('coming')
+    }, {once:true})
+})
+
+function exitFriendsBox(){
+    sidebar_desktop.style.zIndex = ''
+    animation_background.classList.add('leaving')
+    friends_box.classList.add('leaving')
+    friends_box.addEventListener('animationend', ()=>{
+        animation_background.classList.add('deactive')
+        animation_background.classList.remove('leaving')
+        friends_box.classList.remove('leaving')
+        friends_box.classList.add('deactive')
+    }, {once:true})
+}
+
+exit_friends_box.addEventListener('click', e=>{
+    exitFriendsBox()
+})
 animation_background.addEventListener('click', (e)=>{
     if(window.getComputedStyle(hall_section).display !== 'none'){
+        console.log('hall')
         leaveHalls()
     }
-    else if(window.getComputedStyle(profile_box).display !== 'none'){
+    if(window.getComputedStyle(profile_box).display !== 'none'){
+        console.log('profile')
         exitProfileBox()
     }
-    else if(window.getComputedStyle(sidebar_top).display !== 'none' ){
+    if(window.getComputedStyle(sidebar_top).display !== 'none'){
+        console.log('sidebar')
         exitSidebar()
+    }
+    if(window.getComputedStyle(friends_box).display !=='none'){
+        console.log('friends')
+        exitFriendsBox()
     }
 })
 
