@@ -26,6 +26,7 @@ const nickColorInput = document.getElementById("nickColorInput");
 // Pages
 const homePage = document.getElementById('homePage')
 const friends_button = document.querySelector('.friends-button')
+const theBest_button = document.querySelector('.theBest-button')
 const transition_tile_box = document.querySelector('.transition-tile-box')
 const first_tile = document.querySelector('.tile-1')
 const last_tile = document.querySelector('.tile-7')
@@ -47,15 +48,17 @@ menu_bar.addEventListener('click', e=>{
     // body_section__left.classList.add('narrow')
     // tables.style.gridTemplateColumns = 'repeat(2, 1fr)'
 })
-exit_sidebar.addEventListener('click', e=>{
+
+function exitSidebar() {
     sidebar_desktop.classList.remove('open')
     animation_background.classList.add('leaving')
     animation_background.addEventListener('animationend',e=>{
         animation_background.classList.remove('leaving')
         animation_background.classList.add('deactive')
     }, {once: true})
-    // body_section__left.classList.remove('narrow')
-    // tables.style.gridTemplateColumns = 'repeat(3, 1fr)'
+}
+exit_sidebar.addEventListener('click', e=>{
+    exitSidebar()
 })
 
 change_chat_size.addEventListener('click', e=>{
@@ -82,7 +85,7 @@ halls_button.addEventListener('click', e=>{
     }, {once: true})
 })
 
-leave_halls_button.addEventListener('click', e=>{
+function leaveHalls() {
     hall_section.classList.add('leaving')
     animation_background.classList.add('leaving')
     hall_section.addEventListener('animationend',e=>{
@@ -91,9 +94,11 @@ leave_halls_button.addEventListener('click', e=>{
         animation_background.classList.remove('leaving')
         animation_background.classList.add('deactive')
     }, {once: true})
+}
+
+leave_halls_button.addEventListener('click', e=>{
+    leaveHalls()
 })
-
-
 
 
 profile_button.addEventListener('click', ()=>{
@@ -107,7 +112,8 @@ profile_button.addEventListener('click', ()=>{
         animation_background.classList.remove('coming')
     }, {once:true})
 })
-exit_profile_box.addEventListener('click', ()=>{
+
+function exitProfileBox() {
     sidebar_desktop.style.zIndex = ''
     animation_background.classList.add('leaving')
     profile_box.classList.add('leaving')
@@ -117,36 +123,19 @@ exit_profile_box.addEventListener('click', ()=>{
         profile_box.classList.remove('leaving')
         profile_box.classList.add('deactive')
     }, {once:true})
+}
+exit_profile_box.addEventListener('click', ()=>{
+    exitProfileBox()
 })
 animation_background.addEventListener('click', (e)=>{
     if(window.getComputedStyle(hall_section).display !== 'none'){
-        hall_section.classList.add('leaving')
-        animation_background.classList.add('leaving')
-        hall_section.addEventListener('animationend',()=>{
-            hall_section.classList.remove('leaving')
-            hall_section.classList.add('deactive')
-            animation_background.classList.remove('leaving')
-            animation_background.classList.add('deactive')
-        }, {once:true})
+        leaveHalls()
     }
     else if(window.getComputedStyle(profile_box).display !== 'none'){
-        sidebar_desktop.style.zIndex = ''
-        profile_box.classList.add('leaving')
-        animation_background.classList.add('leaving')
-        profile_box.addEventListener('animationend',()=>{
-            profile_box.classList.remove('leaving')
-            profile_box.classList.add('deactive')
-            animation_background.classList.remove('leaving')
-            animation_background.classList.add('deactive')
-        }, {once:true})
+        exitProfileBox()
     }
     else if(window.getComputedStyle(sidebar_top).display !== 'none' ){
-        animation_background.classList.add('leaving')
-        sidebar_desktop.classList.remove('open')
-        animation_background.addEventListener('animationend',e=>{
-            animation_background.classList.remove('leaving')
-            animation_background.classList.add('deactive')
-        }, {once: true})
+        exitSidebar()
     }
 })
 
@@ -209,7 +198,7 @@ preview.style.color = nickColorInput.value;
 
 // friends
 
-friends_button.addEventListener('click', e=>{
+theBest_button.addEventListener('click', e=>{
     homePage.classList.add('leaving')
     transition_tile_box.classList.remove('deactive')
     transition_tile_box.classList.add('coming')

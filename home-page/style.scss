@@ -359,13 +359,130 @@ body{
     &__left{
         display: flex;
         flex-direction: column;
-        gap: 5rem;
-        width: 20rem;
+        gap: 4rem;
+        width: 21.6rem;
         // height: 100%;
         overflow-y: auto;
         h3{
             text-align: right;
             @include font-noto_sans(700, 2.8rem, #fff);
+        }
+        .cylinder-placement{
+            display: flex;
+            align-items: center;
+            gap: 3.5rem;
+            .cylinder-box{
+                display: flex;
+                flex-direction: column;
+                &__image{
+                    position: relative;
+                    span{
+                        position: absolute;
+                        z-index: 300;
+                        @include font-noto_sans(600, 2.5rem, #000);
+                        top: 4.5rem;
+                        left: 3.1rem;
+                    }
+                }
+                .cylinder-1__image, .cylinder-3__image{
+                    img{
+                        width: 2.8rem;
+                        height: 2.8rem;
+                        transform: translateX(2.4rem);
+                        z-index: 200;
+                        position: relative;
+                    }
+                }
+                .cylinder-2__image{
+                    img{
+                        width: 4rem;
+                        height: 4rem;
+                        transform: translateX(2.4rem);
+                        z-index: 200;
+                        position: relative;
+                    }
+                    span{
+                        top: 7rem;
+                        left: 3.6rem;
+                    }
+                }
+                .tank{
+                    position: relative;
+                    &.tank-1{
+                        // margin-right: 3rem;
+                    }
+                    &.tank-2{
+                        z-index: 100;
+                        margin-bottom: 5rem;
+                        margin-left: .5rem;
+                    }
+                    // margin: 3.125rem;
+                    .top{
+                        width: 7.5rem;
+                        height: 3.125rem;
+                        // background-color: #CFCDCF;
+                        -moz-border-radius: 3.75rem / 1.563rem;
+                        -webkit-border-radius: 3.75rem / 1.563rem;
+                        border-radius: 3.75rem / 1.563rem;
+                        border: .1rem solid rgb(0, 0, 0, .3);
+                        position: absolute;
+                        top: -1.563rem;
+                    }
+                    .middle{
+                        width: 7.5rem;
+                        height: 11.25rem;
+                        background-color:#444;
+                        position:absolute;
+                    }
+                    .bottom{
+                        width: 7.5rem;
+                        height: 3.125rem;
+                        background-color: #444;
+                        -moz-border-radius: 3.75rem / 1.563rem;
+                        -webkit-border-radius: 3.75rem / 1.563rem;
+                        border-radius: 3.75rem / 1.563rem;
+                        position:absolute;
+                        top: 9.688rem;
+                        box-shadow: 0 0 0.625rem rgba(0,0,0,0.75)
+                    }
+                    &.tank-1 .top{
+                        background-color: #CFCDCF;
+                    }
+                    &.tank-1  .middle{
+                        height: 3rem;
+                        background: linear-gradient(269.29deg, #3D3938 0.85%, #D1CCD0 49.92%);
+                    }
+                    &.tank-1 .bottom{
+                        top: 1.5rem;
+                        background-color: #D1CCD0;
+                        background: linear-gradient(269.29deg, #3D3938 0.85%, #D1CCD0 49.92%);
+                    }
+                    &.tank-2 .top{
+                        background-color:#F7C740;
+                    }
+                    &.tank-2  .middle{
+                        height: 6rem;
+                        background: linear-gradient(266.58deg, #A36A04 2.31%, rgba(196, 180, 2, 0) 67.72%), linear-gradient(90deg, #976D08 -1.54%, #EDEB80 25.96%);
+                    }
+                    &.tank-2 .bottom{
+                        top: 4.5rem;
+                        background: linear-gradient(266.58deg, #A36A04 2.31%, rgba(196, 180, 2, 0) 67.72%), linear-gradient(90deg, #976D08 -1.54%, #EDEB80 25.96%);
+                    }
+                    &.tank-3 .top{
+                        background-color: #823A1C;
+                    }
+                    &.tank-3  .middle{
+                        height: 3rem;
+                        background-color: #a45b27;
+                        background: linear-gradient(to right, #a45b27, #a15e1c);
+                    }
+                    &.tank-3 .bottom{
+                        top: 1.5rem;
+                        background: linear-gradient(to right, #a45b27, #a15e1c);
+                    }
+
+                }
+            }
         }
         .best-3{
             display: flex;
@@ -2069,6 +2186,6 @@ main{
 
 @media only screen and (max-height: 405px){
     .popular-players__left{
-        gap: 2rem;
+        // gap: 2rem;
     }
 }

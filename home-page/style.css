@@ -301,8 +301,8 @@ body .transition-tile-box.leaving .tile.tile-7 {
 .popular-players__left {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
-  width: 20rem;
+  gap: 4rem;
+  width: 21.6rem;
   overflow-y: auto;
 }
 .popular-players__left h3 {
@@ -310,6 +310,111 @@ body .transition-tile-box.leaving .tile.tile-7 {
   font-weight: 700;
   font-size: 2.8rem;
   color: #fff;
+}
+.popular-players__left .cylinder-placement {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+}
+.popular-players__left .cylinder-placement .cylinder-box {
+  display: flex;
+  flex-direction: column;
+}
+.popular-players__left .cylinder-placement .cylinder-box__image {
+  position: relative;
+}
+.popular-players__left .cylinder-placement .cylinder-box__image span {
+  position: absolute;
+  z-index: 300;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: #000;
+  top: 4.5rem;
+  left: 3.1rem;
+}
+.popular-players__left .cylinder-placement .cylinder-box .cylinder-1__image img, .popular-players__left .cylinder-placement .cylinder-box .cylinder-3__image img {
+  width: 2.8rem;
+  height: 2.8rem;
+  transform: translateX(2.4rem);
+  z-index: 200;
+  position: relative;
+}
+.popular-players__left .cylinder-placement .cylinder-box .cylinder-2__image img {
+  width: 4rem;
+  height: 4rem;
+  transform: translateX(2.4rem);
+  z-index: 200;
+  position: relative;
+}
+.popular-players__left .cylinder-placement .cylinder-box .cylinder-2__image span {
+  top: 7rem;
+  left: 3.6rem;
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank {
+  position: relative;
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank.tank-2 {
+  z-index: 100;
+  margin-bottom: 5rem;
+  margin-left: 0.5rem;
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank .top {
+  width: 7.5rem;
+  height: 3.125rem;
+  border-radius: 3.75rem/1.563rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: -1.563rem;
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank .middle {
+  width: 7.5rem;
+  height: 11.25rem;
+  background-color: #444;
+  position: absolute;
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank .bottom {
+  width: 7.5rem;
+  height: 3.125rem;
+  background-color: #444;
+  border-radius: 3.75rem/1.563rem;
+  position: absolute;
+  top: 9.688rem;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.75);
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank.tank-1 .top {
+  background-color: #CFCDCF;
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank.tank-1 .middle {
+  height: 3rem;
+  background: linear-gradient(269.29deg, #3D3938 0.85%, #D1CCD0 49.92%);
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank.tank-1 .bottom {
+  top: 1.5rem;
+  background-color: #D1CCD0;
+  background: linear-gradient(269.29deg, #3D3938 0.85%, #D1CCD0 49.92%);
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank.tank-2 .top {
+  background-color: #F7C740;
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank.tank-2 .middle {
+  height: 6rem;
+  background: linear-gradient(266.58deg, #A36A04 2.31%, rgba(196, 180, 2, 0) 67.72%), linear-gradient(90deg, #976D08 -1.54%, #EDEB80 25.96%);
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank.tank-2 .bottom {
+  top: 4.5rem;
+  background: linear-gradient(266.58deg, #A36A04 2.31%, rgba(196, 180, 2, 0) 67.72%), linear-gradient(90deg, #976D08 -1.54%, #EDEB80 25.96%);
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank.tank-3 .top {
+  background-color: #823A1C;
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank.tank-3 .middle {
+  height: 3rem;
+  background-color: #a45b27;
+  background: linear-gradient(to right, #a45b27, #a15e1c);
+}
+.popular-players__left .cylinder-placement .cylinder-box .tank.tank-3 .bottom {
+  top: 1.5rem;
+  background: linear-gradient(to right, #a45b27, #a15e1c);
 }
 .popular-players__left .best-3 {
   display: flex;
@@ -2286,10 +2391,5 @@ main .body-section__right .people .person__table {
 @media only screen and (max-height: 330px) {
   main .profile-box {
     height: 65%;
-  }
-}
-@media only screen and (max-height: 405px) {
-  .popular-players__left {
-    gap: 2rem;
   }
 }/*# sourceMappingURL=style.css.map */
