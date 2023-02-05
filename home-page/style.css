@@ -193,6 +193,22 @@
     width: 0;
   }
 }
+@-webkit-keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -293,7 +309,7 @@ body .transition-tile-box.leaving .tile.tile-7 {
   background-color: rgb(8, 58, 31);
   display: flex;
   gap: 2rem;
-  padding: 2rem;
+  padding: 2rem 10rem;
 }
 .popular-players.deactive {
   display: none;
@@ -302,7 +318,7 @@ body .transition-tile-box.leaving .tile.tile-7 {
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  width: 21.6rem;
+  width: 21.7rem;
   overflow-y: auto;
 }
 .popular-players__left h3 {
@@ -521,15 +537,37 @@ body .transition-tile-box.leaving .tile.tile-7 {
   font-size: 1.6rem;
   color: #f8b91e;
 }
-.popular-players__right .tab-box__people {
+.popular-players__right .tab-box__container {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+.popular-players__right .tab-box__container--people {
+  position: absolute;
+  top: 0;
   background-color: #052b16;
   border: 0.01rem solid #fff;
   display: flex;
   flex-direction: column;
   flex: 1;
+  width: 100%;
   overflow-y: auto;
+  transition: 0.2s;
 }
-.popular-players__right .tab-box__people--person {
+.popular-players__right .tab-box__container--people.the-best-of-day {
+  left: -200%;
+}
+.popular-players__right .tab-box__container--people.experienced {
+  left: -100%;
+}
+.popular-players__right .tab-box__container--people.the-best {
+  left: 100%;
+}
+.popular-players__right .tab-box__container--people.active {
+  left: 0;
+}
+.popular-players__right .tab-box__container--people--person {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -537,31 +575,37 @@ body .transition-tile-box.leaving .tile.tile-7 {
   border-bottom: 0.02rem solid #fff;
   flex: 1;
 }
-.popular-players__right .tab-box__people--person .number {
+.popular-players__right .tab-box__container--people--person:nth-child(odd) {
+  background-color: #1D3D2E;
+}
+.popular-players__right .tab-box__container--people--person:nth-child(even) {
+  background-color: #345F44;
+}
+.popular-players__right .tab-box__container--people--person .number {
   font-weight: 500;
   font-size: 1.7rem;
   color: #fff;
 }
-.popular-players__right .tab-box__people--person .info {
+.popular-players__right .tab-box__container--people--person .info {
   flex: 1;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.popular-players__right .tab-box__people--person .info img {
+.popular-players__right .tab-box__container--people--person .info img {
   width: 2.8rem;
   height: 2.8rem;
 }
-.popular-players__right .tab-box__people--person .info .name {
+.popular-players__right .tab-box__container--people--person .info .name {
   flex: 1;
   font-weight: 500;
   font-size: 1.1rem;
   color: #fff;
 }
-.popular-players__right .tab-box__people--person .money {
+.popular-players__right .tab-box__container--people--person .money {
   font-weight: 600;
   font-size: 1rem;
-  color: rgb(121, 115, 23);
+  color: #E6B424;
 }
 
 main {
@@ -1097,6 +1141,7 @@ main .friends-box__body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  padding: 0 0.3rem;
 }
 main .friends-box__body .friend {
   display: flex;
@@ -1104,20 +1149,56 @@ main .friends-box__body .friend {
   justify-content: space-between;
   padding: 0.5rem;
   padding-right: 2.1rem;
+  border: 0.013rem solid rgba(255, 255, 255, 0.52);
+  border-radius: 0.375rem;
+  border-collapse: collapse;
 }
 main .friends-box__body .friend__info {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-main .friends-box__body .friend__info img {
-  width: 2.2rem;
-  height: 2.2rem;
+main .friends-box__body .friend__info--img {
+  position: relative;
 }
-main .friends-box__body .friend__info--name {
-  font-weight: 500;
-  font-size: 1.1rem;
+main .friends-box__body .friend__info--img img {
+  width: 2.7rem;
+  height: 2.7rem;
+}
+main .friends-box__body .friend__info--img .star-box {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  bottom: 0;
+}
+main .friends-box__body .friend__info--img .star-box .star-number {
+  position: absolute;
+  left: 0.35rem;
+  bottom: 0.15rem;
+  font-weight: 600;
+  font-size: 0.6rem;
+  color: #000;
+}
+main .friends-box__body .friend__info--img .star-box img {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+main .friends-box__body .friend__info--text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main .friends-box__body .friend__info--text--name {
+  font-weight: 550;
+  font-size: 1.3rem;
   color: #fff;
+}
+main .friends-box__body .friend__info--text--money {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #FFCE61;
 }
 main .friends-box__body .friend__tools {
   display: flex;
@@ -1139,6 +1220,149 @@ main .friends-box__body .friend__tools .done i {
 main .friends-box__body .friend__tools .message i {
   color: #fff;
   font-size: 1.3rem;
+}
+main .invite-box {
+  width: 25rem;
+  max-height: 80%;
+  transition: 0.2s;
+  z-index: 12;
+  position: absolute;
+  top: 6rem;
+  left: calc(50% - 12.5rem);
+  background-color: #052B16;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+main .invite-box.deactive {
+  display: none;
+}
+main .invite-box.coming {
+  -webkit-animation: profile-box-coming 0.2s forwards;
+          animation: profile-box-coming 0.2s forwards;
+}
+main .invite-box.leaving {
+  -webkit-animation: profile-box-leaving 0.2s forwards;
+          animation: profile-box-leaving 0.2s forwards;
+}
+main .invite-box__menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.3rem 1.3rem 1.3rem 2.2rem;
+}
+main .invite-box__menu--name {
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #FFCE61;
+}
+main .invite-box__menu--button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main .invite-box__menu--button i {
+  color: #FFCE61;
+  font-size: 1.5rem;
+}
+main .invite-box__body {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+}
+main .invite-box__body .person {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 0.013rem solid rgba(255, 255, 255, 0.52);
+}
+main .invite-box__body .person__info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+main .invite-box__body .person__info--img {
+  position: relative;
+}
+main .invite-box__body .person__info--img img {
+  width: 3rem;
+  height: 3rem;
+}
+main .invite-box__body .person__info--img .star-box {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  bottom: 0;
+}
+main .invite-box__body .person__info--img .star-box .star-number {
+  position: absolute;
+  left: 0.35rem;
+  bottom: 0.15rem;
+  font-weight: 600;
+  font-size: 0.6rem;
+  color: #000;
+}
+main .invite-box__body .person__info--img .star-box img {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+main .invite-box__body .person__info--text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main .invite-box__body .person__info--text--name {
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #fff;
+  padding-left: 0.45rem;
+}
+main .invite-box__body .person__info--text--money {
+  display: flex;
+  align-items: center;
+}
+main .invite-box__body .person__info--text--money img {
+  width: 2rem;
+  height: 2rem;
+}
+main .invite-box__body .person__info--text--money span {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #FFCE61;
+}
+main .invite-box__body .person__tools {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+main .invite-box__body .person__tools .invite-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(180deg, #FFCE61 0%, #B98000 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 3.8rem;
+  height: 1.5rem;
+  border-radius: 0.3rem;
+}
+main .invite-box__body .person__tools .invite-button span {
+  font-weight: 800;
+  font-size: 0.5rem;
+  color: #000;
 }
 main .navbar-section {
   width: 100%;
@@ -1198,10 +1422,10 @@ main .navbar-section nav .mobile-nav__box button:hover {
 }
 main .navbar-section nav .navbar-left {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
   flex: 1;
-  gap: 2rem;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: left;
@@ -1316,15 +1540,65 @@ main .navbar-section nav .navbar-left__profile-section--bottom .experience-bar .
   background-color: #920F0F;
   border-radius: 1rem;
 }
+main .navbar-section nav .navbar-left .managers {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+main .navbar-section nav .navbar-left .managers img {
+  width: 3rem;
+}
+main .navbar-section nav .navbar-left .managers__text-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .navbar-section nav .navbar-left .managers__text-box span {
+  display: inline-block;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  font-weight: 700;
+  font-size: 0.4rem;
+  color: #000;
+  padding: 0.3rem 0.4rem;
+}
+main .navbar-section nav .navbar-left .new-demand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  cursor: pointer;
+  border: none;
+  background-color: #3CB92F;
+  box-shadow: 4px 4px 2px rgba(124, 92, 0, 0.4), inset -4px -4px 2px rgba(59, 44, 0, 0.4);
+  border-radius: 58px;
+  width: 7rem;
+  height: 2.5rem;
+}
+main .navbar-section nav .navbar-left .new-demand__text {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #fff;
+}
+main .navbar-section nav .navbar-left .new-demand i {
+  display: none;
+}
 main .navbar-section nav .logo {
   padding: 0 0.5rem;
-  margin: 0 6rem;
+  margin: 0 2rem;
   margin-top: 1.5rem;
 }
 main .navbar-section nav .logo img {
   height: 13rem;
 }
 main .navbar-section nav .navbar-right {
+  margin-left: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1385,6 +1659,37 @@ main .navbar-section nav .navbar-right .vip-membership-button {
 }
 main .navbar-section nav .navbar-right .vip-membership-button i {
   display: none;
+}
+main .navbar-section nav .navbar-right .rent-hall {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+main .navbar-section nav .navbar-right .rent-hall img {
+  width: 3rem;
+}
+main .navbar-section nav .navbar-right .rent-hall__text-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .navbar-section nav .navbar-right .rent-hall__text-box span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  font-weight: 700;
+  font-size: 0.4rem;
+  color: #000;
+  padding: 0.3rem;
+  margin-top: 0.5rem;
 }
 main .navbar-section nav .navbar-right .tool-box {
   display: flex;
@@ -1762,7 +2067,7 @@ main .body-section__left .tables-container .tables-nav {
   left: 0;
   width: 100%;
   height: 4rem;
-  overflow-y: hidden;
+  overflow: hidden;
   box-shadow: -3px 34px 32px -24px rgba(0, 0, 0, 0.82);
   -webkit-box-shadow: -3px 34px 32px -24px rgba(0, 0, 0, 0.82);
   -moz-box-shadow: -3px 34px 32px -24px rgba(0, 0, 0, 0.82);
@@ -1774,12 +2079,14 @@ main .body-section__left .tables-container .tables-nav__bottom {
   height: 100%;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  gap: 1rem;
 }
 main .body-section__left .tables-container .tables-nav__bottom--tools {
   display: flex;
-  flex: 1;
   height: 100%;
   padding: 0.1rem 0.2rem;
+  overflow: hidden;
 }
 main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons {
   display: flex;
@@ -1852,9 +2159,63 @@ main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav
   font-size: 1.2rem;
   color: rgb(118, 69, 0);
 }
-main .body-section__left .tables-container .tables-nav__bottom--space {
-  width: 3rem;
+main .body-section__left .tables-container .tables-nav__bottom--right {
+  flex: 1;
   height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.2rem 0;
+}
+main .body-section__left .tables-container .tables-nav__bottom--right--space {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: 100%;
+}
+main .body-section__left .tables-container .tables-nav__bottom--right--space .marquee {
+  position: absolute;
+  display: block;
+  margin: auto auto;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 100%;
+}
+main .body-section__left .tables-container .tables-nav__bottom--right--space .marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  font-family: "poppinsbold";
+  text-align: center;
+  -webkit-text-stroke: 0.063rem #43e486;
+  white-space: nowrap;
+  min-width: 100%;
+  font-size: 1rem;
+  -webkit-animation: marquee 20s linear infinite;
+          animation: marquee 20s linear infinite;
+}
+main .body-section__left .tables-container .tables-nav__bottom--right--space .marquee.marquee2 span {
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+}
+main .body-section__left .tables-container .tables-nav__bottom--right--button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #2281a1;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.3rem;
+  margin-right: 1rem;
+}
+main .body-section__left .tables-container .tables-nav__bottom--right--button i {
+  display: none;
 }
 main .body-section__left .tables-container .tables {
   flex: 1;
@@ -2079,13 +2440,6 @@ main .body-section__left .chatting .message-box {
   position: relative;
   height: 2rem;
 }
-main .body-section__left .chatting .message-box input {
-  width: 100%;
-  height: 100%;
-  padding-left: 2.2rem;
-  outline: none;
-  border: none;
-}
 main .body-section__left .chatting .message-box .emojis-box {
   height: 100%;
   position: absolute;
@@ -2106,6 +2460,25 @@ main .body-section__left .chatting .message-box .emojis-box .emoji-button {
 main .body-section__left .chatting .message-box .emojis-box .emoji-button img {
   width: 1rem;
   height: 1rem;
+}
+main .body-section__left .chatting .message-box input {
+  width: 100%;
+  height: 100%;
+  padding-left: 2.2rem;
+  outline: none;
+  border: none;
+}
+main .body-section__left .chatting .message-box input::-moz-placeholder {
+  font-size: 0.8rem;
+  margin-bottom: 0.1rem;
+}
+main .body-section__left .chatting .message-box input:-ms-input-placeholder {
+  font-size: 0.8rem;
+  margin-bottom: 0.1rem;
+}
+main .body-section__left .chatting .message-box input::placeholder {
+  font-size: 0.8rem;
+  margin-bottom: 0.1rem;
 }
 main .body-section__left .chatting .message-box .send {
   position: absolute;
@@ -2140,7 +2513,6 @@ main .body-section__right {
   width: 20rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 main .body-section__right .people-tools {
   display: flex;
@@ -2358,14 +2730,27 @@ main .body-section__right .people .person__table {
   color: #fff;
 }
 
-@media only screen and (max-width: 1360px) {
+@media only screen and (max-width: 1400px) {
+  main .navbar-section nav .navbar-left .new-demand {
+    width: 2.5rem;
+    border-radius: 50%;
+  }
+  main .navbar-section nav .navbar-left .new-demand__text {
+    display: none;
+  }
+  main .navbar-section nav .navbar-left .new-demand i {
+    display: inline;
+    color: #fff;
+    font-size: 1.2rem;
+  }
   main .navbar-section nav .logo {
-    margin: 1.5rem 3rem 0 3rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin: 1.5rem 1rem 0 1rem;
   }
 }
-@media only screen and (max-width: 1240px) {
+@media only screen and (max-width: 1300px) {
+  main .navbar-section nav .logo {
+    margin: 1.5rem 0 0 0;
+  }
   main .navbar-section nav .navbar-right .hourly-money-button {
     width: 3rem;
     height: 3rem;
@@ -2391,6 +2776,11 @@ main .body-section__right .people .person__table {
     font-size: 1.3rem;
   }
 }
+@media only screen and (max-width: 1220px) {
+  :root {
+    font-size: 15px;
+  }
+}
 @media only screen and (max-width: 1180px) {
   main .body-section__left .tables-container .tables {
     grid-template-columns: repeat(2, 1fr);
@@ -2398,29 +2788,51 @@ main .body-section__right .people .person__table {
 }
 @media only screen and (max-width: 1130px) {
   :root {
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 @media only screen and (max-width: 1060px) {
   :root {
-    font-size: 14px;
+    font-size: 13px;
   }
   main .navbar-section nav .navbar-left {
     gap: 1rem;
   }
-  main .navbar-section nav .logo {
-    margin-left: 1rem;
-    margin-right: 1rem;
+}
+@media only screen and (max-width: 1020px) {
+  :root {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 975px) {
+  main .body-section__left .tables-container .tables-nav__bottom--right--button {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+  }
+  main .body-section__left .tables-container .tables-nav__bottom--right--button span {
+    display: none;
+  }
+  main .body-section__left .tables-container .tables-nav__bottom--right--button i {
+    display: inline;
+  }
+}
+@media only screen and (max-width: 940px) {
+  :root {
+    font-size: 11px;
   }
 }
 @media only screen and (max-width: 920px) {
   :root {
-    font-size: 13px;
+    font-size: 10px;
+  }
+  main .navbar-section nav .logo {
+    margin: 1.5rem 1rem 0 1rem;
   }
 }
 @media only screen and (max-width: 830px) {
   :root {
-    font-size: 12px;
+    font-size: 9px;
   }
   main .body-section__left .tables-container .tables {
     grid-template-columns: 1fr;
@@ -2429,41 +2841,15 @@ main .body-section__right .people .person__table {
 }
 @media only screen and (max-width: 770px) {
   :root {
-    font-size: 11px;
+    font-size: 8px;
   }
   main .navbar-section nav .logo {
-    margin-left: 0;
-    margin-right: 0;
+    margin: 1.5rem 1.5rem 0 1.5rem;
   }
 }
 @media only screen and (max-width: 690px) {
   :root {
-    font-size: 10px;
-  }
-}
-@media only screen and (max-width: 620px) {
-  :root {
-    font-size: 9px;
-  }
-}
-@media only screen and (max-width: 560px) {
-  :root {
-    font-size: 8px;
-  }
-}
-@media only screen and (max-width: 560px) {
-  :root {
     font-size: 7px;
-  }
-}
-@media only screen and (max-width: 440px) {
-  :root {
-    font-size: 6px;
-  }
-}
-@media only screen and (max-width: 370px) {
-  :root {
-    font-size: 5px;
   }
 }
 @media only screen and (max-height: 650px) {
@@ -2472,6 +2858,43 @@ main .body-section__right .people .person__table {
   }
   main .body-section .hall-section .hall-container .hall-table-box table tbody {
     height: 20rem;
+  }
+}
+@media only screen and (max-width: 620px) {
+  main .navbar-section nav .logo {
+    margin: 1.5rem 0.5rem 0 0.5rem;
+  }
+}
+@media only screen and (max-width: 560px) {
+  :root {
+    font-size: 6px;
+  }
+  main .navbar-section nav .logo {
+    margin: 1.5rem 1.3rem 0 1.3rem;
+  }
+}
+@media only screen and (max-width: 490px) {
+  :root {
+    font-size: 5px;
+  }
+  main .navbar-section nav .logo {
+    margin: 1.5rem 1.5rem 0 1.5rem;
+  }
+}
+@media only screen and (max-width: 410px) {
+  :root {
+    font-size: 4px;
+  }
+  main .navbar-section nav .logo {
+    margin: 1.5rem 1.5rem 0 1.5rem;
+  }
+}
+@media only screen and (max-width: 330px) {
+  :root {
+    font-size: 3px;
+  }
+  main .navbar-section nav .logo {
+    margin: 1.5rem 2.5rem 0 2.5rem;
   }
 }
 @media only screen and (max-height: 580px) {

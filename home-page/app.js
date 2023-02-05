@@ -34,6 +34,10 @@ const first_tile = document.querySelector('.tile-1')
 const last_tile = document.querySelector('.tile-7')
 const popular_playersPage = document.querySelector('.popular-players')
 const leavePopularPlayersButton = document.querySelector('.tab-box__leave .leave-button')
+const tab_box_button_box = document.querySelector('.tab-box__buttons')
+const tab_box_buttons = Array.from(tab_box_button_box.children)
+const tab_box_container = document.querySelector('.tab-box__container')
+const tab_boxes = Array.from(tab_box_container.children)
 // const mobile_nav = document.querySelector('.mobile-nav')
 // menu_bar.addEventListener('click', ()=>{
 //     menu_bar.classList.toggle('change')
@@ -137,6 +141,14 @@ friends_button.addEventListener('click', e=>{
     friends_box.classList.add('coming')
     animation_background.classList.remove('deactive')
     animation_background.classList.add('coming')
+    // x
+    sidebar_desktop.classList.remove('open')
+    // animation_background.classList.add('leaving')
+    // animation_background.addEventListener('animationend',e=>{
+    //     animation_background.classList.remove('leaving')
+    //     animation_background.classList.add('deactive')
+    // }, {once: true})
+    // y
     friends_box.addEventListener('animationend', ()=>{
         friends_box.classList.remove('coming')
         animation_background.classList.remove('coming')
@@ -163,15 +175,15 @@ animation_background.addEventListener('click', (e)=>{
         console.log('hall')
         leaveHalls()
     }
-    if(window.getComputedStyle(profile_box).display !== 'none'){
+    else if(window.getComputedStyle(profile_box).display !== 'none'){
         console.log('profile')
         exitProfileBox()
     }
-    if(window.getComputedStyle(sidebar_top).display !== 'none'){
+    else if(window.getComputedStyle(sidebar_top).display !== 'none'){
         console.log('sidebar')
         exitSidebar()
     }
-    if(window.getComputedStyle(friends_box).display !=='none'){
+    else if(window.getComputedStyle(friends_box).display !=='none'){
         console.log('friends')
         exitFriendsBox()
     }
@@ -266,4 +278,32 @@ leavePopularPlayersButton.addEventListener('click', e=>{
             transition_tile_box.classList.add('deactive')
         }, {once:true})
     }, {once:true})
+})
+
+
+// arrenging popular players tab
+
+
+tab_box_buttons.forEach((button, buttonIndex)=>{
+    button.addEventListener('click', e=>{
+        tab_box_buttons.forEach(button=>button.classList.remove('active'))
+        e.target.classList.add('active')
+        tab_boxes.forEach(box=>{
+            box.classList.remove('active')
+        })
+        tab_boxes.forEach((box, boxIndex)=>{
+            if(buttonIndex === boxIndex){
+                box.classList.add('active')
+                box.style.left = '0'
+            }
+
+            else if(boxIndex < buttonIndex){
+                box.style.left = -((buttonIndex -  boxIndex) * 100) + '%'
+            }
+            else{
+                box.style.left = ((boxIndex - buttonIndex) * 100) + '%'
+            }
+        })
+        
+    })
 })
