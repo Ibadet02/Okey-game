@@ -1579,8 +1579,8 @@ main{
                             display: inline-block;
                             border-radius: .5rem;
                             background-color: #fff;
-                            @include font-noto_sans(700, .4rem, #000);
-                            padding: .3rem .4rem;
+                            @include font-noto_sans(700, .6rem, #000);
+                            padding: .2rem .3rem;
                         }
                     }
                 }
@@ -1675,7 +1675,7 @@ main{
                     cursor: pointer;
                     position: relative;
                     img{
-                        width: 3rem;
+                        width: 4rem;
                     }
                     &__text-box{
                         position: absolute;
@@ -1692,9 +1692,12 @@ main{
                             justify-content: center;
                             border-radius: .5rem;
                             background-color: #fff;
+                            width: 100%;
                             @include font-noto_sans(700, .4rem, #000);
                             padding: .3rem;
                             margin-top: .5rem;
+                            @include font-noto_sans(700, .6rem, #000);
+                            padding: .2rem 0rem;
                         }
                     }
                 }
@@ -2542,6 +2545,21 @@ main{
             display: inline;
             font-size: 1.3rem;
         }
+    }
+}
+@media only screen and (max-width: 2000px){
+    main .navbar-section nav .logo{
+        margin: 1.5rem 5.5rem 0 5.5rem;
+    }
+}
+@media only screen and (max-width: 1580px){
+    main .navbar-section nav .logo{
+        margin: 1.5rem 2.5rem 0 2.5rem;
+    }
+}
+@media only screen and (max-width: 1320px){
+    main .navbar-section nav .logo{
+        margin: 1.5rem 1.5rem 0 1.5rem;
     }
 }
 @media only screen and (max-width: 1220px){
