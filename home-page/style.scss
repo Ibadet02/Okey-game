@@ -286,7 +286,7 @@ $table-bg-color: #052B16;
     }
 }
 @mixin tables-navbar_plus-button{
-    height: 100%;
+    // height: 100%;
     background: none;
     display: flex;
     align-items: center;
@@ -2317,13 +2317,9 @@ main{
                                         color: #C68F13;
                                     }
                                 }
-                                .play-now-button{
-                                    @include tables-navbar_plus-button();
-                                    display: none;
-                                }
                                 .open-table-button{
                                     @include tables-navbar_plus-button();
-                                    display: none;
+                                    // display: none;
                                 }
                             }
                         }

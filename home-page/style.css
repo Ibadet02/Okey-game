@@ -1803,7 +1803,6 @@ main .navbar-section nav .navbar-left__profile-section--top .profile-button img 
   height: 100%;
 }
 main .navbar-section nav .navbar-left__profile-section--top .buy-chip-button {
-  height: 100%;
   background: none;
   display: flex;
   align-items: center;
@@ -2449,25 +2448,7 @@ main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav
   font-size: 3rem;
   color: #C68F13;
 }
-main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .play-now-button {
-  height: 100%;
-  background: none;
-  display: flex;
-  align-items: center;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(180deg, #FFCE61 0%, #B98000 100%);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 0.3rem 0.4rem;
-  border-radius: 0.4rem;
-  display: none;
-}
-main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .play-now-button i {
-  font-size: 1.2rem;
-  color: rgb(118, 69, 0);
-}
 main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .open-table-button {
-  height: 100%;
   background: none;
   display: flex;
   align-items: center;
@@ -2477,7 +2458,6 @@ main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 0.3rem 0.4rem;
   border-radius: 0.4rem;
-  display: none;
 }
 main .body-section__left .tables-container .tables-nav__bottom--tools .table-nav-buttons .open-table-button i {
   font-size: 1.2rem;
