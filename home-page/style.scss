@@ -35,6 +35,38 @@ $table-bg-color: #052B16;
         left: -50rem;
     }
 }
+@keyframes manager-box-coming{
+    0%{
+        scale: 0;
+    }
+    100%{
+        scale: 1;
+    }
+}
+@keyframes manager-box-leaving{
+    0%{
+        scale: 1;
+    }
+    100%{
+        scale: 0;
+    }
+}
+@keyframes notification-box-coming{
+    0%{
+        scale: 0;
+    }
+    100%{
+        scale: 1;
+    }
+}
+@keyframes notification-box-leaving{
+    0%{
+        scale: 1;
+    }
+    100%{
+        scale: 0;
+    }
+}
 @keyframes profile-box-coming{
     0%{
         scale: 0;
@@ -1388,6 +1420,270 @@ main{
             }
         }
     }
+    .notification-box{
+        width: 25rem;
+        max-height: 80%;
+        transition: $transition;
+        z-index: 12;
+        position: absolute;
+        top: $navbar-height;
+        left: calc(50% - 12.5rem);
+        background-color: #052B16;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        &.deactive{
+            display: none;
+        }
+        &.coming{
+            animation: notification-box-coming $transition forwards;
+        }
+        &.leaving{
+            animation: notification-box-leaving $transition forwards;
+        }
+        &__menu{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.3rem 1.3rem 1.3rem 2.2rem;
+            background-color: #083A1F;
+            &--name{
+                @include font-noto_sans(500, 1.5rem, #FFCE61)
+            }
+            &--button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: none;
+                border: none;
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                cursor: pointer;
+                i{
+                    color: #FFCE61;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        &__body{
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 0 2rem;
+            .person{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: .5rem 0;
+                border-bottom: 0.013rem solid rgba(255, 255, 255, 0.52);
+                &__info{
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    &--img{
+                        padding-top: .5rem;
+                        img{
+                            width: 3rem;
+                            height: 3rem;
+                        }
+                    }
+                    &--text{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        &--name{
+                            @include font-inter(500, 1.3rem, #fff);
+                        }
+                        &--message{
+                            display: flex;
+                            align-items: center;
+                            span{
+                                @include font-inter(500, 1rem, #FFF);
+                            }
+                        }
+                    }
+                }
+                &__tools{
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+                    .tool-button{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        background: none;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                        border-radius: .3rem;
+                        i{
+                            color: #FBCA5C;
+                            font-size: 1.3rem;
+                        }
+                    }
+                }
+            }
+            .person:nth-child(odd){
+                .person__tools .tool-button .account{
+                    display: none;
+                }
+            }
+            .person:nth-child(even){
+                .person__tools .tool-button .envelope{
+                    display: none;
+                }
+            }
+        }
+    }
+    .manager-box{
+        width: 25rem;
+        max-height: 80%;
+        transition: $transition;
+        z-index: 12;
+        position: absolute;
+        top: $navbar-height;
+        left: calc(50% - 12.5rem);
+        background-color: #052B16;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        &.deactive{
+            display: none;
+        }
+        &.coming{
+            animation: manager-box-coming $transition forwards;
+        }
+        &.leaving{
+            animation: manager-box-leaving $transition forwards;
+        }
+        &__menu{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.3rem 1.3rem 1.3rem 2.2rem;
+            background-color: #083A1F;
+            &--name{
+                @include font-noto_sans(500, 1.5rem, #FFCE61)
+            }
+            &--button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: none;
+                border: none;
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                cursor: pointer;
+                i{
+                    color: #FFCE61;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        &__body{
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 0 1rem;
+            &--top, &--bottom{
+                .system-owner, .authorities{
+                    padding: 1rem 0;
+                    &__category{
+                        display: flex;
+                        align-items: center;
+                        gap: .7rem;
+                        i{
+                            color: #FFCE61;
+                            font-size: 1.3rem;
+                        }
+                        &--text{
+                            @include font-noto_sans(600, 1.3rem, #FFCE61);
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                .person{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: .7rem;
+                    border: 0.013rem solid rgba(255, 255, 255, 0.52);
+                    border-radius: .3rem;
+                    &__info{
+                        display: flex;
+                        align-items: center;
+                        gap: .5rem;
+                        &--icon{
+                            i{
+                                color: #FFCE61;
+                            }
+                        }
+                        &--img{
+                            position: relative;
+                            img{
+                                width: 3rem;
+                                height: 3rem;
+                            }
+                        }
+                        &--text{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            &--name{
+                                @include font-inter(500, 1.3rem, #fff);
+                                padding-left: .45rem;
+                            }
+                            &--money{
+                                display: flex;
+                                align-items: center;
+                                img{
+                                    width: 2rem;
+                                    height: 2rem;
+                                }
+                                span{
+                                    @include font-inter(500, 1rem, #FFCE61);
+                                }
+                            }
+                        }
+                    }
+                    &__tools{
+                        display: flex;
+                        align-items: center;
+                        gap: .5rem;
+                        &--money{
+                            @include font-inter(500, 1.1rem, #FFCE61);
+                        }
+                    }
+                    // &:first-child{
+                    //     background-color: red;
+                    //     .person__info--icon .star, .person__info--icon .heart{
+                    //         display: none;
+                    //     }
+                    // }
+                }
+                // .person:nth-child(3n + 1){
+                //     .person__info--icon .goblet, .person__info--icon .star{
+                //         display: none;
+                //     }
+                // }
+                // .person:nth-child(2n){
+                //     .person__info--icon .goblet, .person__info--icon .heart{
+                //         display: none;
+                //     }
+                // }
+                // .person:nth-child(3n){
+                //     .person__info--icon .star, .person__info--icon .heart{
+                //         display: none;
+                //     }
+                // }
+            }
+        }
+    }
     .navbar-section{
         width: 100%;
         nav{
@@ -2695,6 +2991,12 @@ main{
     main .friends-box{
         max-height: 75%;
     }
+    main .manager-box{
+        max-height: 75%;
+    }
+    main .notification-box{
+        max-height: 75%;
+    }
     main .body-section__left .tables-container .tables{
         grid-auto-rows: 9rem;
     }
@@ -2703,7 +3005,13 @@ main{
     main .friends-box{
         max-height: 70%;
     }
+    main .manager-box{
+        max-height: 70%;
+    }
     main .profile-box{
+        max-height: 70%;
+    }
+    main .notification-box{
         max-height: 70%;
     }
 }
@@ -2711,7 +3019,13 @@ main{
     main .friends-box{
         max-height: 65%;
     }
+    main .manager-box{
+        max-height: 65%;
+    }
     main .profile-box{
+        max-height: 65%;
+    }
+    main .notification-box{
         max-height: 65%;
     }
 }

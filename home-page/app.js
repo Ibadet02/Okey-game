@@ -21,6 +21,12 @@ const back_to_profile_content = document.querySelector('.back-to-profile-content
 const friends_button = document.querySelector('.friends-button')
 const friends_box = document.querySelector('.friends-box')
 const exit_friends_box = document.querySelector('.friends-box__menu--button')
+const manager_button = document.querySelector('.managers')
+const manager_box = document.querySelector('.manager-box')
+const exit_manager_box = document.querySelector('.manager-box__menu--button')
+const notification_button = document.querySelector('.messages-button')
+const notification_box = document.querySelector('.notification-box')
+const exit_notification_box = document.querySelector('.notification-box__menu--button')
 const input = document.getElementById("imgInput");
 const preview = document.getElementById("preview");
 const removeBtn = document.getElementById("removeBtn");
@@ -52,8 +58,6 @@ menu_bar.addEventListener('click', e=>{
         animation_background.classList.remove('coming')
         animation_background.classList.remove('deactive')
     }, {once:true})
-    // body_section__left.classList.add('narrow')
-    // tables.style.gridTemplateColumns = 'repeat(2, 1fr)'
 })
 
 function exitSidebar() {
@@ -131,8 +135,65 @@ function exitProfileBox() {
         profile_box.classList.add('deactive')
     }, {once:true})
 }
+
 exit_profile_box.addEventListener('click', ()=>{
     exitProfileBox()
+})
+
+notification_button.addEventListener('click', ()=>{
+    sidebar_desktop.style.zIndex = '9'
+    notification_box.classList.remove('deactive')
+    notification_box.classList.add('coming')
+    animation_background.classList.remove('deactive')
+    animation_background.classList.add('coming')
+    notification_box.addEventListener('animationend', ()=>{
+        notification_box.classList.remove('coming')
+        animation_background.classList.remove('coming')
+    }, {once:true})
+})
+
+function exitNotificationBox() {
+    sidebar_desktop.style.zIndex = ''
+    animation_background.classList.add('leaving')
+    notification_box.classList.add('leaving')
+    notification_box.addEventListener('animationend', ()=>{
+        animation_background.classList.add('deactive')
+        animation_background.classList.remove('leaving')
+        notification_box.classList.remove('leaving')
+        notification_box.classList.add('deactive')
+    }, {once:true})
+}
+
+exit_notification_box.addEventListener('click', ()=>{
+    exitNotificationBox()
+})
+
+manager_button.addEventListener('click', ()=>{
+    sidebar_desktop.style.zIndex = '9'
+    manager_box.classList.remove('deactive')
+    manager_box.classList.add('coming')
+    animation_background.classList.remove('deactive')
+    animation_background.classList.add('coming')
+    manager_box.addEventListener('animationend', ()=>{
+        manager_box.classList.remove('coming')
+        animation_background.classList.remove('coming')
+    }, {once:true})
+})
+
+function exitManagerBox() {
+    sidebar_desktop.style.zIndex = ''
+    animation_background.classList.add('leaving')
+    manager_box.classList.add('leaving')
+    manager_box.addEventListener('animationend', ()=>{
+        animation_background.classList.add('deactive')
+        animation_background.classList.remove('leaving')
+        manager_box.classList.remove('leaving')
+        manager_box.classList.add('deactive')
+    }, {once:true})
+}
+
+exit_manager_box.addEventListener('click', ()=>{
+    exitManagerBox()
 })
 
 friends_button.addEventListener('click', e=>{
@@ -172,20 +233,22 @@ exit_friends_box.addEventListener('click', e=>{
 })
 animation_background.addEventListener('click', (e)=>{
     if(window.getComputedStyle(hall_section).display !== 'none'){
-        console.log('hall')
         leaveHalls()
     }
     else if(window.getComputedStyle(profile_box).display !== 'none'){
-        console.log('profile')
         exitProfileBox()
     }
     else if(window.getComputedStyle(sidebar_top).display !== 'none'){
-        console.log('sidebar')
         exitSidebar()
     }
     else if(window.getComputedStyle(friends_box).display !=='none'){
-        console.log('friends')
         exitFriendsBox()
+    }
+    else if(window.getComputedStyle(manager_box).display !=='none'){
+        exitManagerBox()
+    }
+    else if(window.getComputedStyle(notification_box).display !=='none'){
+        exitNotificationBox()
     }
 })
 
