@@ -166,11 +166,15 @@ $table-bg-color: #052B16;
     font-weight: $font-weight;
     font-size: $font-size;
     color: $color;
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
 }
 @mixin font-inter($font-weight, $font-size, $color){
     font-weight: $font-weight;
     font-size: $font-size;
     color: $color;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
 }
 @mixin main-nav-button{
     width: 9rem;

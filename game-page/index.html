@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./app.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <main id="gamePage">
+        <section class="gameNavbar-section">
+            <nav>
+                <div class="navbar-left">
+                    <div class="menu-bar-box">
+                        <div class="menu-bar">
+                            <div class="bar bar-1"></div>
+                            <div class="bar bar-2"></div>
+                            <div class="bar bar-3"></div>
+                        </div>
+                    </div>
+                    <div class="fee-box">
+                        <div class="fee-box__coin">
+                            <img src="../assets/icons/golden-coin.png" alt="Altın para">
+                        </div>
+                        <div class="fee-box__text">
+                            <span class="fee-box__text--fee">Ücret</span>
+                            <span class="fee-box__text--fee-amount">250 $</span>
+                        </div>
+                    </div>
+                    <div class="pot-box">
+                        <div class="pot-box__coin">
+                            <img src="../assets/icons/coins.png" alt="Altın paralar">
+                        </div>
+                        <div class="pot-box__text">
+                            <span class="pot-box__text--pot">Çanak</span>
+                            <span class="pot-box__text--pot-amount">50 $</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both;" class="logo">
+                    <img src="../assets/images/apkLogo.png" alt="Okey logo">
+                </div>
+                <div class="navbar-right">
+                    <button class="buy-chip__button">
+                        Çip al
+                    </button>
+                </div>
+            </nav>
+        </section>
+        <section class="gameBody-section">
+            <div class="gameBody-section__left">
+                <div class="rotate-opponent-box">
+                    <div class="opponent-box">
+                        <div class="opponent-box__point">
+                            <span class="opponent-box__point--text">PUAN:</span>
+                            <span class="opponent-box__point--amount">21</span>
+                        </div>
+                        <span class="opponent-box__rank">Assubay</span>
+                        <div class="opponent-box__left">
+                            <div class="img-box">
+                                <div class="gift-icon-box">
+                                    <i class="fa-solid fa-gift"></i>
+                                </div>
+                                <img src="../assets/images/ahmet.png" alt="Ahmet">
+                            </div>
+                        </div>
+                        <div class="opponent-box__right">
+                            <div class="opponent-box__right--top">
+                                <span class="opponent-name">Ahmet</span>
+                            </div>
+                            <div class="opponent-box__right--bottom">
+                                <div class="opponent-experience-box">
+                                    <div class="opponent-experience-level"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gameBody-section__middle">
+                <div class="series-top">
+                    <div class="series-top__inner-line"></div>
+                </div>
+                <div class="series-bottom">
+                    <span class="series-bottom__text">SERİ</span>
+                    <div class="series-bottom__cards">
+                        <img src="../assets/cards/''red-six'' 6.png" alt="Kırmızı 6">
+                        <img src="../assets/cards/''red-six'' 6.png" alt="Kırmızı 6">
+                        <img src="../assets/cards/''red-six'' 6.png" alt="Kırmızı 6">
+                    </div>
+                </div>
+                <div class="couple">
+                    <span class="couple__text">ÇİFT</span>
+                    <div class="couple__cards">
+                        <img src="../assets/cards/''red-six'' 6.png" alt="Kırmızı 6">
+                        <img src="../assets/cards/''red-six'' 6.png" alt="Kırmızı 6">
+                    </div>
+                </div>
+                <div class="gamePlay">
+                    <div class="opponent-box">
+                        <div class="opponent-box__point">
+                            <span class="opponent-box__point--text">PUAN:</span>
+                            <span class="opponent-box__point--amount">21</span>
+                        </div>
+                        <span class="opponent-box__rank">Assubay</span>
+                        <div class="opponent-box__left">
+                            <div class="img-box">
+                                <div class="gift-icon-box">
+                                    <i class="fa-solid fa-gift"></i>
+                                </div>
+                                <img src="../assets/images/ahmet.png" alt="Ahmet">
+                            </div>
+                        </div>
+                        <div class="opponent-box__right">
+                            <div class="opponent-box__right--top">
+                                <span class="opponent-name">Ahmet</span>
+                            </div>
+                            <div class="opponent-box__right--bottom">
+                                <div class="opponent-experience-box">
+                                    <div class="opponent-experience-level"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gamePlay__arena">
+                        <div class="gamePlay__arena--top">
+                            <div class="card-box top-left-card">
+                                <img src="../assets/cards/''red-six'' 6.png" alt="">
+                            </div>
+                            <div class="card-box top-right-card">
+                                <img src="../assets/cards/''red-ten'' 2.png" alt="">
+                            </div>
+                        </div>
+                        <div class="gamePlay__arena--middle">
+                            <div class="card-box middle-left-card">
+                                <img src="../assets/cards/''black-ten'' 2.png" alt="">
+                            </div>
+                            <div class="card-box middle-right-card">
+                                <img src="../assets/cards/''black-seven'' 2.png" alt="">
+                            </div>
+                        </div>
+                        <div class="gamePlay__arena--bottom">
+                            <div class="card-box bottom-left-card">
+                                <img src="../assets/cards/''blue-five'' 3.png" alt="">
+                            </div>
+                            <div class="card-box bottom-right-card">
+                                <img src="../assets/cards/''yellow-thirteen'' 1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gamePlay__board">
+                        <div class="opponent-box">
+                            <div class="opponent-box__point">
+                                <span class="opponent-box__point--text">PUAN:</span>
+                                <span class="opponent-box__point--amount">21</span>
+                            </div>
+                            <span class="opponent-box__rank">Assubay</span>
+                            <div class="opponent-box__left">
+                                <div class="img-box">
+                                    <div class="gift-icon-box">
+                                        <i class="fa-solid fa-gift"></i>
+                                    </div>
+                                    <img src="../assets/images/ahmet.png" alt="Ahmet">
+                                </div>
+                            </div>
+                            <div class="opponent-box__right">
+                                <div class="opponent-box__right--top">
+                                    <span class="opponent-name">Ahmet</span>
+                                </div>
+                                <div class="opponent-box__right--bottom">
+                                    <div class="opponent-experience-box">
+                                        <div class="opponent-experience-level"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gamePlay__board--top">
+                            <div class="board-grid grid-1">
+                                <img src="../assets/cards/''blue-five'' 3.png" alt="">
+                            </div>
+                            <div class="board-grid grid-2">
+                                <img src="../assets/cards/''yellow-thirteen'' 1.png" alt="">
+                            </div>
+                            <div class="board-grid grid-3">
+                                <img src="../assets/cards/''red-six'' 6.png" alt="">
+                            </div>
+                            <div class="board-grid grid-4"></div>
+                            <div class="board-grid grid-5"></div>
+                            <div class="board-grid grid-6"></div>
+                            <div class="board-grid grid-7"></div>
+                            <div class="board-grid grid-8"></div>
+                            <div class="board-grid grid-9"></div>
+                            <div class="board-grid grid-10"></div>
+                            <div class="board-grid grid-11">
+                                <img src="../assets/cards/''yellow-four'' 1.png" alt="">
+                            </div>
+                            <div class="board-grid grid-12"></div>
+                            <div class="board-grid grid-13"></div>
+                            <div class="board-grid grid-14"></div>
+                            <div class="board-grid grid-15"></div>
+                            <div class="board-grid grid-16"></div>
+                            <div class="board-grid grid-17"></div>
+                        </div>
+                        <div class="gamePlay__board--bottom">
+                            <div class="board-grid grid-1"></div>
+                            <div class="board-grid grid-2"></div>
+                            <div class="board-grid grid-3">
+                                <img src="../assets/cards/''black-ten'' 2.png" alt="">
+                            </div>
+                            <div class="board-grid grid-4">
+                                <img src="../assets/cards/''red-ten'' 2.png" alt="">
+                            </div>
+                            <div class="board-grid grid-5">
+                                <img src="../assets/cards/''black-seven'' 2.png" alt="">
+                            </div>
+                            <div class="board-grid grid-6"></div>
+                            <div class="board-grid grid-7"></div>
+                            <div class="board-grid grid-8">
+                                <img src="../assets/cards/''blue-eight'' 1.png" alt="">
+                            </div>
+                            <div class="board-grid grid-9">
+                                <img src="../assets/cards/''black-ten'' 2.png" alt="">
+                            </div>
+                            <div class="board-grid grid-10"></div>
+                            <div class="board-grid grid-11">
+                                <img src="../assets/cards/''black-seven'' 2.png" alt="">
+                            </div>
+                            <div class="board-grid grid-12"></div>
+                            <div class="board-grid grid-13">
+                                <img src="../assets/cards/''blue-five'' 3.png" alt="">
+                            </div>
+                            <div class="board-grid grid-14">
+                                <img src="../assets/cards/''yellow-thirteen'' 1.png" alt="">
+                            </div>
+                            <div class="board-grid grid-15">
+                                <img src="../assets/cards/''red-six'' 6.png" alt="">
+                            </div>
+                            <div class="board-grid grid-16"></div>
+                            <div class="board-grid grid-17"></div>
+                            <div class="board-grid grid-18"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chatting minimise">
+                    <div class="tab-box">
+                        <div class="tab">
+                            <button class="tablinks masa-chat-button active">Masa Chat</button>
+                            <button class="tablinks lobi-chat-button">Lobi Chat</button>
+                            <button class="change-size minimise">
+                                <i class="up-icon fa-solid fa-angle-up"></i>
+                                <i class="down-icon fa-solid fa-angle-down"></i>
+                            </button>
+                        </div>
+                        <div id="masa-chat" class="masa-chat active tabcontent">
+                            <div class="message">
+                                <span class="name">
+                                    <img src="../assets/images/ahmet.png" alt="Ahmet">
+                                    <span>Ahmet:</span>
+                                </span>
+                                <span class="word">Merhaba</span>
+                            </div>
+                            <div class="message">
+                                <span class="name">
+                                    <img src="../assets/images/pelin.png" alt="Pelin">
+                                    <span>Pelin:</span>
+                                </span>
+                                <span class="word">Merhabalar</span>
+                            </div>
+                            <div class="message">
+                                <span class="name">
+                                    <img src="../assets/images/ahmet.png" alt="Ahmet">
+                                    <span>Ahmet:</span>
+                                </span>
+                                <span class="word">Naber?</span>
+                            </div>
+                            <div class="message">
+                                <span class="name">
+                                    <img src="../assets/images/ahmet.png" alt="Ahmet">
+                                    <span>Ahmet:</span>
+                                </span>
+                                <span class="word">Naber?</span>
+                            </div>
+                        </div>
+                        <div id="lobi-chat" class="lobi-chat tabcontent">
+                            <div class="message">
+                                <span class="name">
+                                    <img src="../assets/images/ahmet.png" alt="Ahmet">
+                                    <span>Ahmet</span>
+                                </span>
+                                <span class="word">Naber?</span>
+                            </div>
+                            <div class="message">
+                                <span class="name">
+                                    <img src="../assets/images/ahmet.png" alt="Ahmet">
+                                    <span>Ahmet</span>
+                                </span>
+                                <span class="word">Naber?</span>
+                            </div>
+                            <div class="message">
+                                <span class="name">
+                                    <img src="../assets/images/ahmet.png" alt="Ahmet">
+                                    <span>Ahmet</span>
+                                </span>
+                                <span class="word">Naber?</span>
+                            </div>
+                            <div class="message">
+                                <span class="name">
+                                    <img src="../assets/images/ahmet.png" alt="Ahmet">
+                                    <span>Ahmet</span>
+                                </span>
+                                <span class="word">Naber?</span>
+                            </div>
+                            <div class="message">
+                                <span class="name">
+                                    <img src="../assets/images/ahmet.png" alt="Ahmet">
+                                    <span>Ahmet</span>
+                                </span>
+                                <span class="word">Naber?</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message-box">
+                        <div class="emojis-box">
+                            <button class="emoji-button">
+                                <img src="../assets/icons/Star_Struck-removebg-preview (1).png" alt="star-struck emoji">
+                            </button>
+                        </div>
+                        <input type="text" placeholder="Mesaj yaz">
+                        <div class="send">
+                            <button id="send" class="send-button">Gönder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gameBody-section__right">
+                <div class="rotate-opponent-box">
+                    <div class="opponent-box">
+                        <div class="opponent-box__point">
+                            <span class="opponent-box__point--text">PUAN:</span>
+                            <span class="opponent-box__point--amount">21</span>
+                        </div>
+                        <span class="opponent-box__rank">Assubay</span>
+                        <div class="opponent-box__left">
+                            <div class="img-box">
+                                <div class="gift-icon-box">
+                                    <i class="fa-solid fa-gift"></i>
+                                </div>
+                                <img src="../assets/images/ahmet.png" alt="Ahmet">
+                            </div>
+                        </div>
+                        <div class="opponent-box__right">
+                            <div class="opponent-box__right--top">
+                                <span class="opponent-name">Ahmet</span>
+                            </div>
+                            <div class="opponent-box__right--bottom">
+                                <div class="opponent-experience-box">
+                                    <div class="opponent-experience-level"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

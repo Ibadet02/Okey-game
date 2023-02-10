@@ -1,14 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap");
-@-webkit-keyframes signup-closing {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
 @keyframes signup-closing {
   0% {
     transform: translateX(0);
@@ -19,22 +9,9 @@
     opacity: 0;
   }
 }
-@-webkit-keyframes signin-closing {
-  100% {
-    scale: 0;
-  }
-}
 @keyframes signin-closing {
   100% {
     scale: 0;
-  }
-}
-@-webkit-keyframes signin-opening {
-  0% {
-    scale: 0;
-  }
-  100% {
-    scale: 1;
   }
 }
 @keyframes signin-opening {
@@ -43,16 +20,6 @@
   }
   100% {
     scale: 1;
-  }
-}
-@-webkit-keyframes signup-opening {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
   }
 }
 @keyframes signup-opening {
@@ -65,16 +32,6 @@
     opacity: 1;
   }
 }
-@-webkit-keyframes forget-pass-opening {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 @keyframes forget-pass-opening {
   0% {
     transform: translateY(100%);
@@ -83,16 +40,6 @@
   100% {
     transform: translateY(0);
     opacity: 1;
-  }
-}
-@-webkit-keyframes forget-pass-closing {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100%);
-    opacity: 0;
   }
 }
 @keyframes forget-pass-closing {
@@ -131,12 +78,10 @@ body .container .forget-password-form.de-active {
   display: none;
 }
 body .container .forget-password-form.forget-password-opening {
-  -webkit-animation: forget-pass-opening 0.5s forwards;
-          animation: forget-pass-opening 0.5s forwards;
+  animation: forget-pass-opening 0.5s forwards;
 }
 body .container .forget-password-form.forget-password-closing {
-  -webkit-animation: forget-pass-closing 0.5s forwards;
-          animation: forget-pass-closing 0.5s forwards;
+  animation: forget-pass-closing 0.5s forwards;
 }
 body .container .forget-password-form form {
   position: relative;
@@ -229,12 +174,6 @@ body .container .forget-password-form form .form-tools .email-box label input {
   border: none;
   outline: none;
   padding: 0.5rem 0.4rem 0.5rem 3.5rem;
-  font-size: 1rem;
-}
-body .container .forget-password-form form .form-tools .email-box label input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  font-family: "Noto Sans", sans-serif;
-  font-style: normal;
-  font-weight: 300;
   font-size: 1rem;
 }
 body .container .forget-password-form form .form-tools .email-box label input::-moz-placeholder {
@@ -337,12 +276,10 @@ body .container .signin-form.de-active {
   display: none;
 }
 body .container .signin-form.signin-opening {
-  -webkit-animation: signin-opening 0.5s forwards;
-          animation: signin-opening 0.5s forwards;
+  animation: signin-opening 0.5s forwards;
 }
 body .container .signin-form.signin-closing {
-  -webkit-animation: signin-closing 0.5s forwards;
-          animation: signin-closing 0.5s forwards;
+  animation: signin-closing 0.5s forwards;
 }
 body .container .signin-form form {
   width: 100%;
@@ -404,12 +341,6 @@ body .container .signin-form form .form-tools .signin-inputs label input {
   border: none;
   outline: none;
   padding: 0.5rem 0.4rem 0.5rem 3.5rem;
-  font-size: 1rem;
-}
-body .container .signin-form form .form-tools .signin-inputs label input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  font-family: "Noto Sans", sans-serif;
-  font-style: normal;
-  font-weight: 300;
   font-size: 1rem;
 }
 body .container .signin-form form .form-tools .signin-inputs label input::-moz-placeholder {
@@ -571,12 +502,10 @@ body .container .signup-form.de-active {
   display: none;
 }
 body .container .signup-form.signup-opening {
-  -webkit-animation: signup-opening 0.5s forwards;
-          animation: signup-opening 0.5s forwards;
+  animation: signup-opening 0.5s forwards;
 }
 body .container .signup-form.signup-closing {
-  -webkit-animation: signup-closing 0.5s forwards;
-          animation: signup-closing 0.5s forwards;
+  animation: signup-closing 0.5s forwards;
 }
 body .container .signup-form form {
   width: 100%;
@@ -644,12 +573,6 @@ body .container .signup-form form .form-tools .signup-inputs label input, body .
   border: none;
   outline: none;
   padding: 0.5rem 0.4rem 0.5rem 3.5rem;
-  font-size: 1rem;
-}
-body .container .signup-form form .form-tools .signup-inputs label input:-ms-input-placeholder, body .container .signup-form form .form-tools .signup-inputs label select:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  font-family: "Noto Sans", sans-serif;
-  font-style: normal;
-  font-weight: 300;
   font-size: 1rem;
 }
 body .container .signup-form form .form-tools .signup-inputs label input::-moz-placeholder, body .container .signup-form form .form-tools .signup-inputs label select::-moz-placeholder {
@@ -962,28 +885,28 @@ body .container .logo-area .logo-2-desktop img {
     display: none;
   }
   body .container .signup-form form .form-tools .mobile-links-mobile,
-body .container .signin-form form .form-tools .mobile-links-mobile,
-body .container .forget-password-form form .form-tools .mobile-links-mobile {
+  body .container .signin-form form .form-tools .mobile-links-mobile,
+  body .container .forget-password-form form .form-tools .mobile-links-mobile {
     display: flex;
   }
   body .container .logo-area .logo-2-desktop {
     display: none;
   }
   body .container .signup-form form .logo-2-mobile,
-body .container .signin-form form .logo-2-mobile,
-body .container .forget-password-form form .logo-2-mobile {
+  body .container .signin-form form .logo-2-mobile,
+  body .container .forget-password-form form .logo-2-mobile {
     display: flex;
     justify-content: center;
     margin-top: 3rem;
   }
   body .container .signup-form form .logo-2-mobile img,
-body .container .signin-form form .logo-2-mobile img,
-body .container .forget-password-form form .logo-2-mobile img {
+  body .container .signin-form form .logo-2-mobile img,
+  body .container .forget-password-form form .logo-2-mobile img {
     width: 100%;
   }
   body .container .signup-form form,
-body .container .signin-form form,
-body .container .forget-password-form form {
+  body .container .signin-form form,
+  body .container .forget-password-form form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -998,28 +921,28 @@ body .container .forget-password-form form {
     font-size: 9px;
   }
   body .container .signup-form form .logo-2-mobile,
-body .container .signin-form form .logo-2-mobile,
-body .container .forget-password-form form .logo-2-mobile {
+  body .container .signin-form form .logo-2-mobile,
+  body .container .forget-password-form form .logo-2-mobile {
     margin-top: 1.5rem;
   }
   body .container .logo-area .logo-1-desktop {
     display: none;
   }
   body .container .signup-form form .logo-1-mobile,
-body .container .signin-form form .logo-1-mobile,
-body .container .forget-password-form form .logo-1-mobile {
+  body .container .signin-form form .logo-1-mobile,
+  body .container .forget-password-form form .logo-1-mobile {
     display: flex;
     justify-content: center;
   }
   body .container .signup-form form .logo-1-mobile img,
-body .container .signin-form form .logo-1-mobile img,
-body .container .forget-password-form form .logo-1-mobile img {
+  body .container .signin-form form .logo-1-mobile img,
+  body .container .forget-password-form form .logo-1-mobile img {
     width: 30rem;
     height: 20rem;
   }
   body .container .signup-form form .logo-1-mobile img,
-body .container .signin-form form .logo-1-mobile img,
-body .container .forget-password-form form .logo-1-mobile img {
+  body .container .signin-form form .logo-1-mobile img,
+  body .container .forget-password-form form .logo-1-mobile img {
     width: 20rem;
     height: 12rem;
   }
@@ -1027,16 +950,16 @@ body .container .forget-password-form form .logo-1-mobile img {
     display: none;
   }
   body .container .signup-form form,
-body .container .signin-form form,
-body .container .forget-password-form form {
+  body .container .signin-form form,
+  body .container .forget-password-form form {
     position: relative;
     padding: 0 3rem;
   }
   body .container .signup-form form .buttons-left, body .container .signup-form form .buttons-right,
-body .container .signin-form form .buttons-left,
-body .container .signin-form form .buttons-right,
-body .container .forget-password-form form .buttons-left,
-body .container .forget-password-form form .buttons-right {
+  body .container .signin-form form .buttons-left,
+  body .container .signin-form form .buttons-right,
+  body .container .forget-password-form form .buttons-left,
+  body .container .forget-password-form form .buttons-right {
     display: flex;
     gap: 1rem;
     padding: 1rem;
@@ -1044,10 +967,10 @@ body .container .forget-password-form form .buttons-right {
     top: 0;
   }
   body .container .signup-form form .buttons-left button, body .container .signup-form form .buttons-right button,
-body .container .signin-form form .buttons-left button,
-body .container .signin-form form .buttons-right button,
-body .container .forget-password-form form .buttons-left button,
-body .container .forget-password-form form .buttons-right button {
+  body .container .signin-form form .buttons-left button,
+  body .container .signin-form form .buttons-right button,
+  body .container .forget-password-form form .buttons-left button,
+  body .container .forget-password-form form .buttons-right button {
     font-family: "Noto Sans", sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -1059,21 +982,21 @@ body .container .forget-password-form form .buttons-right button {
     transition: 0.3s;
   }
   body .container .signup-form form .buttons-left button:hover, body .container .signup-form form .buttons-right button:hover,
-body .container .signin-form form .buttons-left button:hover,
-body .container .signin-form form .buttons-right button:hover,
-body .container .forget-password-form form .buttons-left button:hover,
-body .container .forget-password-form form .buttons-right button:hover {
+  body .container .signin-form form .buttons-left button:hover,
+  body .container .signin-form form .buttons-right button:hover,
+  body .container .forget-password-form form .buttons-left button:hover,
+  body .container .forget-password-form form .buttons-right button:hover {
     background-color: #fff;
     color: #000;
   }
   body .container .signup-form form .buttons-left,
-body .container .signin-form form .buttons-left,
-body .container .forget-password-form form .buttons-left {
+  body .container .signin-form form .buttons-left,
+  body .container .forget-password-form form .buttons-left {
     left: 0;
   }
   body .container .signup-form form .buttons-right,
-body .container .signin-form form .buttons-right,
-body .container .forget-password-form form .buttons-right {
+  body .container .signin-form form .buttons-right,
+  body .container .forget-password-form form .buttons-right {
     right: 0;
   }
   body .container .forget-password-form form .buttons-left, body .container .forget-password-form form .buttons-right {
@@ -1083,26 +1006,26 @@ body .container .forget-password-form form .buttons-right {
     display: none;
   }
   body .container .signup-form,
-body .container .signin-form,
-body .container .forget-password-form {
+  body .container .signin-form,
+  body .container .forget-password-form {
     width: 100%;
   }
   body .container .signup-form form .form-tools .newcomer,
-body .container .signin-form form .form-tools .newcomer {
+  body .container .signin-form form .form-tools .newcomer {
     flex-direction: row;
   }
   body .container .signup-form form .form-tools .newcomer button,
-body .container .signin-form form .form-tools .newcomer button {
+  body .container .signin-form form .form-tools .newcomer button {
     flex: 1;
   }
 }
 @media only screen and (max-width: 590px) {
   body .container .signup-form form .buttons-left,
-body .container .signup-form form .buttons-right,
-body .container .signin-form form .buttons-left,
-body .container .signin-form form .buttons-right,
-body .container .forget-password-form form .buttons-left,
-body .container .forget-password-form form .buttons-right {
+  body .container .signup-form form .buttons-right,
+  body .container .signin-form form .buttons-left,
+  body .container .signin-form form .buttons-right,
+  body .container .forget-password-form form .buttons-left,
+  body .container .forget-password-form form .buttons-right {
     flex-direction: column;
     padding: 0;
   }
@@ -1112,23 +1035,23 @@ body .container .forget-password-form form .buttons-right {
     font-size: 8px;
   }
   body .container .signup-form form .buttons-left, body .container .signup-form form .buttons-right,
-body .container .signin-form form .buttons-left, body .container .signin-form form .buttons-right {
+  body .container .signin-form form .buttons-left, body .container .signin-form form .buttons-right {
     padding: 0;
   }
   body .container .signup-form form .buttons-left button, body .container .signup-form form .buttons-right button,
-body .container .signin-form form .buttons-left button, body .container .signin-form form .buttons-right button {
+  body .container .signin-form form .buttons-left button, body .container .signin-form form .buttons-right button {
     padding: 0.6rem 0.6rem;
   }
 }
 @media only screen and (max-width: 365px) {
   body .container .signup-form form .buttons-left button, body .container .signup-form form .buttons-right button,
-body .container .signin-form form .buttons-left button, body .container .signin-form form .buttons-right button {
+  body .container .signin-form form .buttons-left button, body .container .signin-form form .buttons-right button {
     padding: 0.5rem 0.4rem;
   }
 }
 @media only screen and (max-width: 305px) {
   body .container .signup-form form .buttons-left button, body .container .signup-form form .buttons-right button,
-body .container .signin-form form .buttons-left button, body .container .signin-form form .buttons-right button {
+  body .container .signin-form form .buttons-left button, body .container .signin-form form .buttons-right button {
     padding: 0.3rem 0.1rem;
     font-family: "Noto Sans", sans-serif;
     font-style: normal;

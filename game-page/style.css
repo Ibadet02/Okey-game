@@ -3235,4 +3235,797 @@ main .body-section__right .people .person__table {
   main .notification-box {
     max-height: 65%;
   }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes chatting-size-minimised {
+  0% {
+    height: 100%;
+  }
+}
+@keyframes chatting-size-minimised {
+  100% {
+    height: 100%;
+  }
+}
+body {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+body main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-image: url(../assets/images/bg\ 1.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+body main .gameNavbar-section {
+  height: 6rem;
+  width: 100%;
+}
+body main .gameNavbar-section nav {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.2rem;
+}
+body main .gameNavbar-section nav .navbar-left {
+  display: flex;
+  align-items: center;
+  flex-basis: 50%;
+  gap: 3rem;
+}
+body main .gameNavbar-section nav .navbar-left .menu-bar-box .menu-bar {
+  padding: 1rem;
+  margin-left: 0.7rem;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.313rem;
+  cursor: pointer;
+}
+body main .gameNavbar-section nav .navbar-left .menu-bar-box .menu-bar .bar {
+  border-radius: 1rem;
+  width: 2.188rem;
+  height: 0.25rem;
+  background-color: #fff;
+  transition: 0.2s;
+}
+body main .gameNavbar-section nav .navbar-left .fee-box, body main .gameNavbar-section nav .navbar-left .pot-box {
+  display: flex;
+  align-items: center;
+}
+body main .gameNavbar-section nav .navbar-left .fee-box__coin img, body main .gameNavbar-section nav .navbar-left .pot-box__coin img {
+  width: 3rem;
+  height: 3rem;
+}
+body main .gameNavbar-section nav .navbar-left .fee-box__text, body main .gameNavbar-section nav .navbar-left .pot-box__text {
+  display: flex;
+  flex-direction: column;
+}
+body main .gameNavbar-section nav .navbar-left .fee-box__text--fee, body main .gameNavbar-section nav .navbar-left .fee-box__text--pot, body main .gameNavbar-section nav .navbar-left .pot-box__text--fee, body main .gameNavbar-section nav .navbar-left .pot-box__text--pot {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameNavbar-section nav .navbar-left .fee-box__text--fee-amount, body main .gameNavbar-section nav .navbar-left .fee-box__text--pot-amount, body main .gameNavbar-section nav .navbar-left .pot-box__text--fee-amount, body main .gameNavbar-section nav .navbar-left .pot-box__text--pot-amount {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameNavbar-section nav .logo {
+  padding: 0 0.5rem;
+  margin: 0 2rem;
+  margin-top: 1.5rem;
+}
+body main .gameNavbar-section nav .logo img {
+  height: 13rem;
+}
+body main .gameNavbar-section nav .navbar-right {
+  display: flex;
+  align-items: center;
+  flex-basis: 50%;
+  justify-content: flex-end;
+  padding-right: 3rem;
+}
+body main .gameNavbar-section nav .navbar-right .buy-chip__button {
+  background: linear-gradient(205.42deg, #26B505 -44.48%, #0C2215 179.52%);
+  border: 0.063rem solid #FFCE61;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  width: 4.5rem;
+  height: 1.8rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+body main .gameBody-section {
+  flex: 1;
+  background-image: url(../assets/images/yenimasa\ 1.png);
+  background-position: bottom center;
+  background-size: 90% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-between;
+}
+body main .gameBody-section__left, body main .gameBody-section__right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 9rem;
+}
+body main .gameBody-section__left .rotate-opponent-box, body main .gameBody-section__right .rotate-opponent-box {
+  position: absolute;
+  top: 20%;
+}
+body main .gameBody-section__left .rotate-opponent-box .opponent-box, body main .gameBody-section__right .rotate-opponent-box .opponent-box {
+  display: flex;
+  width: 13rem;
+  height: 3.5rem;
+  background: linear-gradient(4.07deg, #005121 3.66%, #02620B 97.06%);
+  border: 0.063rem solid rgba(255, 206, 97, 0.62);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
+  border-radius: 0.563rem;
+  padding: 0.5rem;
+  position: relative;
+}
+body main .gameBody-section__left .rotate-opponent-box .opponent-box__point, body main .gameBody-section__right .rotate-opponent-box .opponent-box__point {
+  height: 1.2rem;
+  position: absolute;
+  top: auto;
+  right: 0.6rem;
+  bottom: -1.263rem;
+  left: auto;
+  background-color: #D9D9D9;
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: #000;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  padding: 0 0.2rem;
+}
+body main .gameBody-section__left .rotate-opponent-box .opponent-box__rank, body main .gameBody-section__right .rotate-opponent-box .opponent-box__rank {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.5rem;
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameBody-section__left .rotate-opponent-box .opponent-box__left .img-box, body main .gameBody-section__right .rotate-opponent-box .opponent-box__left .img-box {
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+}
+body main .gameBody-section__left .rotate-opponent-box .opponent-box__left .img-box .gift-icon-box, body main .gameBody-section__right .rotate-opponent-box .opponent-box__left .img-box .gift-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.3rem;
+  background-color: #2D0F2E;
+  border: 0.063rem solid #FFFFFF;
+  border-radius: 50%;
+}
+body main .gameBody-section__left .rotate-opponent-box .opponent-box__left .img-box .gift-icon-box i, body main .gameBody-section__right .rotate-opponent-box .opponent-box__left .img-box .gift-icon-box i {
+  font-size: 0.6rem;
+  color: #fff;
+}
+body main .gameBody-section__left .rotate-opponent-box .opponent-box__left .img-box img, body main .gameBody-section__right .rotate-opponent-box .opponent-box__left .img-box img {
+  width: 100%;
+  height: 100%;
+}
+body main .gameBody-section__left .rotate-opponent-box .opponent-box__right, body main .gameBody-section__right .rotate-opponent-box .opponent-box__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+body main .gameBody-section__left .rotate-opponent-box .opponent-box__right--top .opponent-name, body main .gameBody-section__right .rotate-opponent-box .opponent-box__right--top .opponent-name {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameBody-section__left .rotate-opponent-box .opponent-box__right--bottom, body main .gameBody-section__right .rotate-opponent-box .opponent-box__right--bottom {
+  width: 100%;
+}
+body main .gameBody-section__left .rotate-opponent-box .opponent-box__right--bottom .opponent-experience-box, body main .gameBody-section__right .rotate-opponent-box .opponent-box__right--bottom .opponent-experience-box {
+  width: 100%;
+  height: 0.6rem;
+  background-color: #0C2215;
+  border: 0.02rem solid #FFFFFF;
+  border-radius: 1rem;
+  display: flex;
+}
+body main .gameBody-section__left .rotate-opponent-box .opponent-box__right--bottom .opponent-experience-box .opponent-experience-level, body main .gameBody-section__right .rotate-opponent-box .opponent-box__right--bottom .opponent-experience-box .opponent-experience-level {
+  flex-basis: 75%;
+  background-color: #08E220;
+  border-radius: 2rem;
+  margin: 0.03rem;
+}
+body main .gameBody-section__left .rotate-opponent-box {
+  left: -2.5rem;
+  transform: rotate(-90deg);
+}
+body main .gameBody-section__middle {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+body main .gameBody-section__middle .series-top {
+  position: absolute;
+  top: 9%;
+  right: 15%;
+  width: 4rem;
+  height: 4.5rem;
+  background-color: #E08919;
+  border: 0.125rem solid #fff;
+  border-radius: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main .gameBody-section__middle .series-top__inner-line {
+  width: 2rem;
+  height: 80%;
+  background-color: #fff;
+  border-radius: 0.7rem;
+}
+body main .gameBody-section__middle .series-bottom {
+  position: absolute;
+  bottom: 9%;
+  left: 3%;
+  width: 4rem;
+  height: 4.5rem;
+  background-color: #E08919;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.7rem;
+  border: 0.125rem solid #fff;
+  border-radius: 1rem;
+}
+body main .gameBody-section__middle .series-bottom__text {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameBody-section__middle .series-bottom__cards {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+body main .gameBody-section__middle .series-bottom__cards img {
+  flex: 1;
+  width: 1rem;
+}
+body main .gameBody-section__middle .couple {
+  position: absolute;
+  bottom: 9%;
+  right: 6%;
+  width: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.2rem;
+}
+body main .gameBody-section__middle .couple__text {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameBody-section__middle .couple__cards {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+body main .gameBody-section__middle .couple__cards img {
+  flex: 1;
+  width: 1rem;
+}
+body main .gameBody-section__middle .gamePlay {
+  flex: 1;
+  margin-bottom: 11rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box {
+  display: flex;
+  width: 13rem;
+  height: 3.5rem;
+  background: linear-gradient(4.07deg, #005121 3.66%, #02620B 97.06%);
+  border: 0.063rem solid rgba(255, 206, 97, 0.62);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
+  border-radius: 0.563rem;
+  padding: 0.5rem;
+  position: relative;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box__point {
+  height: 1.2rem;
+  position: absolute;
+  top: auto;
+  right: 0.6rem;
+  bottom: -1.263rem;
+  left: auto;
+  background-color: #D9D9D9;
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: #000;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  padding: 0 0.2rem;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box__rank {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.5rem;
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box__left .img-box {
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box__left .img-box .gift-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.3rem;
+  background-color: #2D0F2E;
+  border: 0.063rem solid #FFFFFF;
+  border-radius: 50%;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box__left .img-box .gift-icon-box i {
+  font-size: 0.6rem;
+  color: #fff;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box__left .img-box img {
+  width: 100%;
+  height: 100%;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box__right--top .opponent-name {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box__right--bottom {
+  width: 100%;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box__right--bottom .opponent-experience-box {
+  width: 100%;
+  height: 0.6rem;
+  background-color: #0C2215;
+  border: 0.02rem solid #FFFFFF;
+  border-radius: 1rem;
+  display: flex;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box__right--bottom .opponent-experience-box .opponent-experience-level {
+  flex-basis: 75%;
+  background-color: #08E220;
+  border-radius: 2rem;
+  margin: 0.03rem;
+}
+body main .gameBody-section__middle .gamePlay .opponent-box {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  margin-left: -6.5rem;
+}
+body main .gameBody-section__middle .gamePlay__arena {
+  width: 30rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 5.5rem;
+  margin-bottom: 1.75rem;
+}
+body main .gameBody-section__middle .gamePlay__arena--top .card-box, body main .gameBody-section__middle .gamePlay__arena--middle .card-box, body main .gameBody-section__middle .gamePlay__arena--bottom .card-box {
+  width: 2.7rem;
+  height: 3.5rem;
+}
+body main .gameBody-section__middle .gamePlay__arena--top .card-box img, body main .gameBody-section__middle .gamePlay__arena--middle .card-box img, body main .gameBody-section__middle .gamePlay__arena--bottom .card-box img {
+  width: 100%;
+  height: 100%;
+}
+body main .gameBody-section__middle .gamePlay__arena--top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body main .gameBody-section__middle .gamePlay__arena--top .top-left-card {
+  margin-left: 2rem;
+}
+body main .gameBody-section__middle .gamePlay__arena--top .top-right-card {
+  margin-right: 2rem;
+}
+body main .gameBody-section__middle .gamePlay__arena--middle {
+  position: absolute;
+  top: 50%;
+  margin-top: -1.75rem;
+  left: 50%;
+  margin-left: -3.7rem;
+  display: flex;
+  gap: 2rem;
+}
+body main .gameBody-section__middle .gamePlay__arena--bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+body main .gameBody-section__middle .gamePlay__board {
+  width: 70%;
+  background: linear-gradient(180deg, #E98F1A 0%, #834A04 100%);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box {
+  display: flex;
+  width: 13rem;
+  height: 3.5rem;
+  background: linear-gradient(4.07deg, #005121 3.66%, #02620B 97.06%);
+  border: 0.063rem solid rgba(255, 206, 97, 0.62);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
+  border-radius: 0.563rem;
+  padding: 0.5rem;
+  position: relative;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box__point {
+  height: 1.2rem;
+  position: absolute;
+  top: -1.263rem;
+  right: 0.6rem;
+  bottom: auto;
+  left: auto;
+  background-color: #D9D9D9;
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: #000;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  padding: 0 0.2rem;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box__rank {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.5rem;
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box__left .img-box {
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box__left .img-box .gift-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.3rem;
+  background-color: #2D0F2E;
+  border: 0.063rem solid #FFFFFF;
+  border-radius: 50%;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box__left .img-box .gift-icon-box i {
+  font-size: 0.6rem;
+  color: #fff;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box__left .img-box img {
+  width: 100%;
+  height: 100%;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box__right--top .opponent-name {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box__right--bottom {
+  width: 100%;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box__right--bottom .opponent-experience-box {
+  width: 100%;
+  height: 0.6rem;
+  background-color: #0C2215;
+  border: 0.02rem solid #FFFFFF;
+  border-radius: 1rem;
+  display: flex;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box__right--bottom .opponent-experience-box .opponent-experience-level {
+  flex-basis: 75%;
+  background-color: #08E220;
+  border-radius: 2rem;
+  margin: 0.03rem;
+}
+body main .gameBody-section__middle .gamePlay__board .opponent-box {
+  position: absolute;
+  top: -3.5rem;
+  left: 50%;
+  margin-left: -6.5rem;
+}
+body main .gameBody-section__middle .gamePlay__board--top, body main .gameBody-section__middle .gamePlay__board--bottom {
+  display: flex;
+  flex-basis: 50%;
+  gap: 0.1rem;
+}
+body main .gameBody-section__middle .gamePlay__board--top .board-grid, body main .gameBody-section__middle .gamePlay__board--bottom .board-grid {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main .gameBody-section__middle .gamePlay__board--top .board-grid img, body main .gameBody-section__middle .gamePlay__board--bottom .board-grid img {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+body main .gameBody-section__middle .gamePlay__board--top {
+  padding: 0 1.5rem;
+}
+body main .gameBody-section__middle .chatting {
+  display: flex;
+  width: 75%;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -37.5%;
+}
+body main .gameBody-section__middle .chatting.maximise {
+  height: 100%;
+}
+body main .gameBody-section__middle .chatting.minimise {
+  height: 11rem;
+}
+body main .gameBody-section__middle .chatting .tab-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+body main .gameBody-section__middle .chatting .tab-box .tab {
+  display: flex;
+}
+body main .gameBody-section__middle .chatting .tab-box .tab .masa-chat-button, body main .gameBody-section__middle .chatting .tab-box .tab .lobi-chat-button {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #000;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  border: none;
+  padding: 0.3rem 1rem;
+  background-color: #D7970A;
+  border-radius: 0.5rem 0.5rem 0 0;
+  cursor: pointer;
+}
+body main .gameBody-section__middle .chatting .tab-box .tab .masa-chat-button.active, body main .gameBody-section__middle .chatting .tab-box .tab .lobi-chat-button.active {
+  background-color: #FFCE61;
+}
+body main .gameBody-section__middle .chatting .tab-box .tab .change-size {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+body main .gameBody-section__middle .chatting .tab-box .tab .change-size i {
+  display: inline;
+  font-size: 2rem;
+}
+body main .gameBody-section__middle .chatting .tab-box .tab .change-size.minimise .down-icon {
+  display: none;
+}
+body main .gameBody-section__middle .chatting .tab-box .tab .change-size.maximise .up-icon {
+  display: none;
+}
+body main .gameBody-section__middle .chatting .tab-box .tabcontent {
+  display: none;
+  padding: 0.5rem;
+  background-color: #011D0E;
+  border-top-right-radius: 0.6rem;
+  overflow-y: auto;
+  height: 6rem;
+}
+body main .gameBody-section__middle .chatting .tab-box .tabcontent.active {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+body main .gameBody-section__middle .chatting .tab-box .tabcontent .message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+body main .gameBody-section__middle .chatting .tab-box .tabcontent .message .name {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+body main .gameBody-section__middle .chatting .tab-box .tabcontent .message .name img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.2rem;
+}
+body main .gameBody-section__middle .chatting .tab-box .tabcontent .message .name span {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #FFCE61;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameBody-section__middle .chatting .tab-box .tabcontent .message .word {
+  font-weight: 200;
+  font-size: 0.8re;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameBody-section__middle .chatting .message-box {
+  position: relative;
+  height: 3rem;
+}
+body main .gameBody-section__middle .chatting .message-box .emojis-box {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+body main .gameBody-section__middle .chatting .message-box .emojis-box .emoji-button {
+  height: 100%;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  background-color: #D9D9D9;
+}
+body main .gameBody-section__middle .chatting .message-box .emojis-box .emoji-button img {
+  width: 1rem;
+  height: 1rem;
+}
+body main .gameBody-section__middle .chatting .message-box input {
+  width: 100%;
+  height: 100%;
+  padding-left: 3.5rem;
+  outline: none;
+  border: none;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #000;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+body main .gameBody-section__middle .chatting .message-box input::-moz-placeholder {
+  font-size: 1rem;
+}
+body main .gameBody-section__middle .chatting .message-box input::placeholder {
+  font-size: 1rem;
+}
+body main .gameBody-section__middle .chatting .message-box .send {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+body main .gameBody-section__middle .chatting .message-box .send-button {
+  width: 9rem;
+  height: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem solid #FFCE61;
+  background-color: #083A1F;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  border-radius: 0.3rem;
+  height: 100%;
+  width: 6rem;
+}
+body main .gameBody-section__middle .chatting .message-box .send-button:hover {
+  color: #083A1F;
+  background-color: #FFCE61;
+}
+body main .gameBody-section__right .rotate-opponent-box {
+  right: -2.5rem;
+  transform: rotate(90deg);
+}
+
+@media only screen and (max-height: 645px) {
+  body main .gameBody-section__middle .chatting.minimise {
+    height: 2rem;
+  }
+  body main .gameBody-section__middle .gamePlay {
+    margin-bottom: 2rem;
+  }
 }/*# sourceMappingURL=style.css.map */

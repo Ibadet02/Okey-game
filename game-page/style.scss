@@ -1,0 +1,593 @@
+@import '../home-page/style.scss';
+$chatting-width: 75%;
+$min-chatting-height: 11rem;
+$opponent-box-height: 3.5rem;
+$opponent-box-width: 13rem;
+$point-height: 1.2rem;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@keyframes chatting-size-minimised{
+    0%{
+        height: 100%;
+    }
+    100%{
+        
+    }
+}
+@keyframes chatting-size-minimised{
+    0%{
+
+    }
+    100%{
+        height: 100%;
+    }
+}
+@mixin opponent-box($point-top, $point-right, $point-bottom, $point-left){
+    .opponent-box{
+        display: flex;
+        width: $opponent-box-width;
+        height: $opponent-box-height;
+        background: linear-gradient(4.07deg, #005121 3.66%, #02620B 97.06%);
+        border: 0.063rem solid rgba(255, 206, 97, 0.62);
+        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
+        border-radius: 0.563rem;
+        padding: .5rem;
+        position: relative;
+        &__point{
+            height: $point-height;
+            position: absolute;
+            top: $point-top;
+            right: $point-right;
+            bottom: $point-bottom;
+            left: $point-left;
+            background-color: #D9D9D9;
+            @include font-noto_sans(600, .7rem, #000);
+            display: flex;
+            align-items: center;
+            padding: 0 .2rem;
+        }
+        &__rank{
+            position: absolute;
+            top: .2rem;
+            right: .5rem;
+            @include font-noto_sans(500, .7rem, #fff);
+        }
+        &__left{
+            .img-box{
+                width: 3rem;
+                height: 3rem;
+                position: relative;
+                .gift-icon-box{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    padding: .3rem;
+                    background-color: #2D0F2E;
+                    border: 0.063rem solid #FFFFFF;
+                    border-radius: 50%;
+                    i{
+                        font-size: .6rem;
+                        color: #fff;
+                    }
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        &__right{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+            &--top{
+                .opponent-name{
+                    @include font-noto_sans(500, 1rem, #fff);
+                }
+            }
+            &--bottom{
+                width: 100%;
+                .opponent-experience-box{
+                    width: 100%;
+                    height: .6rem;
+                    background-color: #0C2215;
+                    border: 0.02rem solid #FFFFFF;
+                    border-radius: 1rem;
+                    display: flex;
+                    .opponent-experience-level{
+                        flex-basis: 75%;
+                        background-color:#08E220;
+                        border-radius: 2rem;
+                        margin: .03rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    main{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background-image: url(../assets/images/bg\ 1.png);
+        background-size: 100% 100%;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        .gameNavbar-section{
+            height: $navbar-height;
+            width: 100%;
+            nav{
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0 .2rem;
+                .navbar-left{
+                    display: flex;
+                    align-items: center;
+                    // flex: 1;
+                    flex-basis: 50%;
+                    gap: 3rem;
+                    .menu-bar-box{
+                        .menu-bar{
+                            padding: 1rem;
+                            margin-left: .7rem;
+                            // background-color: red;
+                            border-radius: 50%;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 0.313rem;
+                            cursor: pointer;
+                            .bar{
+                                border-radius: 1rem;
+                                width: 2.188rem;
+                                height: 0.25rem;
+                                background-color: #fff;
+                                transition: $transition;
+                            }
+                        }
+                    }
+                    .fee-box, .pot-box{
+                        display: flex;
+                        align-items: center;
+                        &__coin{
+                            img{
+                                width: 3rem;
+                                height: 3rem;
+                            }
+                        }
+                        &__text{
+                            display: flex;
+                            flex-direction: column;
+                            // gap: .3rem;
+                            &--fee, &--pot{
+                                @include font-noto_sans(400, .9rem, #fff);
+                            }
+                            &--fee-amount, &--pot-amount{
+                                @include font-noto_sans(600, 1.2rem, #fff);
+                            }
+                        }
+                    }
+                }
+                .logo{
+                    padding: 0 .5rem;
+                    margin: 0 2rem;
+                    margin-top: 1.5rem;
+                    img{
+                        height: $navbar-height + 7rem;
+                    }
+                }
+                .navbar-right{
+                    display: flex;
+                    align-items: center;
+                    // flex: 1;
+                    flex-basis: 50%;
+                    justify-content: flex-end;
+                    padding-right: 3rem;
+                    .buy-chip__button{
+                        background: linear-gradient(205.42deg, #26B505 -44.48%, #0C2215 179.52%);
+                        border: 0.063rem solid #FFCE61;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        @include font-noto_sans(500, .7rem, #fff);
+                        width: 4.5rem;
+                        height: 1.8rem;
+                        border-radius: 1rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .gameBody-section{
+            flex: 1;
+            background-image: url(../assets/images/yenimasa\ 1.png);
+            background-position: bottom center;
+            background-size: 90% 100%;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: space-between;
+            &__left, &__right{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                position: relative;
+                width: 9rem;
+                .rotate-opponent-box{
+                    position: absolute;
+                    top: 20%;
+                    @include opponent-box(auto, .6rem, -$point-height - .063rem, auto);
+                }
+            }
+            &__left{
+                .rotate-opponent-box{
+                    left: -2.5rem;
+                    transform: rotate(-90deg);
+                }
+            }
+            &__middle{
+                flex: 1;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                .series-top{
+                    position: absolute;
+                    top: 9%;
+                    right: 15%;
+                    width: 4rem;
+                    height: 4.5rem;
+                    background-color: #E08919;
+                    border: 0.125rem solid #fff;
+                    border-radius: 1.3rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &__inner-line{
+                        width: 2rem;
+                        height: 80%;
+                        background-color: #fff;
+                        border-radius: .7rem;
+                    }
+                }
+                .series-bottom{
+                    position: absolute;
+                    bottom: 9%;
+                    left: 3%;
+                    width: 4rem;
+                    height: 4.5rem;
+                    background-color: #E08919;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: .7rem;
+                    border: 0.125rem solid #fff;
+                    border-radius: 1rem;
+                    &__text{
+                        display: flex;
+                        justify-content: center;
+                        @include font-noto_sans(500, .8rem, #fff);
+                    }
+                    &__cards{
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                        img{
+                            flex: 1;
+                            width: 1rem;
+                        }
+                    }
+                }
+                .couple{
+                    position: absolute;
+                    bottom: 9%;
+                    right: 6%;
+                    width: 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    gap: .2rem;
+                    &__text{
+                        display: flex;
+                        justify-content: center;
+                        @include font-noto_sans(500, .8rem, #fff);
+                    }
+                    &__cards{
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                        img{
+                            flex: 1;
+                            width: 1rem;
+                        }
+                    }
+                }
+                .gamePlay{
+                    flex: 1;
+                    margin-bottom: $min-chatting-height;
+                    display: flex;
+                    flex-direction: column;
+                    // justify-content: space-between;
+                    align-items: center;
+                    position: relative;
+                    @include opponent-box(auto, .6rem, -$point-height - .063rem, auto);
+                    .opponent-box{
+                        position: absolute;
+                        top: 2rem;
+                        left: 50%;
+                        margin-left: -$opponent-box-width/2;
+                    }
+                    &__arena{
+                        width: 30rem;
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                        position: relative;
+                        margin-top: $opponent-box-height + 2rem;
+                        margin-bottom: $opponent-box-height/2;
+                        &--top, &--middle, &--bottom{
+                            .card-box{
+                                width: 2.7rem;
+                                height: 3.5rem;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+                        &--top{
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            .top-left-card{
+                                margin-left: 2rem;
+                            }
+                            .top-right-card{
+                                margin-right: 2rem;
+                            }
+                        }
+                        &--middle{
+                            position: absolute;
+                            top: 50%;
+                            margin-top: -1.75rem;
+                            left: 50%;
+                            margin-left: -3.7rem;
+                            display: flex;
+                            gap: 2rem;
+                            
+                        }
+                        &--bottom{
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            .card-box{
+                                
+                            }
+                        }
+                    }
+                    &__board{
+                        width: $chatting-width - 5%;
+                        // height: 8rem;
+                        background: linear-gradient(180deg, #E98F1A 0%, #834A04 100%);
+                        border-radius: 1rem;
+                        display: flex;
+                        flex-direction: column;
+                        @include opponent-box(-$point-height - .063rem, .6rem, auto, auto);
+                        position: relative;
+                        .opponent-box{
+                            position: absolute;
+                            top: -$opponent-box-height;
+                            left: 50%;
+                            margin-left: -$opponent-box-width/2;
+                        }
+                        &--top, &--bottom{
+                            display: flex;
+                            flex-basis: 50%;
+                            gap: .1rem;
+                            .board-grid{
+                                flex: 1;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                    pointer-events: none;
+                                }
+                            }
+                        }
+                        &--top{
+                            padding: 0 1.5rem;
+                        }
+                    }
+                }
+                .chatting{
+                    display: flex;
+                    width: $chatting-width;
+                    flex-direction: column;
+                    // transition: height $transition;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    margin-left: -$chatting-width/2;
+                    &.maximise{
+                        height: 100%;
+                        // margin-top: $tables-nav-height + .4rem;
+                    }
+                    &.minimise{
+                        height: $min-chatting-height;
+                    }
+                    .tab-box{
+                        display: flex;
+                        flex-direction: column;
+                        flex: 1;
+                        .tab{
+                            display: flex;
+                            .masa-chat-button, .lobi-chat-button{
+                                @include font-noto_sans(600, 1rem, #000);
+                                border: none;
+                                padding: .3rem 1rem;
+                                background-color: #D7970A;
+                                border-radius: .5rem .5rem 0 0;
+                                cursor: pointer;
+                                &.active{
+                                    background-color: $button-bg-color_2;
+                                }
+                            }
+                            .change-size{
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: 2rem;
+                                background: none;
+                                border: none;
+                                cursor: pointer;
+                                background-color: #fff;
+                                border-top-left-radius: 1rem;
+                                border-top-right-radius: 1rem;
+                                i{
+                                    display: inline;
+                                    font-size: 2rem;
+    
+                                }
+                                &.minimise{
+                                    .down-icon{
+                                        display: none;
+                                    }
+                                }
+                                &.maximise{
+                                    .up-icon{
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                        .tabcontent{
+                            display: none;
+                            padding: .5rem;
+                            background-color: #011D0E;
+                            // border-radius: .4rem .4rem .4rem 0;
+                            border-top-right-radius: .6rem;
+                            overflow-y: auto;
+                            height: 6rem;
+                            &.active{
+                                display: flex;
+                                flex-direction: column;
+                                gap: .2rem;
+                                // height: 100%;
+                            }
+                            .message{
+                                display: flex;
+                                align-items: center;
+                                gap: .5rem;
+                                .name{
+                                    display: flex;
+                                    align-items: center;
+                                    gap: .4rem;
+                                    img{
+                                        width: 1.5rem;
+                                        height: 1.5rem;
+                                        margin-top: .2rem;
+                                    }
+                                    span{
+                                        @include font-noto_sans(400, 1rem, $button-bg-color_2);
+                                    }
+                                }
+                                .word{
+                                    @include font-noto_sans(200, .8re, #fff);
+                                }
+                            }
+                        }
+                    }
+                    .message-box{
+                        position: relative;
+                        height: 3rem;
+                        .emojis-box{
+                            height: 100%;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            .emoji-button{
+                                height: 100%;
+                                width: 3rem;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border: none;
+                                background: none;
+                                cursor: pointer;
+                                background-color: #D9D9D9;
+                                img{
+                                    width: 1rem;
+                                    height: 1rem;
+                                }
+                            }
+                        }
+                        input{
+                            width: 100%;
+                            height: 100%;
+                            padding-left: 3.5rem;
+                            outline: none;
+                            border: none;
+                            @include font-noto_sans(400, 1rem, #000);
+                            &::placeholder{
+                                font-size: 1rem;
+                                // margin-bottom: .1rem;
+                            }
+                        }
+                        .send{
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            display: flex;
+                            align-items: center;
+                            height: 100%;
+                            &-button{
+                                @include main-nav-button();
+                                height: 100%;
+                                width: 6rem;
+                            }
+                        }
+                    }
+                }
+
+            }
+            &__right{
+                .rotate-opponent-box{
+                    right: -2.5rem;
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-height: 645px){
+    $min-chatting-height: 2rem;
+    body main .gameBody-section__middle .chatting{
+        &.minimise{
+            height: $min-chatting-height;
+        }
+    }
+    body main .gameBody-section__middle .gamePlay{
+        margin-bottom: $min-chatting-height;
+    }
+}
