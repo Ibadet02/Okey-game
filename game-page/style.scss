@@ -580,7 +580,7 @@ body{
     }
 }
 
-@media only screen and (max-height: 645px){
+@media only screen and (max-height: 715px){
     $min-chatting-height: 2rem;
     body main .gameBody-section__middle .chatting{
         &.minimise{
@@ -589,5 +589,10 @@ body{
     }
     body main .gameBody-section__middle .gamePlay{
         margin-bottom: $min-chatting-height;
+    }
+}
+@media only screen and (max-width: 995px){
+    body main .gameBody-section__middle .gamePlay__arena{
+        justify-content: space-around;
     }
 }

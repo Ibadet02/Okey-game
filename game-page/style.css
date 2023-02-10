@@ -4021,11 +4021,16 @@ body main .gameBody-section__right .rotate-opponent-box {
   transform: rotate(90deg);
 }
 
-@media only screen and (max-height: 645px) {
+@media only screen and (max-height: 715px) {
   body main .gameBody-section__middle .chatting.minimise {
     height: 2rem;
   }
   body main .gameBody-section__middle .gamePlay {
     margin-bottom: 2rem;
+  }
+}
+@media only screen and (max-width: 995px) {
+  body main .gameBody-section__middle .gamePlay__arena {
+    justify-content: space-around;
   }
 }/*# sourceMappingURL=style.css.map */
