@@ -32,6 +32,18 @@ const preview = document.getElementById("preview");
 const removeBtn = document.getElementById("removeBtn");
 const fontSelect = document.getElementById("fontSelect");
 const nickColorInput = document.getElementById("nickColorInput");
+const tableChat_activate = document.querySelector('.table-settings__table-chat--activate')
+const audienceChat_activate = document.querySelector('.table-settings__audience-chat--activate')
+const accept_audience_activate = document.querySelector('.table-settings__accept-audience--activate')
+const activate_buttons = [tableChat_activate, audienceChat_activate, accept_audience_activate]
+const chipRangeInput = document.getElementById('table-chip-amount')
+const decreaseChip = document.querySelector('.decrease-chip')
+const increaseChip = document.querySelector('.increase-chip')
+const displayChipRange = document.querySelector('.table-features__chip-amount--amount')
+const leaveTableFeatures = document.querySelector('.table-features__menu--button')
+const tableCancel = document.querySelector('.table-cancel')
+const tableFeatures = document.querySelector('.table-features')
+const tableFeaturesButton = document.querySelector('.open-table-button')
 // Pages
 const homePage = document.getElementById('homePage')
 const theBest_button = document.querySelector('.theBest-button')
@@ -44,12 +56,6 @@ const tab_box_button_box = document.querySelector('.tab-box__buttons')
 const tab_box_buttons = Array.from(tab_box_button_box.children)
 const tab_box_container = document.querySelector('.tab-box__container')
 const tab_boxes = Array.from(tab_box_container.children)
-// const mobile_nav = document.querySelector('.mobile-nav')
-// menu_bar.addEventListener('click', ()=>{
-//     menu_bar.classList.toggle('change')
-//     mobile_nav.classList.toggle('change')
-// })
-
 menu_bar.addEventListener('click', e=>{
     sidebar_desktop.classList.add('open')
     animation_background.classList.remove('deactive')
@@ -202,14 +208,7 @@ friends_button.addEventListener('click', e=>{
     friends_box.classList.add('coming')
     animation_background.classList.remove('deactive')
     animation_background.classList.add('coming')
-    // x
     sidebar_desktop.classList.remove('open')
-    // animation_background.classList.add('leaving')
-    // animation_background.addEventListener('animationend',e=>{
-    //     animation_background.classList.remove('leaving')
-    //     animation_background.classList.add('deactive')
-    // }, {once: true})
-    // y
     friends_box.addEventListener('animationend', ()=>{
         friends_box.classList.remove('coming')
         animation_background.classList.remove('coming')
@@ -231,6 +230,38 @@ function exitFriendsBox(){
 exit_friends_box.addEventListener('click', e=>{
     exitFriendsBox()
 })
+tableFeaturesButton.addEventListener('click', e=>{
+    sidebar_desktop.style.zIndex = '9'
+    tableFeatures.classList.remove('deactive')
+    tableFeatures.classList.add('coming')
+    animation_background.classList.remove('deactive')
+    animation_background.classList.add('coming')
+    sidebar_desktop.classList.remove('open')
+    tableFeatures.addEventListener('animationend', ()=>{
+        tableFeatures.classList.remove('coming')
+        animation_background.classList.remove('coming')
+    }, {once:true})
+})
+
+function exitTableFeatures(){
+    sidebar_desktop.style.zIndex = ''
+    animation_background.classList.add('leaving')
+    tableFeatures.classList.add('leaving')
+    tableFeatures.addEventListener('animationend', ()=>{
+        animation_background.classList.add('deactive')
+        animation_background.classList.remove('leaving')
+        tableFeatures.classList.remove('leaving')
+        tableFeatures.classList.add('deactive')
+    }, {once:true})
+}
+
+[leaveTableFeatures, tableCancel].forEach(button=>{
+    button.addEventListener('click', e=>{
+        e.preventDefault()
+        exitTableFeatures()
+    })
+})
+
 animation_background.addEventListener('click', (e)=>{
     if(window.getComputedStyle(hall_section).display !== 'none'){
         leaveHalls()
@@ -249,6 +280,9 @@ animation_background.addEventListener('click', (e)=>{
     }
     else if(window.getComputedStyle(notification_box).display !=='none'){
         exitNotificationBox()
+    }
+    else if(window.getComputedStyle(tableFeatures).display !=='none'){
+        exitTableFeatures()
     }
 })
 
@@ -369,4 +403,26 @@ tab_box_buttons.forEach((button, buttonIndex)=>{
         })
         
     })
+})
+
+activate_buttons.forEach(button=>{
+    button.addEventListener('click', el=>{
+        console.log(button.firstElementChild)
+        button.firstElementChild.classList.toggle('active')
+    })
+})
+chipRangeInput.addEventListener('input', event=>{
+    // console.log(event.target.value)
+    displayChipRange.textContent = event.target.value
+})
+
+increaseChip.addEventListener('click', e=>{
+    e.preventDefault()
+    chipRangeInput.value++
+    displayChipRange.textContent = chipRangeInput.value
+})
+decreaseChip.addEventListener('click', e=>{
+    e.preventDefault()
+    chipRangeInput.value--
+    displayChipRange.textContent = chipRangeInput.value
 })

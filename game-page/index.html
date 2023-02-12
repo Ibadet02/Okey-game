@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./game.css">
     <script defer src="./app.js"></script>
     <title>Document</title>
 </head>
@@ -54,10 +54,6 @@
             <div class="gameBody-section__left">
                 <div class="rotate-opponent-box">
                     <div class="opponent-box">
-                        <div class="opponent-box__point">
-                            <span class="opponent-box__point--text">PUAN:</span>
-                            <span class="opponent-box__point--amount">21</span>
-                        </div>
                         <span class="opponent-box__rank">Assubay</span>
                         <div class="opponent-box__left">
                             <div class="img-box">
@@ -75,6 +71,10 @@
                                 <div class="opponent-experience-box">
                                     <div class="opponent-experience-level"></div>
                                 </div>
+                            </div>
+                            <div class="opponent-box__right__point">
+                                <span class="opponent-box__right__point--text">PUAN:</span>
+                                <span class="opponent-box__right__point--amount">21</span>
                             </div>
                         </div>
                     </div>
@@ -100,11 +100,11 @@
                     </div>
                 </div>
                 <div class="gamePlay">
-                    <div class="opponent-box">
-                        <div class="opponent-box__point">
-                            <span class="opponent-box__point--text">PUAN:</span>
-                            <span class="opponent-box__point--amount">21</span>
-                        </div>
+                    <div class="gamePlay__opponent-box opponent-box hidden">
+                        <button class="show-hide">
+                            <span class="show">GÖSTER</span>
+                            <span class="hide">GİZLET</span>
+                        </button>
                         <span class="opponent-box__rank">Assubay</span>
                         <div class="opponent-box__left">
                             <div class="img-box">
@@ -122,6 +122,10 @@
                                 <div class="opponent-experience-box">
                                     <div class="opponent-experience-level"></div>
                                 </div>
+                            </div>
+                            <div class="opponent-box__right__point">
+                                <span class="opponent-box__right__point--text">PUAN:</span>
+                                <span class="opponent-box__right__point--amount">21</span>
                             </div>
                         </div>
                     </div>
@@ -150,13 +154,45 @@
                                 <img src="../assets/cards/''yellow-thirteen'' 1.png" alt="">
                             </div>
                         </div>
+                        <div class="gamePlay__arena--opponent-box opponent-box">
+                            <button class="show-hide">
+                                <span class="show">GÖSTER</span>
+                                <span class="hide">GİZLET</span>
+                            </button>
+                            <span class="opponent-box__rank">Assubay</span>
+                            <div class="opponent-box__left">
+                                <div class="img-box">
+                                    <div class="gift-icon-box">
+                                        <i class="fa-solid fa-gift"></i>
+                                    </div>
+                                    <img src="../assets/images/ahmet.png" alt="Ahmet">
+                                </div>
+                            </div>
+                            <div class="opponent-box__right">
+                                <div class="opponent-box__right--top">
+                                    <span class="opponent-name">Ahmet</span>
+                                </div>
+                                <div class="opponent-box__right--bottom">
+                                    <div class="opponent-experience-box">
+                                        <div class="opponent-experience-level"></div>
+                                    </div>
+                                </div>
+                                <div class="opponent-box__right__point">
+                                    <span class="opponent-box__right__point--text">PUAN:</span>
+                                    <span class="opponent-box__right__point--amount">21</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="gamePlay__board">
-                        <div class="opponent-box">
+                        <!-- <div class="opponent-box">
                             <div class="opponent-box__point">
                                 <span class="opponent-box__point--text">PUAN:</span>
                                 <span class="opponent-box__point--amount">21</span>
                             </div>
+                            <button class="show-hide">
+                                GÖSTER
+                            </button>
                             <span class="opponent-box__rank">Assubay</span>
                             <div class="opponent-box__left">
                                 <div class="img-box">
@@ -176,7 +212,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="gamePlay__board--top">
                             <div class="board-grid grid-1">
                                 <img src="../assets/cards/''blue-five'' 3.png" alt="">
@@ -203,6 +239,7 @@
                             <div class="board-grid grid-15"></div>
                             <div class="board-grid grid-16"></div>
                             <div class="board-grid grid-17"></div>
+                            <div class="board-grid grid-18"></div>
                         </div>
                         <div class="gamePlay__board--bottom">
                             <div class="board-grid grid-1"></div>
@@ -338,10 +375,6 @@
             <div class="gameBody-section__right">
                 <div class="rotate-opponent-box">
                     <div class="opponent-box">
-                        <div class="opponent-box__point">
-                            <span class="opponent-box__point--text">PUAN:</span>
-                            <span class="opponent-box__point--amount">21</span>
-                        </div>
                         <span class="opponent-box__rank">Assubay</span>
                         <div class="opponent-box__left">
                             <div class="img-box">
@@ -359,6 +392,10 @@
                                 <div class="opponent-experience-box">
                                     <div class="opponent-experience-level"></div>
                                 </div>
+                            </div>
+                            <div class="opponent-box__right__point">
+                                <span class="opponent-box__right__point--text">PUAN:</span>
+                                <span class="opponent-box__right__point--amount">21</span>
                             </div>
                         </div>
                     </div>

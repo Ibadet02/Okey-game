@@ -65,6 +65,22 @@
     scale: 0;
   }
 }
+@keyframes table-features-coming {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@keyframes table-features-leaving {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 0;
+  }
+}
 @keyframes animation-bg-coming {
   0% {
     opacity: 0;
@@ -1456,6 +1472,288 @@ main .notification-box__body .person:nth-child(odd) .person__tools .tool-button 
 }
 main .notification-box__body .person:nth-child(even) .person__tools .tool-button .envelope {
   display: none;
+}
+main .table-features {
+  width: 45rem;
+  max-height: 80%;
+  transition: 0.2s;
+  z-index: 12;
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  margin-left: -22.5rem;
+  background-color: #052B16;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+main .table-features.deactive {
+  display: none;
+}
+main .table-features.coming {
+  animation: table-features-coming 0.2s forwards;
+}
+main .table-features.leaving {
+  animation: table-features-leaving 0.2s forwards;
+}
+main .table-features__menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.3rem 1.3rem 1.3rem 2.2rem;
+  background-color: #083A1F;
+}
+main .table-features__menu--name {
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #FFCE61;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .table-features__menu--button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main .table-features__menu--button i {
+  color: #FFCE61;
+  font-size: 1.5rem;
+}
+main .table-features__body {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+main .table-features__body--top {
+  display: flex;
+}
+main .table-features__body--top--left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+main .table-features__body--top--left .gamers-box, main .table-features__body--top--left .table-name, main .table-features__body--top--left .gamer-amount {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+main .table-features__body--top--left .gamers-box label, main .table-features__body--top--left .table-name label, main .table-features__body--top--left .gamer-amount label {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #FFCE61;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+main .table-features__body--top--left .gamers-box input, main .table-features__body--top--left .table-name input, main .table-features__body--top--left .gamer-amount input {
+  width: 15rem;
+  padding: 0.2rem 0 0.2rem 0.5rem;
+  border-radius: 3rem;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #000;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  background-color: #D9D9D9;
+}
+main .table-features__body--top--left .gamers-box input:focus, main .table-features__body--top--left .table-name input:focus, main .table-features__body--top--left .gamer-amount input:focus {
+  background-color: #fff;
+}
+main .table-features__body--top--right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main .table-features__body--top--right .table-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main .table-features__body--top--right .table-settings__header {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #FFCE61;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+main .table-features__body--top--right .table-settings__table-chat, main .table-features__body--top--right .table-settings__audience-chat, main .table-features__body--top--right .table-settings__accept-audience {
+  display: flex;
+  align-items: center;
+}
+main .table-features__body--top--right .table-settings__table-chat--text, main .table-features__body--top--right .table-settings__audience-chat--text, main .table-features__body--top--right .table-settings__accept-audience--text {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  width: 10rem;
+}
+main .table-features__body--top--right .table-settings__table-chat--activate, main .table-features__body--top--right .table-settings__audience-chat--activate, main .table-features__body--top--right .table-settings__accept-audience--activate {
+  width: 2.3rem;
+  height: 1.3rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+main .table-features__body--top--right .table-settings__table-chat--activate--circle, main .table-features__body--top--right .table-settings__audience-chat--activate--circle, main .table-features__body--top--right .table-settings__accept-audience--activate--circle {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background-color: #D9D9D9;
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  transition: 0.2s;
+}
+main .table-features__body--top--right .table-settings__table-chat--activate--circle.active, main .table-features__body--top--right .table-settings__audience-chat--activate--circle.active, main .table-features__body--top--right .table-settings__accept-audience--activate--circle.active {
+  background-color: blue;
+  left: 1.1rem;
+}
+main .table-features__body--top--right .table-features__chip-amount {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+main .table-features__body--top--right .table-features__chip-amount label {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #FFCE61;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box button {
+  height: 2rem;
+  width: 3.5rem;
+  border: none;
+  background-color: #C78C09;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #000;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box button.decrease-chip {
+  padding-bottom: 0.2rem;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box button.increase-chip {
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range]:focus {
+  outline: none;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2rem;
+  cursor: pointer;
+  background: #000;
+  border-radius: 1.3px;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range]::-webkit-slider-thumb {
+  height: 100%;
+  width: 5rem;
+  border-radius: 2.5rem;
+  background: #E79F00;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #000;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 2rem;
+  cursor: pointer;
+  background: #000;
+  border-radius: 1.3px;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range]::-moz-range-thumb {
+  height: 100%;
+  width: 5rem;
+  border-radius: 2.5rem;
+  background: #E79F00;
+  cursor: pointer;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range]::-ms-track {
+  width: 100%;
+  height: 2rem;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range]::-ms-fill-lower {
+  background: #000;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range]::-ms-fill-upper {
+  background: #000;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range]::-ms-thumb {
+  height: 100%;
+  width: 5rem;
+  border-radius: 2.5rem;
+  background: #E79F00;
+  cursor: pointer;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range]:focus::-ms-fill-lower {
+  background: #000;
+}
+main .table-features__body--top--right .table-features__chip-amount .table-chip-amount-box input[type=range]:focus::-ms-fill-upper {
+  background: #000;
+}
+main .table-features__body--bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding-top: 2rem;
+}
+main .table-features__body--bottom .table-accept, main .table-features__body--bottom .table-cancel {
+  background: none;
+  border: none;
+  padding: 0.4rem 2rem;
+  border-radius: 0.6rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+  cursor: pointer;
+}
+main .table-features__body--bottom .table-accept {
+  background-color: #019C02;
+}
+main .table-features__body--bottom .table-cancel {
+  background-color: #DF0303;
 }
 main .manager-box {
   width: 25rem;
@@ -3204,6 +3502,9 @@ main .body-section__right .people .person__table {
   main .notification-box {
     max-height: 75%;
   }
+  main .table-features {
+    max-height: 75%;
+  }
   main .body-section__left .tables-container .tables {
     grid-auto-rows: 9rem;
   }
@@ -3221,6 +3522,9 @@ main .body-section__right .people .person__table {
   main .notification-box {
     max-height: 70%;
   }
+  main .table-features {
+    max-height: 70%;
+  }
 }
 @media only screen and (max-height: 330px) {
   main .friends-box {
@@ -3233,6 +3537,9 @@ main .body-section__right .people .person__table {
     max-height: 65%;
   }
   main .notification-box {
+    max-height: 65%;
+  }
+  main .table-features {
     max-height: 65%;
   }
 }/*# sourceMappingURL=style.css.map */
