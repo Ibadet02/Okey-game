@@ -607,10 +607,12 @@ body main .gameBody-section__middle .gamePlay__arena {
 body main .gameBody-section__middle .gamePlay__arena--top .card-box, body main .gameBody-section__middle .gamePlay__arena--middle .card-box, body main .gameBody-section__middle .gamePlay__arena--bottom .card-box {
   width: 2.7rem;
   height: 3.5rem;
+  border: 0.05rem solid #000;
 }
 body main .gameBody-section__middle .gamePlay__arena--top .card-box img, body main .gameBody-section__middle .gamePlay__arena--middle .card-box img, body main .gameBody-section__middle .gamePlay__arena--bottom .card-box img {
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 body main .gameBody-section__middle .gamePlay__arena--top {
   width: 100%;
@@ -767,14 +769,20 @@ body main .gameBody-section__middle .gamePlay__board--top, body main .gameBody-s
   justify-content: center;
 }
 body main .gameBody-section__middle .gamePlay__board--top .board-grid, body main .gameBody-section__middle .gamePlay__board--bottom .board-grid {
+  position: relative;
   width: 3.5263157895rem;
   display: flex;
   height: 100%;
+  border: 0.03rem solid #000;
 }
 body main .gameBody-section__middle .gamePlay__board--top .board-grid img, body main .gameBody-section__middle .gamePlay__board--bottom .board-grid img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  cursor: pointer;
+  transition: 0.1s;
 }
 body main .gameBody-section__middle .gamePlay__board--top {
   flex-basis: 50%;
