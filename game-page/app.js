@@ -70,32 +70,67 @@ function dragOver(e){
                     break;
                 }
             }
-            // positionElements.forEach((grid, index, array)=>{
-            //     grid.firstElementChild.style.left = boardGridWidth + 'px'
-            //     grid.addEventListener('transitionend', e=>{
-            //         if(grid.hasChildNodes() && grid.firstElementChild !== null && window.getComputedStyle(grid.firstElementChild).display !== 'none'){
-            //             console.log('if' + grid.firstElementChild)
-            //             // grid.firstElementChild.remove()
-            //             // grid.nextElementSibling.firstElementChild.remove()
-            //             // grid.nextElementSibling.appendChild(grid)
-            //             // grid.firstElementChild.style.display = 'none'
-            //         }
-            //         else{
-            //             console.log('else' + grid.firstElementChild)
-            //         }
-            //         // grid.hasChildNodes() && grid.firstElementChild.remove()
-            //         // console.log(grid.firstElementChild)
-            //         // console.log(grid.nextElementSibling.firstElementChild)
-            //         // // console.log(grid.nextElementSibling)
-            //         // grid.hasChildNodes() && grid.firstElementChild.remove()
-            //         // grid.nextElementSibling.hasChildNodes() && grid.nextElementSibling.firstElementChild.remove()
-            //         // grid.nextElementSibling.appendChild(grid)
-            //         // console.log(index)
-            //     })
-            // })
+            positionElements.forEach((grid, index, array)=>{
+                grid.firstElementChild.style.left = boardGridWidth + 'px'
+                grid.addEventListener('transitionend', e=>{
+                    // if(grid.hasChildNodes() && grid.firstElementChild !== null && window.getComputedStyle(grid.firstElementChild).display !== 'none'){
+                    //     // console.log('if' + grid.firstElementChild)
+                    //     // grid.firstElementChild.remove()
+                    //     // grid.nextElementSibling.firstElementChild.remove()
+                    //     // grid.nextElementSibling.appendChild(grid)
+                    //     // grid.firstElementChild.style.display = 'none'
+                    // }
+                    // else{
+                    //     console.log('else' + grid.firstElementChild)
+                    // }
+                    // grid.hasChildNodes() && grid.firstElementChild.remove()
+                    // console.log(grid.firstElementChild)
+                    // console.log(grid.nextElementSibling.firstElementChild)
+                    // // console.log(grid.nextElementSibling)
+                    // grid.hasChildNodes() && grid.firstElementChild.remove()
+                    // grid.nextElementSibling.hasChildNodes() && grid.nextElementSibling.firstElementChild.remove()
+                    // grid.nextElementSibling.appendChild(grid)
+                    // console.log(index)
+                })
+            })
         }
         else{
             // goTo = 'left'
+            console.log('left')
+            while(currentPositionElement){
+                if(currentPositionElement.hasChildNodes()){
+                    positionElements.push(currentPositionElement)
+                    currentPositionElement = currentPositionElement.previousElementSibling
+                }
+                else{
+                    break;
+                }
+            }
+            // console.log(positionElements)
+            positionElements.forEach((grid, index, array)=>{
+                // console.log(grid.firstElementChild)
+                grid.firstElementChild.style.right = boardGridWidth + 'px'
+                grid.addEventListener('transitionend', e=>{
+                    // if(grid.hasChildNodes() && grid.firstElementChild !== null && window.getComputedStyle(grid.firstElementChild).display !== 'none'){
+                    //     // console.log('if' + grid.firstElementChild)
+                    //     // grid.firstElementChild.remove()
+                    //     // grid.nextElementSibling.firstElementChild.remove()
+                    //     // grid.nextElementSibling.appendChild(grid)
+                    //     // grid.firstElementChild.style.display = 'none'
+                    // }
+                    // else{
+                    //     console.log('else' + grid.firstElementChild)
+                    // }
+                    // grid.hasChildNodes() && grid.firstElementChild.remove()
+                    // console.log(grid.firstElementChild)
+                    // console.log(grid.nextElementSibling.firstElementChild)
+                    // // console.log(grid.nextElementSibling)
+                    // grid.hasChildNodes() && grid.firstElementChild.remove()
+                    // grid.nextElementSibling.hasChildNodes() && grid.nextElementSibling.firstElementChild.remove()
+                    // grid.nextElementSibling.appendChild(grid)
+                    // console.log(index)
+                })
+            })
         }
     }
     else{

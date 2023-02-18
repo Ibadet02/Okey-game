@@ -44,6 +44,10 @@ const leaveTableFeatures = document.querySelector('.table-features__menu--button
 const tableCancel = document.querySelector('.table-cancel')
 const tableFeatures = document.querySelector('.table-features')
 const tableFeaturesButton = document.querySelector('.open-table-button')
+const leaveAuthority = document.querySelector('.leave-authority')
+let z = 6
+z = 9
+console.log(z)
 // Pages
 const homePage = document.getElementById('homePage')
 const theBest_button = document.querySelector('.theBest-button')
