@@ -136,6 +136,22 @@ $mid-color : linear-gradient(0deg, #D7D7D7 0%, rgba(208, 200, 200, 0.06) 100%);
         scale: 0;
     }
 }
+@keyframes prize-container-leaving{
+    0%{
+        scale: 1;
+    }
+    100%{
+        scale: 0;
+    }
+}
+@keyframes prize-container-coming{
+    0%{
+        scale: 0;
+    }
+    100%{
+        scale: 1;
+    }
+}
 @keyframes animation-bg-coming{
     0%{
         opacity: 0;
@@ -972,6 +988,7 @@ main{
             overflow-x: hidden;
             overflow-y: auto;
             padding-bottom: 1rem;
+            @include scrollbar();
             &.deactive{
                 display: none;
             }
@@ -1235,6 +1252,7 @@ main{
             align-items: center;
             justify-content: space-between;
             padding: 1.3rem;
+            background-color: #083A1F;
             &--name{
                 @include font-noto_sans(500, 1.5rem, #FFCE61)
             }
@@ -1260,6 +1278,7 @@ main{
             display: flex;
             flex-direction: column;
             padding: 0 .3rem;
+            @include scrollbar();
             .friend{
                 display: flex;
                 align-items: center;
@@ -1393,6 +1412,7 @@ main{
             display: flex;
             flex-direction: column;
             padding: 0 2rem;
+            @include scrollbar();
             .person{
                 display: flex;
                 align-items: center;
@@ -1529,6 +1549,7 @@ main{
             display: flex;
             flex-direction: column;
             padding: 0 2rem;
+            @include scrollbar();
             .person{
                 display: flex;
                 align-items: center;
@@ -1651,6 +1672,7 @@ main{
             display: flex;
             flex-direction: column;
             padding: 2rem;
+            @include scrollbar();
             &--top{
                 display: flex;
                 &--left{
@@ -1883,7 +1905,6 @@ main{
             font-weight: 600;
             font-size: 2.2rem;
             color: #ffce61;
-    
             img {
                 width: max-content;
                 justify-self: flex-end;
@@ -1893,7 +1914,6 @@ main{
                 transform: translateY(-50%);
             }
         }
-    
         .main {
             width: 92%;
             margin-left: auto;
@@ -2179,6 +2199,15 @@ main{
         left: 50%;
         margin-left: -21rem;
         z-index: 102;
+        &.deactive{
+            display: none;
+        }
+        &.coming{
+            animation: prize-container-coming $transition forwards;
+        }
+        &.leaving{
+            animation: prize-container-leaving $transition forwards;
+        }
         .prize-right{
             border-top-right-radius:   1rem ;
             border-bottom-right-radius:1rem ;
@@ -2192,6 +2221,8 @@ main{
             }
             .coin{
                 position: absolute;
+                width: 4.063rem;
+                height: 4.063rem;
             }
             .coin1{
                 top: -1rem;
@@ -2225,6 +2256,13 @@ main{
             }
             .main{
                 margin-top: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    width: 9.688rem;
+                    height: 9.75rem;
+                }
             }
             .footer{
                 .contain{
@@ -2236,6 +2274,10 @@ main{
                     justify-content: center;
                     gap: .5rem;
                     padding: .5rem;
+                    img{
+                        width: 2rem;
+                        height: 2rem;
+                    }
                     .text-box{
                         display: flex;
                         flex-direction: column;
@@ -2282,11 +2324,15 @@ main{
                         margin-top: -2rem;
                         z-index: 1;
                         overflow: hidden;
+                        width: 7.125rem;
+                        height: 6.125rem;
                     }
                     .absolute{
                         position: absolute;
                         bottom: -1rem;
                         align-self: center;
+                        width: 7.938rem;
+                        height: 9.875rem;
                     }
                 }
                 .prize-days{
@@ -2335,8 +2381,14 @@ main{
                 align-items: flex-start;
                 justify-content: space-between;
                 gap: .5rem;
+                img:first-child{
+                    width: 15.75rem;
+                    height: 3.563rem;
+                }
                 .exit{
                     z-index: 1;
+                    width: 0.688rem;
+                    height: 0.75rem;
                     &:hover{
                         cursor: pointer;
     
@@ -2354,7 +2406,6 @@ main{
                     justify-content: space-between;
                     align-items: center;
                     font-weight: 700;
-    
                     p{
                         font-size: .8rem;
                         color: #9B9B9B;
@@ -2445,6 +2496,7 @@ main{
             display: flex;
             flex-direction: column;
             padding: 0 1rem;
+            @include scrollbar();
             &--top, &--bottom{
                 .system-owner, .authorities{
                     padding: 1rem 0;
@@ -3365,13 +3417,13 @@ main{
                 }
             }
             .chatting{
-                height: 10rem;
+                // height: 10rem;
                 display: flex;
                 width: 100%;
                 flex-direction: column;
                 transition: $transition;
                 &.maximise{
-                    height: calc(100% - $tables-nav-height - .5rem);
+                    // height: calc(100% - $tables-nav-height - .5rem);
                     // margin-top: $tables-nav-height + .4rem;
                 }
                 &.minimise{
@@ -3427,11 +3479,18 @@ main{
                         padding: .5rem;
                         background-color: #011D0E;
                         border-radius: .4rem .4rem .4rem 0;
+                        overflow-y: auto;
+                        transition: $transition;
+                        @include scrollbar();
                         &.active{
                             display: flex;
                             flex-direction: column;
                             gap: .2rem;
-                            flex: 1;
+                            // flex: 1;
+                            height: 6rem;
+                        }
+                        &.maximise{
+                            height: calc(100vh - $tables-nav-height - $navbar-height - 5rem);
                         }
                         .message{
                             display: flex;
@@ -3849,6 +3908,9 @@ main{
     main .vip-container{
         padding-bottom: 1rem;
     }
+    main .prize-container{
+        height: 34rem;
+    }
 }
 @media only screen and (max-height: 670px){
     main .yetki-talep-container .main div{
@@ -3858,6 +3920,16 @@ main{
 @media only screen and (max-height: 645px){
     main .vip-container .vip-body .left-side, main .vip-container .vip-body .right-side{
         padding-bottom: 0;
+    }
+    main .prize-container{
+        height: 32rem;
+    }
+    main .prize-container .prize-left .prize-directory{
+        margin-top: 4rem;
+    }
+    main .prize-container .prize-right .main img{
+        width: 8rem;
+        height: auto;
     }
 }
 @media only screen and (max-height: 595px){

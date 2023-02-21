@@ -5,7 +5,7 @@ const body_section__left = document.querySelector('.body-section__left')
 const exit_sidebar = document.querySelector('.sidebar-exit-button')
 const tables = document.querySelector('.tables')
 const change_chat_size = document.querySelector('.change-size');
-const chat_box = document.querySelector('.chatting')
+const chat_box = document.querySelector('.tabcontent')
 const tables_container = document.querySelector('.tables-container')
 const halls_button = document.querySelector('.halls-button')
 const hall_section = document.querySelector('.hall-section')
@@ -44,10 +44,12 @@ const leaveTableFeatures = document.querySelector('.table-features__menu--button
 const tableCancel = document.querySelector('.table-cancel')
 const tableFeatures = document.querySelector('.table-features')
 const tableFeaturesButton = document.querySelector('.open-table-button')
+const authority_container = document.querySelector('.yetki-talep-container')
+const authorityButton = document.querySelector('.new-demand')
 const leaveAuthority = document.querySelector('.leave-authority')
-let z = 6
-z = 9
-console.log(z)
+const vip_container = document.querySelector('.vip-container')
+const vipButton = document.querySelector('.vip-membership-button')
+const exitVipButton = document.getElementById('exitVipButton')
 // Pages
 const homePage = document.getElementById('homePage')
 const theBest_button = document.querySelector('.theBest-button')
@@ -234,6 +236,7 @@ function exitFriendsBox(){
 exit_friends_box.addEventListener('click', e=>{
     exitFriendsBox()
 })
+
 tableFeaturesButton.addEventListener('click', e=>{
     sidebar_desktop.style.zIndex = '9'
     tableFeatures.classList.remove('deactive')
@@ -266,6 +269,62 @@ function exitTableFeatures(){
     })
 })
 
+authorityButton.addEventListener('click', ()=>{
+    sidebar_desktop.style.zIndex = '9'
+    authority_container.classList.remove('deactive')
+    authority_container.classList.add('coming')
+    animation_background.classList.remove('deactive')
+    animation_background.classList.add('coming')
+    authority_container.addEventListener('animationend', ()=>{
+        authority_container.classList.remove('coming')
+        animation_background.classList.remove('coming')
+    }, {once:true})
+})
+
+function exitAuthorityContainer() {
+    sidebar_desktop.style.zIndex = ''
+    animation_background.classList.add('leaving')
+    authority_container.classList.add('leaving')
+    authority_container.addEventListener('animationend', ()=>{
+        animation_background.classList.add('deactive')
+        animation_background.classList.remove('leaving')
+        authority_container.classList.remove('leaving')
+        authority_container.classList.add('deactive')
+    }, {once:true})
+}
+
+leaveAuthority.addEventListener('click', ()=>{
+    exitAuthorityContainer()
+})
+
+vipButton.addEventListener('click', ()=>{
+    sidebar_desktop.style.zIndex = '9'
+    vip_container.classList.remove('deactive')
+    vip_container.classList.add('coming')
+    animation_background.classList.remove('deactive')
+    animation_background.classList.add('coming')
+    vip_container.addEventListener('animationend', ()=>{
+        vip_container.classList.remove('coming')
+        animation_background.classList.remove('coming')
+    }, {once:true})
+})
+
+function exitVipContainer() {
+    sidebar_desktop.style.zIndex = ''
+    animation_background.classList.add('leaving')
+    vip_container.classList.add('leaving')
+    vip_container.addEventListener('animationend', ()=>{
+        animation_background.classList.add('deactive')
+        animation_background.classList.remove('leaving')
+        vip_container.classList.remove('leaving')
+        vip_container.classList.add('deactive')
+    }, {once:true})
+}
+
+exitVipButton.addEventListener('click', ()=>{
+    exitVipContainer()
+})
+
 animation_background.addEventListener('click', (e)=>{
     if(window.getComputedStyle(hall_section).display !== 'none'){
         leaveHalls()
@@ -287,6 +346,12 @@ animation_background.addEventListener('click', (e)=>{
     }
     else if(window.getComputedStyle(tableFeatures).display !=='none'){
         exitTableFeatures()
+    }
+    else if(window.getComputedStyle(authority_container).display !=='none'){
+        exitAuthorityContainer()
+    }
+    else if(window.getComputedStyle(vip_container).display !=='none'){
+        exitVipContainer()
     }
 })
 
