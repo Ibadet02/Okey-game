@@ -130,6 +130,14 @@
     scale: 1;
   }
 }
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @keyframes animation-bg-coming {
   0% {
     opacity: 0;
@@ -1892,8 +1900,7 @@ main .yetki-talep-container .header {
   color: #ffce61;
 }
 main .yetki-talep-container .header img {
-  width: -moz-max-content;
-  width: max-content;
+  width: 1.75rem;
   justify-self: flex-end;
   position: absolute;
   right: 2rem;
@@ -2172,7 +2179,7 @@ main .prize-container {
   top: 6rem;
   left: 50%;
   margin-left: -21rem;
-  z-index: 102;
+  z-index: 12;
 }
 main .prize-container.deactive {
   display: none;
@@ -2409,6 +2416,143 @@ main .prize-container .prize-mid .footer button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 0.5rem 1rem;
   cursor: pointer;
+}
+main .wheel-container {
+  width: 22rem;
+  height: 36rem;
+  margin: auto;
+  display: flex;
+  border-radius: 1rem;
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  margin-left: -11rem;
+  background-color: green;
+  z-index: 12;
+}
+main .wheel-container.deactive {
+  display: none;
+}
+main .wheel-container.coming {
+  animation: wheel-container-coming 0.2s forwards;
+}
+main .wheel-container.leaving {
+  animation: wheel-container-leaving 0.2s forwards;
+}
+main .wheel-container__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .wheel-container__top .wheel-circle-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 0.8rem;
+  position: relative;
+  animation: rotate 3s linear infinite;
+  z-index: 2;
+}
+main .wheel-container__top .wheel-circle-box .wheel {
+  width: 12rem;
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 1.9rem solid transparent;
+  border-right: 1.9rem solid transparent;
+  border-top: 5.8rem solid transparent;
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize div {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  transform: rotate(90deg);
+  top: -5.7rem;
+  right: -0.1rem;
+  width: 0;
+  height: 0;
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize div img {
+  width: 1.7rem;
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize div span {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-style: normal;
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize div .prize-pas {
+  margin-left: 0.5rem;
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize.wheel-prize:nth-child(2) {
+  top: 1rem;
+  left: 5.2rem;
+  transform: rotate(6deg);
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize.wheel-prize:nth-child(3) {
+  top: 1.8rem;
+  left: 6.9rem;
+  transform: rotate(43deg);
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize.wheel-prize:nth-child(4) {
+  top: 3.4rem;
+  left: 7.8rem;
+  transform: rotate(79deg);
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize.wheel-prize:nth-child(5) {
+  top: 5.1rem;
+  left: 7.5rem;
+  transform: rotate(116deg);
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize.wheel-prize:nth-child(6) {
+  top: 6.5rem;
+  left: 6.3rem;
+  transform: rotate(152deg);
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize.wheel-prize:nth-child(7) {
+  top: 6.8rem;
+  left: 4.5rem;
+  transform: rotate(187deg);
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize.wheel-prize:nth-child(8) {
+  top: 6rem;
+  left: 2.9rem;
+  transform: rotate(223deg);
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize.wheel-prize:nth-child(9) {
+  top: 4.4rem;
+  left: 2rem;
+  transform: rotate(259deg);
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize.wheel-prize:nth-child(10) {
+  top: 2.6rem;
+  left: 2.2rem;
+  transform: rotate(295deg);
+}
+main .wheel-container__top .wheel-circle-box .wheel-prize.wheel-prize:nth-child(11) {
+  top: 1.4rem;
+  left: 3.4rem;
+  transform: rotate(330deg);
+}
+main .wheel-container__top .wheel-support-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 12rem;
+}
+main .wheel-container__top .wheel-support-box img {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -0.8rem;
 }
 main .manager-box {
   width: 25rem;
@@ -2775,7 +2919,7 @@ main .navbar-section nav .navbar-left .managers__text-box span {
   font-style: normal;
   padding: 0.2rem 0.3rem;
 }
-main .navbar-section nav .navbar-left .new-demand {
+main .navbar-section nav .navbar-left .fortune-wheel {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2784,19 +2928,13 @@ main .navbar-section nav .navbar-left .new-demand {
   border: none;
   background-color: #3CB92F;
   box-shadow: 4px 4px 2px rgba(124, 92, 0, 0.4), inset -4px -4px 2px rgba(59, 44, 0, 0.4);
-  border-radius: 58px;
-  width: 7rem;
-  height: 2.5rem;
-}
-main .navbar-section nav .navbar-left .new-demand__text {
-  font-weight: 600;
-  font-size: 0.9rem;
+  border-radius: 50%;
   color: #fff;
-  font-family: "Noto Sans", sans-serif;
-  font-style: normal;
+  width: 2rem;
+  height: 2rem;
 }
-main .navbar-section nav .navbar-left .new-demand i {
-  display: none;
+main .navbar-section nav .navbar-left .fortune-wheel i {
+  font-size: 1rem;
 }
 main .navbar-section nav .logo {
   padding: 0 0.5rem;
@@ -3157,10 +3295,10 @@ main .body-section .sidebar-desktop .button-content-wrapper {
   height: 4.5rem;
   background: none;
   border: none;
-  cursor: pointer;
 }
 main .body-section .sidebar-desktop .button-content-wrapper:not(:first-child) {
   border-bottom: 0.063rem solid rgba(255, 255, 255, 0.65);
+  cursor: pointer;
 }
 main .body-section .sidebar-desktop .full-space {
   display: none;

@@ -18,7 +18,7 @@ const edit_profile_button = document.querySelector('.edit-profile-box')
 const profile_content = document.querySelector('.profile-box__content')
 const profile_edit = document.querySelector('.profile-box__edit')
 const back_to_profile_content = document.querySelector('.back-to-profile-content')
-const friends_button = document.querySelector('.friends-button')
+const friends_button = document.querySelector('.your-friends')
 const friends_box = document.querySelector('.friends-box')
 const exit_friends_box = document.querySelector('.friends-box__menu--button')
 const manager_button = document.querySelector('.managers')
@@ -45,11 +45,14 @@ const tableCancel = document.querySelector('.table-cancel')
 const tableFeatures = document.querySelector('.table-features')
 const tableFeaturesButton = document.querySelector('.open-table-button')
 const authority_container = document.querySelector('.yetki-talep-container')
-const authorityButton = document.querySelector('.new-demand')
+const authorityButton = document.querySelector('.new-demand-button')
 const leaveAuthority = document.querySelector('.leave-authority')
 const vip_container = document.querySelector('.vip-container')
 const vipButton = document.querySelector('.vip-membership-button')
 const exitVipButton = document.getElementById('exitVipButton')
+const prize_container = document.querySelector('.prize-container')
+const prizeButton = document.querySelector('.hourly-money-button')
+const exitPrizeButton = document.querySelector('.exit-prize')
 // Pages
 const homePage = document.getElementById('homePage')
 const theBest_button = document.querySelector('.theBest-button')
@@ -271,6 +274,7 @@ function exitTableFeatures(){
 
 authorityButton.addEventListener('click', ()=>{
     sidebar_desktop.style.zIndex = '9'
+    sidebar_desktop.classList.remove('open')
     authority_container.classList.remove('deactive')
     authority_container.classList.add('coming')
     animation_background.classList.remove('deactive')
@@ -324,6 +328,33 @@ function exitVipContainer() {
 exitVipButton.addEventListener('click', ()=>{
     exitVipContainer()
 })
+prizeButton.addEventListener('click', ()=>{
+    sidebar_desktop.style.zIndex = '9'
+    prize_container.classList.remove('deactive')
+    prize_container.classList.add('coming')
+    animation_background.classList.remove('deactive')
+    animation_background.classList.add('coming')
+    prize_container.addEventListener('animationend', ()=>{
+        prize_container.classList.remove('coming')
+        animation_background.classList.remove('coming')
+    }, {once:true})
+})
+
+function exitPrizeContainer() {
+    sidebar_desktop.style.zIndex = ''
+    animation_background.classList.add('leaving')
+    prize_container.classList.add('leaving')
+    prize_container.addEventListener('animationend', ()=>{
+        animation_background.classList.add('deactive')
+        animation_background.classList.remove('leaving')
+        prize_container.classList.remove('leaving')
+        prize_container.classList.add('deactive')
+    }, {once:true})
+}
+
+exitPrizeButton.addEventListener('click', ()=>{
+    exitPrizeContainer()
+})
 
 animation_background.addEventListener('click', (e)=>{
     if(window.getComputedStyle(hall_section).display !== 'none'){
@@ -352,6 +383,9 @@ animation_background.addEventListener('click', (e)=>{
     }
     else if(window.getComputedStyle(vip_container).display !=='none'){
         exitVipContainer()
+    }
+    else if(window.getComputedStyle(prize_container).display !=='none'){
+        exitPrizeContainer()
     }
 })
 
