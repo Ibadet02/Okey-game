@@ -144,6 +144,22 @@ $mid-color : linear-gradient(0deg, #D7D7D7 0%, rgba(208, 200, 200, 0.06) 100%);
         scale: 0;
     }
 }
+@keyframes wheel-container-coming{
+    0%{
+        scale: 0;
+    }
+    100%{
+        scale: 1;
+    }
+}
+@keyframes wheel-container-leaving{
+    0%{
+        scale: 1;
+    }
+    100%{
+        scale: 0;
+    }
+}
 @keyframes prize-container-coming{
     0%{
         scale: 0;
@@ -152,14 +168,7 @@ $mid-color : linear-gradient(0deg, #D7D7D7 0%, rgba(208, 200, 200, 0.06) 100%);
         scale: 1;
     }
 }
-@keyframes rotate{
-    0%{
-        transform: rotate(0);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-}
+
 @keyframes animation-bg-coming{
     0%{
         opacity: 0;
@@ -2453,16 +2462,21 @@ main{
         }
     }
     .wheel-container{
-        width: 22rem;
-        height: 36rem;
-        margin: auto;
+        // width: 22rem;
+        // height: 30rem;
+        // margin: auto;
+        padding: 1.5rem;
         display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        align-items: center;
+        gap: 3rem;
         border-radius: 1rem;
         position: absolute;
         top: $navbar-height;
         left: 50%;
         margin-left: -11rem;
-        background-color: green;
+        background-color: #fff;
         z-index: 12;
         &.deactive{
             display: none;
@@ -2477,6 +2491,39 @@ main{
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+            .wheel-pointer-circle-box{
+                position: absolute;
+                top: 5.46rem;
+                left: 50%;
+                margin-left: -1.25rem;
+                z-index: 13;
+                width: 2.5rem;
+                height: 2.5rem;
+                background-color: #F8DDB7;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .wheel-pointer-circle{
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    border-radius: 50%;
+                    background-color: #F9BC3D;
+                    position: relative;
+                    .wheel-pointer{
+                        position: absolute;
+                        top: -3.5rem;
+                        left: 50%;
+                        margin-left: -0.5rem;
+                        width: 0;
+                        height: 0;
+                        border-left: .5rem solid transparent;
+                        border-right: .5rem solid transparent;
+                        border-bottom: 4rem solid rgb(208, 1, 27);
+                    }
+                }
+            }
             .wheel-circle-box{
                 display: flex;
                 align-items: center;
@@ -2485,7 +2532,8 @@ main{
                 border-radius: 50%;
                 padding: .8rem;
                 position: relative;
-                animation: rotate 3s linear infinite;
+                // animation: rotate 3s linear infinite;
+                transition: transform 3s;
                 z-index: 2;
                 .wheel{
                     width: 12rem;
@@ -2586,17 +2634,60 @@ main{
                 justify-content: center;
                 position: relative;
                 width: 12rem;
-                img{
-                    width: 100%;
+                height: 7.5rem;
+                .wheel-support-line{
                     position: absolute;
+                    bottom: .8rem;
+                    left: 0;
+                    height: 2rem;
+                    width: 100%;
+                    background: linear-gradient(91.99deg, #DD822F 0%, #F2994A 100%);
+                    z-index: 3;
+                }
+                img{
+                    position: absolute;
+                }
+                .treasure-chest, .gold-sack{
+                    bottom: -1.5rem;
+                    width: 7rem;
+                    z-index: 3;
+                }
+                .wheel-support{
+                    width: 100%;
                     left: 0;
                     top: -.8rem;
-
+                }
+                .treasure-chest{
+                    left: -3rem;
+                }
+                .gold-sack{
+                    right: -3rem;
                 }
             }
         }
         &__bottom{
-
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+            .spin-wheel{
+                background: linear-gradient(180deg, #FFCE61 0%, #B98000 100%);
+                box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+                border: none;
+                width: 5.5rem;
+                height: 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: .3rem;
+                @include font-noto_sans(700, .8rem, #000);
+                cursor: pointer;
+            }
+            .spin-wheel-text{
+                width: 59%;
+                text-align: center;
+                @include font-noto_sans(700, .9rem, #000);
+            }
         }
     }
     .manager-box{

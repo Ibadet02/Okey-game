@@ -53,6 +53,12 @@ const exitVipButton = document.getElementById('exitVipButton')
 const prize_container = document.querySelector('.prize-container')
 const prizeButton = document.querySelector('.hourly-money-button')
 const exitPrizeButton = document.querySelector('.exit-prize')
+const wheelButton = document.querySelector('.fortune-wheel')
+const wheel_container = document.querySelector('.wheel-container')
+// wheel spin
+const wheel_circle_box = document.querySelector('.wheel-circle-box')
+const spin_wheel = document.querySelector('.spin-wheel')
+let number = Math.ceil(Math.random() * 10000)
 // Pages
 const homePage = document.getElementById('homePage')
 const theBest_button = document.querySelector('.theBest-button')
@@ -73,6 +79,11 @@ menu_bar.addEventListener('click', e=>{
         animation_background.classList.remove('coming')
         animation_background.classList.remove('deactive')
     }, {once:true})
+})
+
+spin_wheel.addEventListener('click', e=>{
+    wheel_circle_box.style.transform = "rotate(" + number + "deg)"
+    number += Math.ceil(Math.random() * 10000)
 })
 
 function exitSidebar() {
@@ -328,6 +339,7 @@ function exitVipContainer() {
 exitVipButton.addEventListener('click', ()=>{
     exitVipContainer()
 })
+
 prizeButton.addEventListener('click', ()=>{
     sidebar_desktop.style.zIndex = '9'
     prize_container.classList.remove('deactive')
@@ -355,6 +367,33 @@ function exitPrizeContainer() {
 exitPrizeButton.addEventListener('click', ()=>{
     exitPrizeContainer()
 })
+wheelButton.addEventListener('click', ()=>{
+    sidebar_desktop.style.zIndex = '9'
+    wheel_container.classList.remove('deactive')
+    wheel_container.classList.add('coming')
+    animation_background.classList.remove('deactive')
+    animation_background.classList.add('coming')
+    wheel_container.addEventListener('animationend', ()=>{
+        wheel_container.classList.remove('coming')
+        animation_background.classList.remove('coming')
+    }, {once:true})
+})
+
+function exitWheelContainer() {
+    sidebar_desktop.style.zIndex = ''
+    animation_background.classList.add('leaving')
+    wheel_container.classList.add('leaving')
+    wheel_container.addEventListener('animationend', ()=>{
+        animation_background.classList.add('deactive')
+        animation_background.classList.remove('leaving')
+        wheel_container.classList.remove('leaving')
+        wheel_container.classList.add('deactive')
+    }, {once:true})
+}
+
+// exitPrizeButton.addEventListener('click', ()=>{
+//     exitWheelContainer()
+// })
 
 animation_background.addEventListener('click', (e)=>{
     if(window.getComputedStyle(hall_section).display !== 'none'){
@@ -386,6 +425,9 @@ animation_background.addEventListener('click', (e)=>{
     }
     else if(window.getComputedStyle(prize_container).display !=='none'){
         exitPrizeContainer()
+    }
+    else if(window.getComputedStyle(wheel_container).display !=='none'){
+        exitWheelContainer()
     }
 })
 
